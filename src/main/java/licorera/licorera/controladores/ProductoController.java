@@ -4,6 +4,9 @@
  */
 package licorera.licorera.controladores;
 
+
+import jakarta.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +18,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  *
@@ -38,13 +45,26 @@ public class ProductoController{
         Map<String, List> response = new HashMap<>();
         try {
             List<Categoria> categorias = categoriaServicio.listaCategorias();
+            
             for (Categoria categoria : categorias) {
-            List<Producto> otros = productoServicio.listarPorCategoriaOtros();
-            response.put("otros", otros);
-            List<Producto> alcoholicos = productoServicio.listarPorCategoriaAlcholicas();
-             response.put("alcholicos", alcoholicos);
-            List<Producto> noAlcoholicos = productoServicio.listarPorCategoriaNoAlcoholicas();
-             response.put("noAlcoholicos", noAlcoholicos);
+                
+                switch (categoria.getNombre()) {
+                    case "Otros":
+                        List<Producto> otro = productoServicio.listarPorCategoria(categoria);
+                        response.put("otro", otro);
+                        break;
+                    case "Alcholicas":
+                        List<Producto> alcoholicas = productoServicio.listarPorCategoria(categoria);
+                        response.put("alcoholicas", alcoholicas);
+                        break;
+                    case "NoAlcoholicas":
+                        List<Producto> noAlcoholicas = productoServicio.listarPorCategoria(categoria);
+                        response.put("noAlcoholicas", noAlcoholicas);
+                        break;
+                    default:
+                       
+                        throw new AssertionError();
+                }
             }
             
              return ResponseEntity.ok(response);
@@ -56,7 +76,24 @@ public class ProductoController{
         }
         
     }
-    
+    @GetMapping("/api/productos/registrarProducto")
+    public String registrar(RedirectAttributes redirect, Model model){
+        model.addAttribute("producto", new Producto());
+        model.addAttribute("categorias", categoriaServicio.listaCategorias());
+        return "formularios/registrarProducto";
+    }
+    @PostMapping("/api/productos/registrarProducto")
+    public String registrarProductoForm(@Valid Producto producto, BindingResult result, RedirectAttributes flash, Model model) throws Exception{
+        try {
+            productoServicio.crearProducto(producto);
+            flash.addAttribute("Status", "success");
+            flash.addAttribute("mensaje", "Exito al crear producto");
+            return "/api/productos/registrarProducto";
+        } catch (Exception e) {
+            e.getStackTrace();
+            throw new Exception("Error,", e.getCause());
+        }
+    }
     
     
 }

@@ -29,20 +29,21 @@ public class ProductoServicio {
     public List<Producto> listarProductos(){
         return productoRepositorio.findAll();
     }
-    public List<Producto> listarPorCategoriaOtros(Categoria categoria){
-        categoria.setNombre("Otros");
-        List<Producto> otros = productoRepositorio.findAllByCategoria(categoria);
-        return otros;
-    }
-    public List<Producto> listarPorCategoriaAlcholicas(Categoria categoria){
-        categoria.setNombre("Alcoholicas");
-        List<Producto> alcoholicas = productoRepositorio.findAllByCategoria(categoria);
-        return alcoholicas;
+    public List<Producto> listarPorCategoria(Categoria categoria){
         
+        switch (categoria.getNombre()) {
+            case "Otros":
+                List<Producto> otros = productoRepositorio.findAllByCategoria(categoria);
+                return otros;
+            case "Alcoholicos":
+                List<Producto> alcoholicos = productoRepositorio.findAllByCategoria(categoria);
+                return alcoholicos;
+            case "NoAlcoholicos":
+                List<Producto> noAlcoholicos = productoRepositorio.findAllByCategoria(categoria);
+                return noAlcoholicos;
+            default:
+                throw new AssertionError();
+        }
     }
-    public List<Producto> listarPorCategoriaNoAlcoholicas(Categoria categoria){
-        categoria.setNombre("NoAlcoholicas");
-        List<Producto> noAlcoholicas = productoRepositorio.findAllByCategoria(categoria);
-        return noAlcoholicas;
-    }
+    
 }
