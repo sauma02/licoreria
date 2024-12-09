@@ -14,7 +14,9 @@ import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
 import licorera.licorera.servicios.CategoriaServicio;
 import licorera.licorera.servicios.ProductoServicio;
+import licorera.licorera.utilidades.archivosUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,8 +25,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -34,64 +38,57 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @RequestMapping("/api/productos")
 public class ProductoController{
+   
     @Autowired
     private ProductoServicio productoServicio;
     @Autowired
     private CategoriaServicio categoriaServicio;
+    @Value("${valor.ruta}")
+    private String ruta;
     
-    @GetMapping
-    @ResponseBody
-    public ResponseEntity<?> obtenerProductosCategorizados(){
-        Map<String, List> response = new HashMap<>();
+    @GetMapping("/api/productos/registrar")
+    public String crearProducto(Model model){
+        List<Categoria> categorias = categoriaServicio.listaCategorias();
+        model.addAttribute("categorias", categorias);
+        model.addAttribute("producto", new Producto());
+        return "registrarProducto";
+    }
+    @PostMapping("/api/productos/registrar")
+    public String crearProducto(@Valid Producto producto, @RequestParam MultipartFile imagen, RedirectAttributes flash, Model model){
         try {
-            List<Categoria> categorias = categoriaServicio.listaCategorias();
-            
-            for (Categoria categoria : categorias) {
+            if(imagen == null || imagen.isEmpty()){
+                flash.addFlashAttribute("class", "danger");
+                flash.addFlashAttribute("mensaje", "No se ha cargado ningun archivo");
+                return "redirect:/api/productos";
+            } else{
                 
-                switch (categoria.getNombre()) {
-                    case "Otros":
-                        List<Producto> otro = productoServicio.listarPorCategoria(categoria);
-                        response.put("otro", otro);
-                        break;
-                    case "Alcholicas":
-                        List<Producto> alcoholicas = productoServicio.listarPorCategoria(categoria);
-                        response.put("alcoholicas", alcoholicas);
-                        break;
-                    case "NoAlcoholicas":
-                        List<Producto> noAlcoholicas = productoServicio.listarPorCategoria(categoria);
-                        response.put("noAlcoholicas", noAlcoholicas);
-                        break;
-                    default:
-                       
-                        throw new AssertionError();
+                
+                String rutaArchivo = this.ruta + "archivos/" + producto.getNombre() + "/";
+                String nombreArchivo = archivosUpload.guardarArchivo(imagen, ruta);
+                if("no".equals(nombreArchivo)){
+                    flash.addAttribute("clase", "danger");
+                    flash.addAttribute("mensaje", "El formato ingresado no es valido, por favor ingresa solo imagenes(PNG, JPEG, JPG)");
+                    return "redirect:/api/productos";
                 }
+                if(nombreArchivo != null){
+                    producto.setImagen(nombreArchivo);
+                }
+                productoServicio.crearProducto(producto);
+                flash.addAttribute("clase", "success");
+                flash.addAttribute("mensaje", "Exito al registrar producto");
+                return "redirect:/api/productos";
             }
-            
-             return ResponseEntity.ok(response);
+        
         } catch (Exception e) {
             e.printStackTrace();
-           e.getMessage();
-           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error", "error al traer los productos"));
-                             
-        }
-        
-    }
-    @GetMapping("/api/productos/registrarProducto")
-    public String registrar(RedirectAttributes redirect, Model model){
-        model.addAttribute("producto", new Producto());
-        model.addAttribute("categorias", categoriaServicio.listaCategorias());
-        return "formularios/registrarProducto";
-    }
-    @PostMapping("/api/productos/registrarProducto")
-    public String registrarProductoForm(@Valid Producto producto, BindingResult result, RedirectAttributes flash, Model model) throws Exception{
-        try {
-            productoServicio.crearProducto(producto);
-            flash.addAttribute("Status", "success");
-            flash.addAttribute("mensaje", "Exito al crear producto");
-            return "/api/productos/registrarProducto";
-        } catch (Exception e) {
-            e.getStackTrace();
-            throw new Exception("Error,", e.getCause());
+            if(e.getCause() != null){
+                System.err.println("Error: "+ e.getMessage());
+                flash.addAttribute("clase", "danger");
+                flash.addAttribute("mensaje", e.getMessage());
+            }
+            flash.addAttribute("clase", "danger");
+            flash.addAttribute("mensaje", e.getLocalizedMessage());
+            return "redirect:/api/productos";
         }
     }
     

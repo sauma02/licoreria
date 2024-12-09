@@ -6,104 +6,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="layout/layout :: head(~{title}, ~{links})">
-        
+
     </head>
     <body>
         <header th:replace="layout/layout :: header">
-            
+
         </header>
-          
+
         <div id="carruseles">
-            <div class="carrusel-container">
-                <h2>Bebidas Alcohólicas</h2>
-                <div class="carrusel">
-                    <button class="btn-left">&lt;</button>
-                    <div class="carrusel-items">
-                        
-                    </div>
-                    <button class="btn-right">&gt;</button>
-                </div>
-                
-            </div>
-            <div class="carrusel-container">
-                <h2>Bebidas no alcohólicas</h2>
-                <div class="carrusel">
-                    <button class="btn-left">&lt;</button>
-                    <div class="carrusel-items">
-                        
-                    </div>
-                    <button class="btn-right">&gt;</button>
-                </div>
-                
-            </div>
-            <div class="carrusel-container">
-                <h2>Otros productos</h2>
-                <div class="carrusel">
-                    <button class="btn-left">&lt;</button>
-                    <div class="carrusel-items">
-                        
-                    </div>
-                    <button class="btn-right">&gt;</button>
-                </div>
-                
-            </div>
+            <div id="carrusel-alcoholicas"></div>
+            <div id="carrusel-no-alcoholicas"></div>
+            <div id="carrusel-otros"></div>
         </div>
-        
+
     </body>
     <footer th:replace="footer">
-        
+
     </footer>
     <script th:inline="javascript">
-        document.addEventListener('DOMContentLoaded', () =>{
-             const cargarProductos = () => {
-            try{
-               const response = fetch('http://localhost:1010/api/productos');
-               if(!response.ok()){
-                   throw new Error("Error al cargar los productos");
-               }
-               const categoria = response.json();
-               console.log(categoria);
-               
-               const alcholicasDiv = document.querySelectorAll('.carrusel-items')[0];
-               const noAlcholicasDiv = document.querySelectorAll('.carrusel-items')[1];
-               const otrosDiv = document.querySelectorAll('.carrusel-items')[2];
-               
-               categoria.otros.forEach(producto =>{
-                   otrosDiv.innerHTML += `
-                <div>
-                    <img src="${producto.imagenUrl}" alt="${producto.nombre}" />
-                    <h3>${producto.nombre}</h3>
-                    <p>$${producto.precio}</p>
+        const productos = /*[[${productosCategorizados}]]*/ {};
+        document.addEventListener("DOMContentLoaded", () => {
+        const renderCarrusel = (titulo, productos, containerId) => {
+        const container = document.getElementById(containerId);
+        const carruselHTML = `
+            <div class="carrusel-container">
+                <h2>${titulo}</h2>
+                <div class="carrusel">
+                    <button class="btn-left">&lt;</button>
+                    <div class="carrusel-items">
+                        ${productos.map(producto => `
+                            <div>
+                                <h3>${producto.nombre}</h3>
+                                <p>Precio: $${producto.precio}</p>
+                                <form action="/carrito/agregar" method="post">
+                                    <input type="hidden" name="id" value="${producto.id}" />
+                                    <input type="hidden" name="nombre" value="${producto.nombre}" />
+                                    <input type="hidden" name="precio" value="${producto.precio}" />
+                                    <label for="cantidad">Cantidad:</label>
+                                    <input type="number" name="cantidad" min="1" max="10" value="1" />
+                                    <button type="submit">Agregar al carrito</button>
+                                </form>
+                            </div>
+                        `).join("")}
+                    </div>
+                    <button class="btn-right">&gt;</button>
                 </div>
-            `;
-               });
-               categoria.alcoholicos.forEach(producto =>{
-                   alcoholicasDiv.innerHTML += `
-                <div>
-                    <img src="${producto.imagenUrl}" alt="${producto.nombre}" />
-                    <h3>${producto.nombre}</h3>
-                    <p>$${producto.precio}</p>
-                </div>
-            `;
-               });
-               categoria.noAlcoholicos.forEach(producto =>{
-                   noAlcoholicasDiv.innerHTML += `
-                <div>
-                    <img src="${producto.imagenUrl}" alt="${producto.nombre}" />
-                    <h3>${producto.nombre}</h3>
-                    <p>$${producto.precio}</p>
-                </div>
-            `;
-               });
-               
-               
-            }catch(error){
-                console.error('Error al cargar archivos;', error);
-            }
+            </div>
+        `;
+        container.innerHTML = carruselHTML;
         };
-        document.addEventListener('DOMContentLoaded', cargarProductos);
-            
-            
-       
+        // Renderizar los carruseles
+        renderCarrusel("Bebidas Alcohólicas", productos.alcoholicas, "carrusel-alcoholicas");
+        renderCarrusel("Bebidas No Alcohólicas", productos.noAlcoholicas, "carrusel-no-alcoholicas");
+        renderCarrusel("Otros Productos", productos.otros, "carrusel-otros");
+        });
+
+
+
+
     </script>
 </html>
