@@ -35,7 +35,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  *
  * @author Admin
  */
-
+@Controller
 @RequestMapping("/api/productos")
 public class ProductoController{
    
@@ -46,20 +46,20 @@ public class ProductoController{
     @Value("${valor.ruta}")
     private String ruta;
     
-    @GetMapping("/api/productos/registrar")
+    @GetMapping("/registrar")
     public String crearProducto(Model model){
         List<Categoria> categorias = categoriaServicio.listaCategorias();
         model.addAttribute("categorias", categorias);
         model.addAttribute("producto", new Producto());
-        return "registrarProducto";
+        return "formularios/registrarProducto";
     }
-    @PostMapping("/api/productos/registrar")
+    @PostMapping("/registrar")
     public String crearProducto(@Valid Producto producto, @RequestParam MultipartFile imagen, RedirectAttributes flash, Model model){
         try {
             if(imagen == null || imagen.isEmpty()){
                 flash.addFlashAttribute("class", "danger");
                 flash.addFlashAttribute("mensaje", "No se ha cargado ningun archivo");
-                return "redirect:/api/productos";
+                return "redirect:/api/productos/registar";
             } else{
                 
                 
@@ -68,7 +68,7 @@ public class ProductoController{
                 if("no".equals(nombreArchivo)){
                     flash.addAttribute("clase", "danger");
                     flash.addAttribute("mensaje", "El formato ingresado no es valido, por favor ingresa solo imagenes(PNG, JPEG, JPG)");
-                    return "redirect:/api/productos";
+                    return "redirect:/api/productos/registar";
                 }
                 if(nombreArchivo != null){
                     producto.setImagen(nombreArchivo);
@@ -76,7 +76,7 @@ public class ProductoController{
                 productoServicio.crearProducto(producto);
                 flash.addAttribute("clase", "success");
                 flash.addAttribute("mensaje", "Exito al registrar producto");
-                return "redirect:/api/productos";
+                return "redirect:/api/productos/registar";
             }
         
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class ProductoController{
             }
             flash.addAttribute("clase", "danger");
             flash.addAttribute("mensaje", e.getLocalizedMessage());
-            return "redirect:/api/productos";
+            return "redirect:/api/productos/registar";
         }
     }
     

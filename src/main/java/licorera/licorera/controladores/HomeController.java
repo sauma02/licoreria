@@ -33,7 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
  * @author Admin
  */
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class HomeController {
     @Autowired
     private ProductoServicio productoServicio;
@@ -47,6 +47,13 @@ public class HomeController {
         return carrito.stream().mapToDouble(Carrito::getTotal).sum();
     }
   
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+    
+    
+    
     @GetMapping("/home")
     public String home(Model model){
         List<Categoria> categorias = categoriaServicio.listaCategorias();
@@ -98,23 +105,6 @@ public class HomeController {
         
     }
      
-    @GetMapping("/api/productos/registrarProducto")
-    public String registrar(RedirectAttributes redirect, Model model){
-        model.addAttribute("producto", new Producto());
-        model.addAttribute("categorias", categoriaServicio.listaCategorias());
-        return "formularios/registrarProducto";
-    }
-    @PostMapping("/api/productos/registrarProducto")
-    public String registrarProductoForm(@Valid Producto producto, BindingResult result, RedirectAttributes flash, Model model) throws Exception{
-        try {
-            productoServicio.crearProducto(producto);
-            flash.addAttribute("Status", "success");
-            flash.addAttribute("mensaje", "Exito al crear producto");
-            return "/api/productos/registrarProducto";
-        } catch (Exception e) {
-            e.getStackTrace();
-            throw new Exception("Error,", e.getCause());
-        }
-    }
+    
     
 }
