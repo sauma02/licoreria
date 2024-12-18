@@ -4,93 +4,96 @@
  */
 package licorera.licorera.controladores;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 import jakarta.validation.Valid;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
 import licorera.licorera.servicios.CategoriaServicio;
 import licorera.licorera.servicios.ProductoServicio;
 import licorera.licorera.utilidades.archivosUpload;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
- *
  * @author Admin
  */
 @Controller
 @RequestMapping("/api/productos")
-public class ProductoController{
-   
+public class ProductoController {
+
     @Autowired
     private ProductoServicio productoServicio;
     @Autowired
     private CategoriaServicio categoriaServicio;
     @Value("${valor.ruta}")
     private String ruta;
-    
+
     @GetMapping("/registrar")
-    public String crearProducto(Model model){
+    public String crearProducto(Model model) {
         List<Categoria> categorias = categoriaServicio.listaCategorias();
         model.addAttribute("categorias", categorias);
         model.addAttribute("producto", new Producto());
         return "formularios/registrarProducto";
     }
+
     @PostMapping("/registrar")
-    public String crearProducto(@Valid Producto producto, @RequestParam MultipartFile imagen, RedirectAttributes flash, Model model){
+    public String crearProducto(
+            @RequestParam("categoria") String categoria,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("precio") double precio,
+            @RequestParam("cantidad") Integer cantidad,
+            @RequestParam("imagen") MultipartFile imagen,
+            RedirectAttributes flash) {
         try {
-            if(imagen == null || imagen.isEmpty()){
+            if (imagen == null || imagen.isEmpty()) {
                 flash.addFlashAttribute("class", "danger");
-                flash.addFlashAttribute("mensaje", "No se ha cargado ningun archivo");
-                return "redirect:/api/productos/registar";
-            } else{
-                
-                
-                String rutaArchivo = this.ruta + "archivos/" + producto.getNombre() + "/";
-                String nombreArchivo = archivosUpload.guardarArchivo(imagen, ruta);
-                if("no".equals(nombreArchivo)){
-                    flash.addAttribute("clase", "danger");
-                    flash.addAttribute("mensaje", "El formato ingresado no es valido, por favor ingresa solo imagenes(PNG, JPEG, JPG)");
-                    return "redirect:/api/productos/registar";
-                }
-                if(nombreArchivo != null){
-                    producto.setImagen(nombreArchivo);
-                }
-                productoServicio.crearProducto(producto);
-                flash.addAttribute("clase", "success");
-                flash.addAttribute("mensaje", "Exito al registrar producto");
-                return "redirect:/api/productos/registar";
+                flash.addFlashAttribute("mensaje", "No se ha cargado ningún archivo");
+                return "redirect:/api/productos/registrar";
             }
-        
+            
+            // Crear el objeto Producto
+            Producto producto = new Producto();
+            producto.setCategoria(categoriaServicio.listarPorNombre(categoria));
+            producto.setNombre(nombre);
+            producto.setPrecio(precio);
+            producto.setCantidad(cantidad);
+
+            // Guardar la imagen
+            String rutaArchivo = this.ruta + "archivos/" + nombre + "/";
+            String nombreArchivo = archivosUpload.guardarArchivo(imagen, rutaArchivo);
+
+            if ("no".equals(nombreArchivo)) {
+                flash.addFlashAttribute("clase", "danger");
+                flash.addFlashAttribute("mensaje", "El formato ingresado no es válido. Solo imágenes (PNG, JPEG, JPG)");
+                return "redirect:/api/productos/registrar";
+            }
+
+            producto.setImagen(nombreArchivo);
+
+            // Guardar el producto
+            productoServicio.crearProducto(producto);
+
+            flash.addFlashAttribute("clase", "success");
+            flash.addFlashAttribute("mensaje", "Éxito al registrar producto");
+            return "redirect:/api/productos/registrar";
+
         } catch (Exception e) {
             e.printStackTrace();
-            if(e.getCause() != null){
-                System.err.println("Error: "+ e.getMessage());
-                flash.addAttribute("clase", "danger");
-                flash.addAttribute("mensaje", e.getMessage());
-            }
-            flash.addAttribute("clase", "danger");
-            flash.addAttribute("mensaje", e.getLocalizedMessage());
-            return "redirect:/api/productos/registar";
+            flash.addFlashAttribute("clase", "danger");
+            flash.addFlashAttribute("mensaje", "Error al registrar el producto: " + e.getMessage());
+            return "redirect:/api/productos/registrar";
         }
     }
-    
-    
+
 }

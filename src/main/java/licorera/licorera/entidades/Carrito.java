@@ -8,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
  * @author Admin
  */
 @Getter
@@ -18,10 +17,10 @@ public class Carrito {
     private String nombre;
     private Double precio;
     private Integer cantidad;
-    
-   public Double getTotal(){
+
+    public Double getTotal() {
         return this.precio * this.cantidad;
     }
-    
-    
+
+
 }

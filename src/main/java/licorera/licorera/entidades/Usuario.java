@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
  * @author Admin
  */
 @Entity
@@ -25,6 +24,6 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String password;
-    
-    
+
+
 }

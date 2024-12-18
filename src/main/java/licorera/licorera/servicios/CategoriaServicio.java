@@ -4,22 +4,34 @@
  */
 package licorera.licorera.servicios;
 
-import java.util.List;
-import licorera.licorera.entidades.Categoria;
-import licorera.licorera.repositorios.CategoriaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
+import licorera.licorera.entidades.Categoria;
+import licorera.licorera.repositorios.CategoriaRepositorio;
+
 /**
- *
  * @author Admin
  */
 @Service
 public class CategoriaServicio {
     @Autowired
     private CategoriaRepositorio categoriaRepositorio;
-    
-    public List<Categoria> listaCategorias(){
+
+    public List<Categoria> listaCategorias() {
         return categoriaRepositorio.findAll();
+    }
+    
+    public Categoria listarPorNombre(String categoria){
+        Optional<Categoria> res = categoriaRepositorio.findFirstByNombre(categoria);
+        if(res.isPresent()){
+            Categoria cate = res.get();
+            return cate;
+        }else{
+            return null;
+        }
     }
 }

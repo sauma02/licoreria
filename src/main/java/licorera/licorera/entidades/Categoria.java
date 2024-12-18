@@ -4,17 +4,17 @@
  */
 package licorera.licorera.entidades;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- *
  * @author Admin
  */
 @Entity

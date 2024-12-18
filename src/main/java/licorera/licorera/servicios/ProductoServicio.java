@@ -4,33 +4,34 @@
  */
 package licorera.licorera.servicios;
 
-import java.util.List;
-import licorera.licorera.entidades.Categoria;
-import licorera.licorera.entidades.Producto;
-import licorera.licorera.repositorios.ProductoRepositorio;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+import licorera.licorera.entidades.Categoria;
+import licorera.licorera.entidades.Producto;
+import licorera.licorera.repositorios.ProductoRepositorio;
+
 /**
- *
  * @author Admin
  */
 @Service
 public class ProductoServicio {
     @Autowired
     private ProductoRepositorio productoRepositorio;
-    
-    public Producto crearProducto(Producto producto){
+
+    public Producto crearProducto(Producto producto) {
         productoRepositorio.save(producto);
         return producto;
     }
-    public List<Producto> listarProductos(){
+
+    public List<Producto> listarProductos() {
         return productoRepositorio.findAll();
     }
-    public List<Producto> listarPorCategoria(Categoria categoria){
-        
+
+    public List<Producto> listarPorCategoria(Categoria categoria) {
+
         switch (categoria.getNombre()) {
             case "Otros":
                 List<Producto> otros = productoRepositorio.findAllByCategoria(categoria);
@@ -45,5 +46,5 @@ public class ProductoServicio {
                 throw new AssertionError();
         }
     }
-    
+
 }

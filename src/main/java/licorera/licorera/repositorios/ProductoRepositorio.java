@@ -4,14 +4,15 @@
  */
 package licorera.licorera.repositorios;
 
-import java.util.List;
-import licorera.licorera.entidades.Categoria;
-import licorera.licorera.entidades.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+import licorera.licorera.entidades.Categoria;
+import licorera.licorera.entidades.Producto;
+
 /**
- *
  * @author Admin
  */
 @Repository

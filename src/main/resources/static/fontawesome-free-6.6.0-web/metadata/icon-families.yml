@@ -237,7 +237,7 @@
         style: brands
   label: 42.group
   search:
-    terms: []
+    terms: [ ]
   unicode: e080
   voted: false
 500px:
@@ -253,7 +253,7 @@
         style: brands
   label: 500px
   search:
-    terms: []
+    terms: [ ]
   unicode: f26e
   voted: false
 a:
@@ -321,7 +321,7 @@ accusoft:
         style: brands
   label: Accusoft
   search:
-    terms: []
+    terms: [ ]
   unicode: f369
   voted: false
 address-book:
@@ -428,7 +428,7 @@ adn:
         style: brands
   label: App.net
   search:
-    terms: []
+    terms: [ ]
   unicode: f170
   voted: false
 adversal:
@@ -443,7 +443,7 @@ adversal:
         style: brands
   label: Adversal
   search:
-    terms: []
+    terms: [ ]
   unicode: f36a
   voted: false
 affiliatetheme:
@@ -458,7 +458,7 @@ affiliatetheme:
         style: brands
   label: affiliatetheme
   search:
-    terms: []
+    terms: [ ]
   unicode: f36b
   voted: false
 airbnb:
@@ -473,7 +473,7 @@ airbnb:
         style: brands
   label: Airbnb
   search:
-    terms: []
+    terms: [ ]
   unicode: f834
   voted: false
 algolia:
@@ -489,7 +489,7 @@ algolia:
         style: brands
   label: Algolia
   search:
-    terms: []
+    terms: [ ]
   unicode: f36c
   voted: false
 align-center:
@@ -629,7 +629,7 @@ alipay:
         style: brands
   label: Alipay
   search:
-    terms: []
+    terms: [ ]
   unicode: f642
   voted: false
 amazon:
@@ -645,7 +645,7 @@ amazon:
         style: brands
   label: Amazon
   search:
-    terms: []
+    terms: [ ]
   unicode: f270
   voted: false
 amazon-pay:
@@ -661,7 +661,7 @@ amazon-pay:
         style: brands
   label: Amazon Pay
   search:
-    terms: []
+    terms: [ ]
   unicode: f42c
   voted: false
 amilia:
@@ -676,7 +676,7 @@ amilia:
         style: brands
   label: Amilia
   search:
-    terms: []
+    terms: [ ]
   unicode: f36d
   voted: false
 anchor:
@@ -856,7 +856,7 @@ angellist:
         style: brands
   label: AngelList
   search:
-    terms: []
+    terms: [ ]
   unicode: f209
   voted: false
 angle-down:
@@ -1149,7 +1149,7 @@ angrycreative:
         style: brands
   label: Angry Creative
   search:
-    terms: []
+    terms: [ ]
   unicode: f36e
   voted: false
 angular:
@@ -1165,7 +1165,7 @@ angular:
         style: brands
   label: Angular
   search:
-    terms: []
+    terms: [ ]
   unicode: f420
   voted: false
 ankh:
@@ -1215,7 +1215,7 @@ app-store:
         style: brands
   label: App Store
   search:
-    terms: []
+    terms: [ ]
   unicode: f36f
   voted: false
 app-store-ios:
@@ -1230,7 +1230,7 @@ app-store-ios:
         style: brands
   label: iOS App Store
   search:
-    terms: []
+    terms: [ ]
   unicode: f370
   voted: false
 apper:
@@ -1245,7 +1245,7 @@ apper:
         style: brands
   label: Apper Systems AB
   search:
-    terms: []
+    terms: [ ]
   unicode: f371
   voted: false
 apple:
@@ -1284,7 +1284,7 @@ apple-pay:
         style: brands
   label: Apple Pay
   search:
-    terms: []
+    terms: [ ]
   unicode: f415
   voted: true
 apple-whole:
@@ -2979,7 +2979,7 @@ artstation:
         style: brands
   label: Artstation
   search:
-    terms: []
+    terms: [ ]
   unicode: f77a
   voted: true
 asterisk:
@@ -3033,7 +3033,7 @@ asymmetrik:
         style: brands
   label: 'Asymmetrik, Ltd.'
   search:
-    terms: []
+    terms: [ ]
   unicode: f372
   voted: false
 at:
@@ -3085,7 +3085,7 @@ atlassian:
         style: brands
   label: Atlassian
   search:
-    terms: []
+    terms: [ ]
   unicode: f77b
   voted: true
 atom:
@@ -3141,7 +3141,7 @@ audible:
         style: brands
   label: Audible
   search:
-    terms: []
+    terms: [ ]
   unicode: f373
   voted: false
 audio-description:
@@ -3210,7 +3210,7 @@ autoprefixer:
         style: brands
   label: Autoprefixer
   search:
-    terms: []
+    terms: [ ]
   unicode: f41c
   voted: false
 avianex:
@@ -3225,7 +3225,7 @@ avianex:
         style: brands
   label: avianex
   search:
-    terms: []
+    terms: [ ]
   unicode: f374
   voted: false
 aviato:
@@ -3240,7 +3240,7 @@ aviato:
         style: brands
   label: Aviato
   search:
-    terms: []
+    terms: [ ]
   unicode: f421
   voted: false
 award:
@@ -3291,7 +3291,7 @@ aws:
         style: brands
   label: Amazon Web Services (AWS)
   search:
-    terms: []
+    terms: [ ]
   unicode: f375
   voted: false
 b:
@@ -3830,7 +3830,7 @@ bandcamp:
         style: brands
   label: Bandcamp
   search:
-    terms: []
+    terms: [ ]
   unicode: f2d5
   voted: false
 bangladeshi-taka-sign:
@@ -4362,7 +4362,7 @@ battle-net:
         style: brands
   label: Battle.net
   search:
-    terms: []
+    terms: [ ]
   unicode: f835
   voted: false
 bed:
@@ -4494,7 +4494,7 @@ behance:
         style: brands
   label: Behance
   search:
-    terms: []
+    terms: [ ]
   unicode: f1b4
   voted: false
 bell:
@@ -4707,7 +4707,7 @@ bilibili:
         style: brands
   label: Bilibili
   search:
-    terms: []
+    terms: [ ]
   unicode: e3d9
   voted: true
 bimobject:
@@ -4722,7 +4722,7 @@ bimobject:
         style: brands
   label: BIMobject
   search:
-    terms: []
+    terms: [ ]
   unicode: f378
   voted: false
 binoculars:
@@ -4837,7 +4837,7 @@ bitcoin:
         style: brands
   label: Bitcoin
   search:
-    terms: []
+    terms: [ ]
   unicode: f379
   voted: false
 bitcoin-sign:
@@ -4875,7 +4875,7 @@ bity:
         style: brands
   label: Bity
   search:
-    terms: []
+    terms: [ ]
   unicode: f37a
   voted: false
 black-tie:
@@ -4907,7 +4907,7 @@ blackberry:
         style: brands
   label: BlackBerry
   search:
-    terms: []
+    terms: [ ]
   unicode: f37b
   voted: false
 blender:
@@ -5018,7 +5018,7 @@ blogger:
         style: brands
   label: Blogger
   search:
-    terms: []
+    terms: [ ]
   unicode: f37c
   voted: false
 blogger-b:
@@ -5033,7 +5033,7 @@ blogger-b:
         style: brands
   label: Blogger B
   search:
-    terms: []
+    terms: [ ]
   unicode: f37d
   voted: false
 bluesky:
@@ -5092,7 +5092,7 @@ bluetooth-b:
         style: brands
   label: Bluetooth
   search:
-    terms: []
+    terms: [ ]
   unicode: f294
   voted: false
 bold:
@@ -5736,7 +5736,7 @@ bootstrap:
         style: brands
   label: Bootstrap
   search:
-    terms: []
+    terms: [ ]
   unicode: f836
   voted: false
 border-all:
@@ -5869,7 +5869,7 @@ bots:
         style: brands
   label: Bots
   search:
-    terms: []
+    terms: [ ]
   unicode: e340
   voted: false
 bottle-droplet:
@@ -6287,7 +6287,7 @@ brave:
         style: brands
   label: Brave
   search:
-    terms: []
+    terms: [ ]
   unicode: e63c
   voted: false
 brave-reverse:
@@ -6302,7 +6302,7 @@ brave-reverse:
         style: brands
   label: Brave Reverse
   search:
-    terms: []
+    terms: [ ]
   unicode: e63d
   voted: false
 brazilian-real-sign:
@@ -6699,7 +6699,7 @@ btc:
         style: brands
   label: BTC
   search:
-    terms: []
+    terms: [ ]
   unicode: f15a
   voted: false
 bucket:
@@ -6737,7 +6737,7 @@ buffer:
         style: brands
   label: Buffer
   search:
-    terms: []
+    terms: [ ]
   unicode: f837
   voted: false
 bug:
@@ -7324,7 +7324,7 @@ buromobelexperte:
         style: brands
   label: Büromöbel-Experte GmbH & Co. KG.
   search:
-    terms: []
+    terms: [ ]
   unicode: f37f
   voted: false
 burst:
@@ -7469,7 +7469,7 @@ buy-n-large:
         style: brands
   label: Buy n Large
   search:
-    terms: []
+    terms: [ ]
   unicode: f8a6
   voted: false
 buysellads:
@@ -7485,7 +7485,7 @@ buysellads:
         style: brands
   label: BuySellAds
   search:
-    terms: []
+    terms: [ ]
   unicode: f20d
   voted: false
 c:
@@ -8943,7 +8943,7 @@ cc-amazon-pay:
         style: brands
   label: Amazon Pay Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f42d
   voted: false
 cc-amex:
@@ -8978,7 +8978,7 @@ cc-apple-pay:
         style: brands
   label: Apple Pay Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f416
   voted: false
 cc-diners-club:
@@ -8994,7 +8994,7 @@ cc-diners-club:
         style: brands
   label: Diner's Club Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f24c
   voted: false
 cc-discover:
@@ -9010,7 +9010,7 @@ cc-discover:
         style: brands
   label: Discover Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f1f2
   voted: false
 cc-jcb:
@@ -9026,7 +9026,7 @@ cc-jcb:
         style: brands
   label: JCB Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f24b
   voted: false
 cc-mastercard:
@@ -9042,7 +9042,7 @@ cc-mastercard:
         style: brands
   label: MasterCard Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f1f1
   voted: false
 cc-paypal:
@@ -9058,7 +9058,7 @@ cc-paypal:
         style: brands
   label: Paypal Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f1f4
   voted: false
 cc-stripe:
@@ -9074,7 +9074,7 @@ cc-stripe:
         style: brands
   label: Stripe Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f1f5
   voted: false
 cc-visa:
@@ -9090,7 +9090,7 @@ cc-visa:
         style: brands
   label: Visa Credit Card
   search:
-    terms: []
+    terms: [ ]
   unicode: f1f0
   voted: false
 cedi-sign:
@@ -9151,7 +9151,7 @@ centercode:
         style: brands
   label: Centercode
   search:
-    terms: []
+    terms: [ ]
   unicode: f380
   voted: false
 centos:
@@ -10386,7 +10386,7 @@ chromecast:
         style: brands
   label: Chromecast
   search:
-    terms: []
+    terms: [ ]
   unicode: f838
   voted: false
 church:
@@ -12416,7 +12416,7 @@ cloudflare:
         style: brands
   label: Cloudflare
   search:
-    terms: []
+    terms: [ ]
   unicode: e07d
   voted: false
 cloudscale:
@@ -12431,7 +12431,7 @@ cloudscale:
         style: brands
   label: cloudscale.ch
   search:
-    terms: []
+    terms: [ ]
   unicode: f383
   voted: false
 cloudsmith:
@@ -12447,7 +12447,7 @@ cloudsmith:
         style: brands
   label: Cloudsmith
   search:
-    terms: []
+    terms: [ ]
   unicode: f384
   voted: false
 cloudversify:
@@ -12462,7 +12462,7 @@ cloudversify:
         style: brands
   label: cloudversify
   search:
-    terms: []
+    terms: [ ]
   unicode: f385
   voted: false
 clover:
@@ -12508,7 +12508,7 @@ cmplid:
         style: brands
   label: Cmplid
   search:
-    terms: []
+    terms: [ ]
   unicode: e360
   voted: false
 code:
@@ -12740,7 +12740,7 @@ codepen:
         style: brands
   label: Codepen
   search:
-    terms: []
+    terms: [ ]
   unicode: f1cb
   voted: false
 codiepie:
@@ -12756,7 +12756,7 @@ codiepie:
         style: brands
   label: Codie Pie
   search:
-    terms: []
+    terms: [ ]
   unicode: f284
   voted: false
 coins:
@@ -13423,7 +13423,7 @@ connectdevelop:
         style: brands
   label: Connect Develop
   search:
-    terms: []
+    terms: [ ]
   unicode: f20e
   voted: false
 contao:
@@ -13439,7 +13439,7 @@ contao:
         style: brands
   label: Contao
   search:
-    terms: []
+    terms: [ ]
   unicode: f26d
   voted: false
 cookie:
@@ -13689,7 +13689,7 @@ cpanel:
         style: brands
   label: cPanel
   search:
-    terms: []
+    terms: [ ]
   unicode: f388
   voted: false
 creative-commons:
@@ -13707,7 +13707,7 @@ creative-commons:
         style: brands
   label: Creative Commons
   search:
-    terms: []
+    terms: [ ]
   unicode: f25e
   voted: false
 creative-commons-by:
@@ -13722,7 +13722,7 @@ creative-commons-by:
         style: brands
   label: Creative Commons Attribution
   search:
-    terms: []
+    terms: [ ]
   unicode: f4e7
   voted: false
 creative-commons-nc:
@@ -13737,7 +13737,7 @@ creative-commons-nc:
         style: brands
   label: Creative Commons Noncommercial
   search:
-    terms: []
+    terms: [ ]
   unicode: f4e8
   voted: false
 creative-commons-nc-eu:
@@ -13752,7 +13752,7 @@ creative-commons-nc-eu:
         style: brands
   label: Creative Commons Noncommercial (Euro Sign)
   search:
-    terms: []
+    terms: [ ]
   unicode: f4e9
   voted: false
 creative-commons-nc-jp:
@@ -13767,7 +13767,7 @@ creative-commons-nc-jp:
         style: brands
   label: Creative Commons Noncommercial (Yen Sign)
   search:
-    terms: []
+    terms: [ ]
   unicode: f4ea
   voted: false
 creative-commons-nd:
@@ -13782,7 +13782,7 @@ creative-commons-nd:
         style: brands
   label: Creative Commons No Derivative Works
   search:
-    terms: []
+    terms: [ ]
   unicode: f4eb
   voted: false
 creative-commons-pd:
@@ -13797,7 +13797,7 @@ creative-commons-pd:
         style: brands
   label: Creative Commons Public Domain
   search:
-    terms: []
+    terms: [ ]
   unicode: f4ec
   voted: false
 creative-commons-pd-alt:
@@ -13812,7 +13812,7 @@ creative-commons-pd-alt:
         style: brands
   label: Alternate Creative Commons Public Domain
   search:
-    terms: []
+    terms: [ ]
   unicode: f4ed
   voted: false
 creative-commons-remix:
@@ -13827,7 +13827,7 @@ creative-commons-remix:
         style: brands
   label: Creative Commons Remix
   search:
-    terms: []
+    terms: [ ]
   unicode: f4ee
   voted: false
 creative-commons-sa:
@@ -13842,7 +13842,7 @@ creative-commons-sa:
         style: brands
   label: Creative Commons Share Alike
   search:
-    terms: []
+    terms: [ ]
   unicode: f4ef
   voted: false
 creative-commons-sampling:
@@ -13857,7 +13857,7 @@ creative-commons-sampling:
         style: brands
   label: Creative Commons Sampling
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f0
   voted: false
 creative-commons-sampling-plus:
@@ -13872,7 +13872,7 @@ creative-commons-sampling-plus:
         style: brands
   label: Creative Commons Sampling +
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f1
   voted: false
 creative-commons-share:
@@ -13887,7 +13887,7 @@ creative-commons-share:
         style: brands
   label: Creative Commons Share
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f2
   voted: false
 creative-commons-zero:
@@ -13903,7 +13903,7 @@ creative-commons-zero:
         style: brands
   label: Creative Commons CC0
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f3
   voted: false
 credit-card:
@@ -14262,7 +14262,7 @@ css3-alt:
         style: brands
   label: Alternate CSS3 Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f38b
   voted: false
 cube:
@@ -14369,7 +14369,7 @@ cuttlefish:
         style: brands
   label: Cuttlefish
   search:
-    terms: []
+    terms: [ ]
   unicode: f38c
   voted: false
 d:
@@ -14411,7 +14411,7 @@ d-and-d:
         style: brands
   label: Dungeons & Dragons
   search:
-    terms: []
+    terms: [ ]
   unicode: f38d
   voted: false
 d-and-d-beyond:
@@ -14448,7 +14448,7 @@ dailymotion:
         style: brands
   label: dailymotion
   search:
-    terms: []
+    terms: [ ]
   unicode: e052
   voted: true
 dart-lang:
@@ -14463,7 +14463,7 @@ dart-lang:
         style: brands
   label: Dart Lang
   search:
-    terms: []
+    terms: [ ]
   unicode: e693
   voted: false
 dashcube:
@@ -14480,7 +14480,7 @@ dashcube:
         style: brands
   label: DashCube
   search:
-    terms: []
+    terms: [ ]
   unicode: f210
   voted: false
 database:
@@ -14530,7 +14530,7 @@ debian:
         style: brands
   label: Debian
   search:
-    terms: []
+    terms: [ ]
   unicode: e60b
   voted: false
 deezer:
@@ -14546,7 +14546,7 @@ deezer:
         style: brands
   label: Deezer
   search:
-    terms: []
+    terms: [ ]
   unicode: e077
   voted: true
 delete-left:
@@ -14599,7 +14599,7 @@ delicious:
         style: brands
   label: Delicious
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a5
   voted: false
 democrat:
@@ -14648,7 +14648,7 @@ deploydog:
         style: brands
   label: deploy.dog
   search:
-    terms: []
+    terms: [ ]
   unicode: f38e
   voted: false
 deskpro:
@@ -14663,7 +14663,7 @@ deskpro:
         style: brands
   label: Deskpro
   search:
-    terms: []
+    terms: [ ]
   unicode: f38f
   voted: false
 desktop:
@@ -14723,7 +14723,7 @@ dev:
         style: brands
   label: DEV
   search:
-    terms: []
+    terms: [ ]
   unicode: f6cc
   voted: true
 deviantart:
@@ -14739,7 +14739,7 @@ deviantart:
         style: brands
   label: deviantART
   search:
-    terms: []
+    terms: [ ]
   unicode: f1bd
   voted: false
 dharmachakra:
@@ -14997,7 +14997,7 @@ diaspora:
         style: brands
   label: Diaspora
   search:
-    terms: []
+    terms: [ ]
   unicode: f791
   voted: true
 dice:
@@ -15305,7 +15305,7 @@ digg:
         style: brands
   label: Digg Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a6
   voted: false
 digital-ocean:
@@ -15321,7 +15321,7 @@ digital-ocean:
         style: brands
   label: Digital Ocean
   search:
-    terms: []
+    terms: [ ]
   unicode: f391
   voted: false
 discord:
@@ -15338,7 +15338,7 @@ discord:
         style: brands
   label: Discord
   search:
-    terms: []
+    terms: [ ]
   unicode: f392
   voted: false
 discourse:
@@ -15354,7 +15354,7 @@ discourse:
         style: brands
   label: Discourse
   search:
-    terms: []
+    terms: [ ]
   unicode: f393
   voted: false
 disease:
@@ -15504,7 +15504,7 @@ dochub:
         style: brands
   label: DocHub
   search:
-    terms: []
+    terms: [ ]
   unicode: f394
   voted: false
 docker:
@@ -15519,7 +15519,7 @@ docker:
         style: brands
   label: Docker
   search:
-    terms: []
+    terms: [ ]
   unicode: f395
   voted: false
 dog:
@@ -15869,7 +15869,7 @@ draft2digital:
         style: brands
   label: Draft2digital
   search:
-    terms: []
+    terms: [ ]
   unicode: f396
   voted: false
 dragon:
@@ -15951,7 +15951,7 @@ dribbble:
         style: brands
   label: Dribbble
   search:
-    terms: []
+    terms: [ ]
   unicode: f17d
   voted: false
 dropbox:
@@ -15968,7 +15968,7 @@ dropbox:
         style: brands
   label: Dropbox
   search:
-    terms: []
+    terms: [ ]
   unicode: f16b
   voted: false
 droplet:
@@ -16164,7 +16164,7 @@ drupal:
         style: brands
   label: Drupal Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a9
   voted: false
 dumbbell:
@@ -16311,7 +16311,7 @@ dyalog:
         style: brands
   label: Dyalog
   search:
-    terms: []
+    terms: [ ]
   unicode: f399
   voted: false
 e:
@@ -16421,7 +16421,7 @@ earlybirds:
         style: brands
   label: Earlybirds
   search:
-    terms: []
+    terms: [ ]
   unicode: f39a
   voted: false
 earth-africa:
@@ -16679,7 +16679,7 @@ ebay:
         style: brands
   label: eBay
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f4
   voted: true
 edge:
@@ -16715,7 +16715,7 @@ edge-legacy:
         style: brands
   label: Edge Legacy Browser
   search:
-    terms: []
+    terms: [ ]
   unicode: e078
   voted: false
 egg:
@@ -16800,7 +16800,7 @@ elementor:
         style: brands
   label: Elementor
   search:
-    terms: []
+    terms: [ ]
   unicode: f430
   voted: true
 elevator:
@@ -16925,7 +16925,7 @@ ello:
         style: brands
   label: Ello
   search:
-    terms: []
+    terms: [ ]
   unicode: f5f1
   voted: true
 ember:
@@ -16941,7 +16941,7 @@ ember:
         style: brands
   label: Ember
   search:
-    terms: []
+    terms: [ ]
   unicode: f423
   voted: false
 empire:
@@ -16957,7 +16957,7 @@ empire:
         style: brands
   label: Galactic Empire
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d1
   voted: false
 envelope:
@@ -17258,7 +17258,7 @@ erlang:
         style: brands
   label: Erlang
   search:
-    terms: []
+    terms: [ ]
   unicode: f39d
   voted: false
 ethereum:
@@ -17273,7 +17273,7 @@ ethereum:
         style: brands
   label: Ethereum
   search:
-    terms: []
+    terms: [ ]
   unicode: f42e
   voted: true
 ethernet:
@@ -17322,7 +17322,7 @@ etsy:
         style: brands
   label: Etsy
   search:
-    terms: []
+    terms: [ ]
   unicode: f2d7
   voted: false
 euro-sign:
@@ -17371,7 +17371,7 @@ evernote:
         style: brands
   label: Evernote
   search:
-    terms: []
+    terms: [ ]
   unicode: f839
   voted: false
 exclamation:
@@ -17478,7 +17478,7 @@ expeditedssl:
         style: brands
   label: ExpeditedSSL
   search:
-    terms: []
+    terms: [ ]
   unicode: f23e
   voted: false
 explosion:
@@ -21122,7 +21122,7 @@ first-order:
         style: brands
   label: First Order
   search:
-    terms: []
+    terms: [ ]
   unicode: f2b0
   voted: false
 first-order-alt:
@@ -21137,7 +21137,7 @@ first-order-alt:
         style: brands
   label: Alternate First Order
   search:
-    terms: []
+    terms: [ ]
   unicode: f50a
   voted: false
 firstdraft:
@@ -21152,7 +21152,7 @@ firstdraft:
         style: brands
   label: firstdraft
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a1
   voted: false
 fish:
@@ -21420,7 +21420,7 @@ flickr:
         style: brands
   label: Flickr
   search:
-    terms: []
+    terms: [ ]
   unicode: f16e
   voted: false
 flipboard:
@@ -21436,7 +21436,7 @@ flipboard:
         style: brands
   label: Flipboard
   search:
-    terms: []
+    terms: [ ]
   unicode: f44d
   voted: true
 floppy-disk:
@@ -21516,7 +21516,7 @@ flutter:
         style: brands
   label: Flutter
   search:
-    terms: []
+    terms: [ ]
   unicode: e694
   voted: false
 fly:
@@ -21531,7 +21531,7 @@ fly:
         style: brands
   label: Fly
   search:
-    terms: []
+    terms: [ ]
   unicode: f417
   voted: false
 folder:
@@ -21845,7 +21845,7 @@ fonticons:
         style: brands
   label: Fonticons
   search:
-    terms: []
+    terms: [ ]
   unicode: f280
   voted: false
 fonticons-fi:
@@ -21860,7 +21860,7 @@ fonticons-fi:
         style: brands
   label: Fonticons Fi
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a2
   voted: false
 football:
@@ -21949,7 +21949,7 @@ forumbee:
         style: brands
   label: Forumbee
   search:
-    terms: []
+    terms: [ ]
   unicode: f211
   voted: false
 forward:
@@ -22073,7 +22073,7 @@ foursquare:
         style: brands
   label: Foursquare
   search:
-    terms: []
+    terms: [ ]
   unicode: f180
   voted: false
 franc-sign:
@@ -22113,7 +22113,7 @@ free-code-camp:
         style: brands
   label: freeCodeCamp
   search:
-    terms: []
+    terms: [ ]
   unicode: f2c5
   voted: false
 freebsd:
@@ -22128,7 +22128,7 @@ freebsd:
         style: brands
   label: FreeBSD
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a4
   voted: false
 frog:
@@ -22179,7 +22179,7 @@ fulcrum:
         style: brands
   label: Fulcrum
   search:
-    terms: []
+    terms: [ ]
   unicode: f50b
   voted: false
 futbol:
@@ -22706,7 +22706,7 @@ get-pocket:
         style: brands
   label: Get Pocket
   search:
-    terms: []
+    terms: [ ]
   unicode: f265
   voted: false
 gg:
@@ -22722,7 +22722,7 @@ gg:
         style: brands
   label: GG Currency
   search:
-    terms: []
+    terms: [ ]
   unicode: f260
   voted: false
 gg-circle:
@@ -22738,7 +22738,7 @@ gg-circle:
         style: brands
   label: GG Currency Circle
   search:
-    terms: []
+    terms: [ ]
   unicode: f261
   voted: false
 ghost:
@@ -22875,7 +22875,7 @@ git:
         style: brands
   label: Git
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d3
   voted: false
 git-alt:
@@ -22890,7 +22890,7 @@ git-alt:
         style: brands
   label: Git Alt
   search:
-    terms: []
+    terms: [ ]
   unicode: f841
   voted: false
 github:
@@ -22939,7 +22939,7 @@ gitkraken:
         style: brands
   label: GitKraken
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a6
   voted: false
 gitlab:
@@ -22974,7 +22974,7 @@ gitter:
         style: brands
   label: Gitter
   search:
-    terms: []
+    terms: [ ]
   unicode: f426
   voted: false
 glass-water:
@@ -23067,7 +23067,7 @@ glide:
         style: brands
   label: Glide
   search:
-    terms: []
+    terms: [ ]
   unicode: f2a5
   voted: false
 glide-g:
@@ -23083,7 +23083,7 @@ glide-g:
         style: brands
   label: Glide G
   search:
-    terms: []
+    terms: [ ]
   unicode: f2a6
   voted: false
 globe:
@@ -23152,7 +23152,7 @@ gofore:
         style: brands
   label: Gofore
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a7
   voted: false
 golang:
@@ -23167,7 +23167,7 @@ golang:
         style: brands
   label: Go
   search:
-    terms: []
+    terms: [ ]
   unicode: e40f
   voted: true
 golf-ball-tee:
@@ -23213,7 +23213,7 @@ goodreads:
         style: brands
   label: Goodreads
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a8
   voted: false
 goodreads-g:
@@ -23228,7 +23228,7 @@ goodreads-g:
         style: brands
   label: Goodreads G
   search:
-    terms: []
+    terms: [ ]
   unicode: f3a9
   voted: false
 google:
@@ -23244,7 +23244,7 @@ google:
         style: brands
   label: Google Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a0
   voted: false
 google-drive:
@@ -23259,7 +23259,7 @@ google-drive:
         style: brands
   label: Google Drive
   search:
-    terms: []
+    terms: [ ]
   unicode: f3aa
   voted: false
 google-pay:
@@ -23275,7 +23275,7 @@ google-pay:
         style: brands
   label: Google Pay
   search:
-    terms: []
+    terms: [ ]
   unicode: e079
   voted: false
 google-play:
@@ -23343,7 +23343,7 @@ google-scholar:
         style: brands
   label: Google Scholar
   search:
-    terms: []
+    terms: [ ]
   unicode: e63b
   voted: false
 google-wallet:
@@ -23359,7 +23359,7 @@ google-wallet:
         style: brands
   label: Google Wallet
   search:
-    terms: []
+    terms: [ ]
   unicode: f1ee
   voted: false
 gopuram:
@@ -23472,7 +23472,7 @@ grav:
         style: brands
   label: Grav
   search:
-    terms: []
+    terms: [ ]
   unicode: f2d6
   voted: false
 greater-than:
@@ -23677,7 +23677,7 @@ gripfire:
         style: brands
   label: 'Gripfire, Inc.'
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ac
   voted: false
 group-arrows-rotate:
@@ -23716,7 +23716,7 @@ grunt:
         style: brands
   label: Grunt
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ad
   voted: false
 guarani-sign:
@@ -23754,7 +23754,7 @@ guilded:
         style: brands
   label: Guilded
   search:
-    terms: []
+    terms: [ ]
   unicode: e07e
   voted: false
 guitar:
@@ -23802,7 +23802,7 @@ gulp:
         style: brands
   label: Gulp
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ae
   voted: false
 gun:
@@ -23868,7 +23868,7 @@ hacker-news:
         style: brands
   label: Hacker News
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d4
   voted: false
 hackerrank:
@@ -23884,7 +23884,7 @@ hackerrank:
         style: brands
   label: Hackerrank
   search:
-    terms: []
+    terms: [ ]
   unicode: f5f7
   voted: true
 hammer:
@@ -25259,7 +25259,7 @@ hashnode:
         style: brands
   label: Hashnode
   search:
-    terms: []
+    terms: [ ]
   unicode: e499
   voted: false
 hashtag:
@@ -26228,7 +26228,7 @@ hips:
         style: brands
   label: Hips
   search:
-    terms: []
+    terms: [ ]
   unicode: f452
   voted: false
 hire-a-helper:
@@ -26243,7 +26243,7 @@ hire-a-helper:
         style: brands
   label: HireAHelper
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b0
   voted: false
 hive:
@@ -26258,7 +26258,7 @@ hive:
         style: brands
   label: Hive Blockchain Network
   search:
-    terms: []
+    terms: [ ]
   unicode: e07f
   voted: false
 hockey-puck:
@@ -26337,7 +26337,7 @@ hooli:
         style: brands
   label: Hooli
   search:
-    terms: []
+    terms: [ ]
   unicode: f427
   voted: false
 hornbill:
@@ -26353,7 +26353,7 @@ hornbill:
         style: brands
   label: Hornbill
   search:
-    terms: []
+    terms: [ ]
   unicode: f592
   voted: false
 horse:
@@ -26622,7 +26622,7 @@ hotjar:
         style: brands
   label: Hotjar
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b1
   voted: false
 hourglass:
@@ -27517,7 +27517,7 @@ houzz:
         style: brands
   label: Houzz
   search:
-    terms: []
+    terms: [ ]
   unicode: f27c
   voted: false
 hryvnia-sign:
@@ -27565,7 +27565,7 @@ html5:
         style: brands
   label: HTML 5 Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f13b
   voted: false
 hubspot:
@@ -27580,7 +27580,7 @@ hubspot:
         style: brands
   label: HubSpot
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b2
   voted: false
 hurricane:
@@ -27914,7 +27914,7 @@ ideal:
         style: brands
   label: iDeal
   search:
-    terms: []
+    terms: [ ]
   unicode: e013
   voted: true
 igloo:
@@ -28072,7 +28072,7 @@ imdb:
         style: brands
   label: IMDB
   search:
-    terms: []
+    terms: [ ]
   unicode: f2d8
   voted: false
 inbox:
@@ -28282,7 +28282,7 @@ instagram:
         style: brands
   label: Instagram
   search:
-    terms: []
+    terms: [ ]
   unicode: f16d
   voted: false
 instalod:
@@ -28297,7 +28297,7 @@ instalod:
         style: brands
   label: InstaLOD
   search:
-    terms: []
+    terms: [ ]
   unicode: e081
   voted: false
 intercom:
@@ -28367,7 +28367,7 @@ ioxhost:
         style: brands
   label: ioxhost
   search:
-    terms: []
+    terms: [ ]
   unicode: f208
   voted: false
 italic:
@@ -28417,7 +28417,7 @@ itch-io:
         style: brands
   label: itch.io
   search:
-    terms: []
+    terms: [ ]
   unicode: f83a
   voted: false
 itunes:
@@ -28432,7 +28432,7 @@ itunes:
         style: brands
   label: iTunes
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b4
   voted: false
 itunes-note:
@@ -28447,7 +28447,7 @@ itunes-note:
         style: brands
   label: Itunes Note
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b5
   voted: false
 j:
@@ -28536,7 +28536,7 @@ java:
         style: brands
   label: Java
   search:
-    terms: []
+    terms: [ ]
   unicode: f4e4
   voted: false
 jedi:
@@ -28599,7 +28599,7 @@ jenkins:
         style: brands
   label: Jenkis
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b6
   voted: false
 jet-fighter:
@@ -28708,7 +28708,7 @@ joget:
         style: brands
   label: Joget
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b7
   voted: false
 joint:
@@ -28758,7 +28758,7 @@ joomla:
         style: brands
   label: Joomla Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1aa
   voted: false
 js:
@@ -28773,7 +28773,7 @@ js:
         style: brands
   label: JavaScript (JS)
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b8
   voted: false
 jsfiddle:
@@ -28789,7 +28789,7 @@ jsfiddle:
         style: brands
   label: jsFiddle
   search:
-    terms: []
+    terms: [ ]
   unicode: f1cc
   voted: false
 jug-detergent:
@@ -28828,7 +28828,7 @@ jxl:
         style: brands
   label: JXL
   search:
-    terms: []
+    terms: [ ]
   unicode: e67b
   voted: false
 k:
@@ -28907,7 +28907,7 @@ kaggle:
         style: brands
   label: Kaggle
   search:
-    terms: []
+    terms: [ ]
   unicode: f5fa
   voted: true
 key:
@@ -28961,7 +28961,7 @@ keybase:
         style: brands
   label: Keybase
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f5
   voted: true
 keyboard:
@@ -29016,7 +29016,7 @@ keycdn:
         style: brands
   label: KeyCDN
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ba
   voted: false
 khanda:
@@ -29067,7 +29067,7 @@ kickstarter:
         style: brands
   label: Kickstarter
   search:
-    terms: []
+    terms: [ ]
   unicode: f3bb
   voted: false
 kickstarter-k:
@@ -29083,7 +29083,7 @@ kickstarter-k:
         style: brands
   label: Kickstarter K
   search:
-    terms: []
+    terms: [ ]
   unicode: f3bc
   voted: false
 kip-sign:
@@ -29209,7 +29209,7 @@ korvue:
         style: brands
   label: KORVUE
   search:
-    terms: []
+    terms: [ ]
   unicode: f42f
   voted: false
 l:
@@ -29544,7 +29544,7 @@ laravel:
         style: brands
   label: Laravel
   search:
-    terms: []
+    terms: [ ]
   unicode: f3bd
   voted: false
 lari-sign:
@@ -29583,7 +29583,7 @@ lastfm:
         style: brands
   label: last.fm
   search:
-    terms: []
+    terms: [ ]
   unicode: f202
   voted: false
 layer-group:
@@ -29664,7 +29664,7 @@ leanpub:
         style: brands
   label: Leanpub
   search:
-    terms: []
+    terms: [ ]
   unicode: f212
   voted: false
 left-long:
@@ -29784,7 +29784,7 @@ less:
         style: brands
   label: Less
   search:
-    terms: []
+    terms: [ ]
   unicode: f41d
   voted: false
 less-than:
@@ -29861,7 +29861,7 @@ letterboxd:
         style: brands
   label: Letterboxd
   search:
-    terms: []
+    terms: [ ]
   unicode: e62d
   voted: false
 life-ring:
@@ -29961,7 +29961,7 @@ line:
         style: brands
   label: Line
   search:
-    terms: []
+    terms: [ ]
   unicode: f3c0
   voted: false
 lines-leaning:
@@ -30117,7 +30117,7 @@ linode:
         style: brands
   label: Linode
   search:
-    terms: []
+    terms: [ ]
   unicode: f2b8
   voted: false
 linux:
@@ -30730,7 +30730,7 @@ lyft:
         style: brands
   label: lyft
   search:
-    terms: []
+    terms: [ ]
   unicode: f3c3
   voted: false
 m:
@@ -30773,7 +30773,7 @@ magento:
         style: brands
   label: Magento
   search:
-    terms: []
+    terms: [ ]
   unicode: f3c4
   voted: false
 magnet:
@@ -31063,7 +31063,7 @@ mailchimp:
         style: brands
   label: Mailchimp
   search:
-    terms: []
+    terms: [ ]
   unicode: f59e
   voted: true
 manat-sign:
@@ -31102,7 +31102,7 @@ mandalorian:
         style: brands
   label: Mandalorian
   search:
-    terms: []
+    terms: [ ]
   unicode: f50f
   voted: false
 map:
@@ -31302,7 +31302,7 @@ markdown:
         style: brands
   label: Markdown
   search:
-    terms: []
+    terms: [ ]
   unicode: f60f
   voted: true
 marker:
@@ -31806,7 +31806,7 @@ mastodon:
         style: brands
   label: Mastodon
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f6
   voted: true
 mattress-pillow:
@@ -31847,7 +31847,7 @@ maxcdn:
         style: brands
   label: MaxCDN
   search:
-    terms: []
+    terms: [ ]
   unicode: f136
   voted: false
 maximize:
@@ -31900,7 +31900,7 @@ mdb:
         style: brands
   label: Material Design for Bootstrap
   search:
-    terms: []
+    terms: [ ]
   unicode: f8ca
   voted: false
 medal:
@@ -31951,7 +31951,7 @@ medapps:
         style: brands
   label: MedApps
   search:
-    terms: []
+    terms: [ ]
   unicode: f3c6
   voted: false
 medium:
@@ -31974,7 +31974,7 @@ medium:
         style: brands
   label: Medium
   search:
-    terms: []
+    terms: [ ]
   unicode: f23a
   voted: false
 medrt:
@@ -31989,7 +31989,7 @@ medrt:
         style: brands
   label: MRT
   search:
-    terms: []
+    terms: [ ]
   unicode: f3c8
   voted: false
 meetup:
@@ -32005,7 +32005,7 @@ meetup:
         style: brands
   label: Meetup
   search:
-    terms: []
+    terms: [ ]
   unicode: f2e0
   voted: false
 megaport:
@@ -32020,7 +32020,7 @@ megaport:
         style: brands
   label: Megaport
   search:
-    terms: []
+    terms: [ ]
   unicode: f5a3
   voted: false
 memory:
@@ -32065,7 +32065,7 @@ mendeley:
         style: brands
   label: Mendeley
   search:
-    terms: []
+    terms: [ ]
   unicode: f7b3
   voted: true
 menorah:
@@ -32194,7 +32194,7 @@ meta:
         style: brands
   label: Meta
   search:
-    terms: []
+    terms: [ ]
   unicode: e49b
   voted: false
 meteor:
@@ -32243,7 +32243,7 @@ microblog:
         style: brands
   label: Micro.blog
   search:
-    terms: []
+    terms: [ ]
   unicode: e01a
   voted: true
 microchip:
@@ -32478,7 +32478,7 @@ microsoft:
         style: brands
   label: Microsoft
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ca
   voted: true
 mill-sign:
@@ -32550,7 +32550,7 @@ mintbit:
         style: brands
   label: Mintbit
   search:
-    terms: []
+    terms: [ ]
   unicode: e62f
   voted: false
 minus:
@@ -32643,7 +32643,7 @@ mix:
         style: brands
   label: Mix
   search:
-    terms: []
+    terms: [ ]
   unicode: f3cb
   voted: false
 mixcloud:
@@ -32660,7 +32660,7 @@ mixcloud:
         style: brands
   label: Mixcloud
   search:
-    terms: []
+    terms: [ ]
   unicode: f289
   voted: false
 mixer:
@@ -32676,7 +32676,7 @@ mixer:
         style: brands
   label: Mixer
   search:
-    terms: []
+    terms: [ ]
   unicode: e056
   voted: true
 mizuni:
@@ -32691,7 +32691,7 @@ mizuni:
         style: brands
   label: Mizuni
   search:
-    terms: []
+    terms: [ ]
   unicode: f3cc
   voted: false
 mobile:
@@ -32877,7 +32877,7 @@ modx:
         style: brands
   label: MODX
   search:
-    terms: []
+    terms: [ ]
   unicode: f285
   voted: false
 monero:
@@ -32892,7 +32892,7 @@ monero:
         style: brands
   label: Monero
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d0
   voted: false
 money-bill:
@@ -33750,7 +33750,7 @@ napster:
         style: brands
   label: Napster
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d2
   voted: false
 neos:
@@ -33766,7 +33766,7 @@ neos:
         style: brands
   label: Neos
   search:
-    terms: []
+    terms: [ ]
   unicode: f612
   voted: true
 network-wired:
@@ -33937,7 +33937,7 @@ nimblr:
         style: brands
   label: Nimblr
   search:
-    terms: []
+    terms: [ ]
   unicode: f5a8
   voted: false
 node:
@@ -33952,7 +33952,7 @@ node:
         style: brands
   label: Node.js
   search:
-    terms: []
+    terms: [ ]
   unicode: f419
   voted: true
 node-js:
@@ -33968,7 +33968,7 @@ node-js:
         style: brands
   label: Node.js JS
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d3
   voted: false
 not-equal:
@@ -34109,7 +34109,7 @@ npm:
         style: brands
   label: npm
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d4
   voted: false
 ns8:
@@ -34125,7 +34125,7 @@ ns8:
         style: brands
   label: NS8
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d5
   voted: false
 nutritionix:
@@ -34140,7 +34140,7 @@ nutritionix:
         style: brands
   label: Nutritionix
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d6
   voted: false
 o:
@@ -34256,7 +34256,7 @@ octopus-deploy:
         style: brands
   label: Octopus Deploy
   search:
-    terms: []
+    terms: [ ]
   unicode: e082
   voted: false
 odnoklassniki:
@@ -34272,7 +34272,7 @@ odnoklassniki:
         style: brands
   label: Odnoklassniki
   search:
-    terms: []
+    terms: [ ]
   unicode: f263
   voted: false
 odysee:
@@ -34288,7 +34288,7 @@ odysee:
         style: brands
   label: Odysee
   search:
-    terms: []
+    terms: [ ]
   unicode: e5c6
   voted: false
 oil-can:
@@ -34411,7 +34411,7 @@ opencart:
         style: brands
   label: OpenCart
   search:
-    terms: []
+    terms: [ ]
   unicode: f23d
   voted: false
 openid:
@@ -34427,7 +34427,7 @@ openid:
         style: brands
   label: OpenID
   search:
-    terms: []
+    terms: [ ]
   unicode: f19b
   voted: false
 opensuse:
@@ -34442,7 +34442,7 @@ opensuse:
         style: brands
   label: Opensuse
   search:
-    terms: []
+    terms: [ ]
   unicode: e62b
   voted: false
 opera:
@@ -34458,7 +34458,7 @@ opera:
         style: brands
   label: Opera
   search:
-    terms: []
+    terms: [ ]
   unicode: f26a
   voted: false
 optin-monster:
@@ -34475,7 +34475,7 @@ optin-monster:
         style: brands
   label: Optin Monster
   search:
-    terms: []
+    terms: [ ]
   unicode: f23c
   voted: false
 orcid:
@@ -34490,7 +34490,7 @@ orcid:
         style: brands
   label: ORCID
   search:
-    terms: []
+    terms: [ ]
   unicode: f8d2
   voted: false
 osi:
@@ -34506,7 +34506,7 @@ osi:
         style: brands
   label: Open Source Initiative
   search:
-    terms: []
+    terms: [ ]
   unicode: f41a
   voted: false
 otter:
@@ -34619,7 +34619,7 @@ padlet:
         style: brands
   label: Padlet
   search:
-    terms: []
+    terms: [ ]
   unicode: e4a0
   voted: false
 page4:
@@ -34634,7 +34634,7 @@ page4:
         style: brands
   label: page4 Corporation
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d7
   voted: false
 pagelines:
@@ -34823,7 +34823,7 @@ palfed:
         style: brands
   label: Palfed
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d8
   voted: false
 pallet:
@@ -35103,7 +35103,7 @@ patreon:
         style: brands
   label: Patreon
   search:
-    terms: []
+    terms: [ ]
   unicode: f3d9
   voted: false
 pause:
@@ -35187,7 +35187,7 @@ paypal:
         style: brands
   label: Paypal
   search:
-    terms: []
+    terms: [ ]
   unicode: f1ed
   voted: false
 peace:
@@ -35740,7 +35740,7 @@ perbyte:
         style: brands
   label: PerByte
   search:
-    terms: []
+    terms: [ ]
   unicode: e083
   voted: false
 percent:
@@ -35797,7 +35797,7 @@ periscope:
         style: brands
   label: Periscope
   search:
-    terms: []
+    terms: [ ]
   unicode: f3da
   voted: false
 person:
@@ -37191,7 +37191,7 @@ phabricator:
         style: brands
   label: Phabricator
   search:
-    terms: []
+    terms: [ ]
   unicode: f3db
   voted: false
 phoenix-framework:
@@ -37207,7 +37207,7 @@ phoenix-framework:
         style: brands
   label: Phoenix Framework
   search:
-    terms: []
+    terms: [ ]
   unicode: f3dc
   voted: false
 phoenix-squadron:
@@ -37223,7 +37223,7 @@ phoenix-squadron:
         style: brands
   label: Phoenix Squadron
   search:
-    terms: []
+    terms: [ ]
   unicode: f511
   voted: false
 phone:
@@ -37429,7 +37429,7 @@ php:
         style: brands
   label: PHP
   search:
-    terms: []
+    terms: [ ]
   unicode: f457
   voted: true
 pied-piper:
@@ -37447,7 +37447,7 @@ pied-piper:
         style: brands
   label: Pied Piper Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f2ae
   voted: false
 pied-piper-alt:
@@ -37464,7 +37464,7 @@ pied-piper-alt:
         style: brands
   label: Alternate Pied Piper Logo (Old)
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a8
   voted: false
 pied-piper-hat:
@@ -37496,7 +37496,7 @@ pied-piper-pp:
         style: brands
   label: Pied Piper PP Logo (Old)
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a7
   voted: false
 piggy-bank:
@@ -37572,7 +37572,7 @@ pinterest:
         style: brands
   label: Pinterest
   search:
-    terms: []
+    terms: [ ]
   unicode: f0d2
   voted: false
 pinterest-p:
@@ -37588,7 +37588,7 @@ pinterest-p:
         style: brands
   label: Pinterest P
   search:
-    terms: []
+    terms: [ ]
   unicode: f231
   voted: false
 pix:
@@ -37603,7 +37603,7 @@ pix:
         style: brands
   label: Pix
   search:
-    terms: []
+    terms: [ ]
   unicode: e43a
   voted: true
 pixiv:
@@ -37618,7 +37618,7 @@ pixiv:
         style: brands
   label: Pixiv
   search:
-    terms: []
+    terms: [ ]
   unicode: e640
   voted: false
 pizza-slice:
@@ -38101,7 +38101,7 @@ playstation:
         style: brands
   label: PlayStation
   search:
-    terms: []
+    terms: [ ]
   unicode: f3df
   voted: false
 plug:
@@ -38689,7 +38689,7 @@ product-hunt:
         style: brands
   label: Product Hunt
   search:
-    terms: []
+    terms: [ ]
   unicode: f288
   voted: false
 pump-medical:
@@ -38771,7 +38771,7 @@ pushed:
         style: brands
   label: Pushed
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e1
   voted: false
 puzzle-piece:
@@ -38825,7 +38825,7 @@ python:
         style: brands
   label: Python
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e2
   voted: false
 q:
@@ -38868,7 +38868,7 @@ qq:
         style: brands
   label: QQ
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d6
   voted: false
 qrcode:
@@ -38964,7 +38964,7 @@ quinscape:
         style: brands
   label: QuinScape
   search:
-    terms: []
+    terms: [ ]
   unicode: f459
   voted: false
 quora:
@@ -38980,7 +38980,7 @@ quora:
         style: brands
   label: Quora
   search:
-    terms: []
+    terms: [ ]
   unicode: f2c4
   voted: false
 quote-left:
@@ -39097,7 +39097,7 @@ r-project:
         style: brands
   label: R Project
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f7
   voted: true
 radiation:
@@ -39247,7 +39247,7 @@ raspberry-pi:
         style: brands
   label: Raspberry Pi
   search:
-    terms: []
+    terms: [ ]
   unicode: f7bb
   voted: true
 ravelry:
@@ -39264,7 +39264,7 @@ ravelry:
         style: brands
   label: Ravelry
   search:
-    terms: []
+    terms: [ ]
   unicode: f2d9
   voted: false
 react:
@@ -39279,7 +39279,7 @@ react:
         style: brands
   label: React
   search:
-    terms: []
+    terms: [ ]
   unicode: f41b
   voted: false
 reacteurope:
@@ -39295,7 +39295,7 @@ reacteurope:
         style: brands
   label: ReactEurope
   search:
-    terms: []
+    terms: [ ]
   unicode: f75d
   voted: false
 readme:
@@ -39311,7 +39311,7 @@ readme:
         style: brands
   label: ReadMe
   search:
-    terms: []
+    terms: [ ]
   unicode: f4d5
   voted: false
 rebel:
@@ -39327,7 +39327,7 @@ rebel:
         style: brands
   label: Rebel Alliance
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d0
   voted: false
 receipt:
@@ -39569,7 +39569,7 @@ red-river:
         style: brands
   label: red river
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e3
   voted: false
 reddit:
@@ -39586,7 +39586,7 @@ reddit:
         style: brands
   label: Reddit
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a1
   voted: false
 reddit-alien:
@@ -39603,7 +39603,7 @@ reddit-alien:
         style: brands
   label: Reddit Alien
   search:
-    terms: []
+    terms: [ ]
   unicode: f281
   voted: false
 redhat:
@@ -39676,7 +39676,7 @@ renren:
         style: brands
   label: Renren
   search:
-    terms: []
+    terms: [ ]
   unicode: f18b
   voted: false
 repeat:
@@ -39794,7 +39794,7 @@ replyd:
         style: brands
   label: replyd
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e6
   voted: false
 republican:
@@ -39843,7 +39843,7 @@ researchgate:
         style: brands
   label: Researchgate
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f8
   voted: true
 resolving:
@@ -39858,7 +39858,7 @@ resolving:
         style: brands
   label: Resolving
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e7
   voted: false
 restroom:
@@ -39937,7 +39937,7 @@ rev:
         style: brands
   label: Rev.io
   search:
-    terms: []
+    terms: [ ]
   unicode: f5b2
   voted: false
 ribbon:
@@ -40456,7 +40456,7 @@ rocketchat:
         style: brands
   label: Rocket.Chat
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e8
   voted: false
 rockrms:
@@ -40471,7 +40471,7 @@ rockrms:
         style: brands
   label: Rockrms
   search:
-    terms: []
+    terms: [ ]
   unicode: f3e9
   voted: false
 rotate:
@@ -40902,7 +40902,7 @@ rust:
         style: brands
   label: Rust
   search:
-    terms: []
+    terms: [ ]
   unicode: e07a
   voted: true
 s:
@@ -41058,7 +41058,7 @@ salesforce:
         style: brands
   label: Salesforce
   search:
-    terms: []
+    terms: [ ]
   unicode: f83b
   voted: false
 sass:
@@ -41074,7 +41074,7 @@ sass:
         style: brands
   label: Sass
   search:
-    terms: []
+    terms: [ ]
   unicode: f41e
   voted: false
 satellite:
@@ -41274,7 +41274,7 @@ schlix:
         style: brands
   label: SCHLIX
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ea
   voted: false
 school:
@@ -41496,7 +41496,7 @@ screenpal:
         style: brands
   label: Screenpal
   search:
-    terms: []
+    terms: [ ]
   unicode: e570
   voted: false
 screwdriver:
@@ -41590,7 +41590,7 @@ scribd:
         style: brands
   label: Scribd
   search:
-    terms: []
+    terms: [ ]
   unicode: f28a
   voted: false
 scroll:
@@ -41707,7 +41707,7 @@ searchengin:
         style: brands
   label: Searchengin
   search:
-    terms: []
+    terms: [ ]
   unicode: f3eb
   voted: false
 section:
@@ -41801,7 +41801,7 @@ sellsy:
         style: brands
   label: Sellsy
   search:
-    terms: []
+    terms: [ ]
   unicode: f213
   voted: false
 server:
@@ -41849,7 +41849,7 @@ servicestack:
         style: brands
   label: Servicestack
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ec
   voted: false
 shapes:
@@ -42352,7 +42352,7 @@ shirtsinbulk:
         style: brands
   label: Shirts in Bulk
   search:
-    terms: []
+    terms: [ ]
   unicode: f214
   voted: false
 shoe-prints:
@@ -42397,7 +42397,7 @@ shoelace:
         style: brands
   label: Shoelace
   search:
-    terms: []
+    terms: [ ]
   unicode: e60c
   voted: false
 shop:
@@ -42519,7 +42519,7 @@ shopify:
         style: brands
   label: Shopify
   search:
-    terms: []
+    terms: [ ]
   unicode: e057
   voted: false
 shopware:
@@ -42535,7 +42535,7 @@ shopware:
         style: brands
   label: Shopware
   search:
-    terms: []
+    terms: [ ]
   unicode: f5b5
   voted: false
 shower:
@@ -42767,7 +42767,7 @@ signal-messenger:
         style: brands
   label: Signal Messenger
   search:
-    terms: []
+    terms: [ ]
   unicode: e663
   voted: false
 signature:
@@ -42883,7 +42883,7 @@ simplybuilt:
         style: brands
   label: SimplyBuilt
   search:
-    terms: []
+    terms: [ ]
   unicode: f215
   voted: false
 sink:
@@ -42930,7 +42930,7 @@ sistrix:
         style: brands
   label: SISTRIX
   search:
-    terms: []
+    terms: [ ]
   unicode: f3ee
   voted: false
 sitemap:
@@ -42978,7 +42978,7 @@ sith:
         style: brands
   label: Sith
   search:
-    terms: []
+    terms: [ ]
   unicode: f512
   voted: false
 sitrox:
@@ -42993,7 +42993,7 @@ sitrox:
         style: brands
   label: Sitrox
   search:
-    terms: []
+    terms: [ ]
   unicode: e44a
   voted: false
 sketch:
@@ -43123,7 +43123,7 @@ skyatlas:
         style: brands
   label: skyatlas
   search:
-    terms: []
+    terms: [ ]
   unicode: f216
   voted: false
 skype:
@@ -43139,7 +43139,7 @@ skype:
         style: brands
   label: Skype
   search:
-    terms: []
+    terms: [ ]
   unicode: f17e
   voted: false
 slack:
@@ -43284,7 +43284,7 @@ slideshare:
         style: brands
   label: Slideshare
   search:
-    terms: []
+    terms: [ ]
   unicode: f1e7
   voted: false
 smog:
@@ -43371,7 +43371,7 @@ snapchat:
         style: brands
   label: Snapchat
   search:
-    terms: []
+    terms: [ ]
   unicode: f2ab
   voted: false
 snowflake:
@@ -43706,7 +43706,7 @@ soundcloud:
         style: brands
   label: Soundcloud
   search:
-    terms: []
+    terms: [ ]
   unicode: f1be
   voted: false
 sourcetree:
@@ -43722,7 +43722,7 @@ sourcetree:
         style: brands
   label: Sourcetree
   search:
-    terms: []
+    terms: [ ]
   unicode: f7d3
   voted: true
 spa:
@@ -43819,7 +43819,7 @@ speakap:
         style: brands
   label: Speakap
   search:
-    terms: []
+    terms: [ ]
   unicode: f3f3
   voted: false
 speaker-deck:
@@ -43834,7 +43834,7 @@ speaker-deck:
         style: brands
   label: Speaker Deck
   search:
-    terms: []
+    terms: [ ]
   unicode: f83c
   voted: false
 spell-check:
@@ -44019,7 +44019,7 @@ spotify:
         style: brands
   label: Spotify
   search:
-    terms: []
+    terms: [ ]
   unicode: f1bc
   voted: false
 spray-can:
@@ -44187,7 +44187,7 @@ square-behance:
         style: brands
   label: Square Behance
   search:
-    terms: []
+    terms: [ ]
   unicode: f1b5
   voted: false
 square-caret-down:
@@ -44419,7 +44419,7 @@ square-dribbble:
         style: brands
   label: Square Dribbble
   search:
-    terms: []
+    terms: [ ]
   unicode: f397
   voted: false
 square-envelope:
@@ -44499,7 +44499,7 @@ square-font-awesome:
         style: brands
   label: Square Font Awesome
   search:
-    terms: []
+    terms: [ ]
   unicode: e5ad
   voted: false
 square-font-awesome-stroke:
@@ -44608,7 +44608,7 @@ square-git:
         style: brands
   label: Square Git
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d2
   voted: false
 square-github:
@@ -44649,7 +44649,7 @@ square-gitlab:
         style: brands
   label: Square Gitlab
   search:
-    terms: []
+    terms: [ ]
   unicode: e5ae
   voted: false
 square-google-plus:
@@ -44725,7 +44725,7 @@ square-hacker-news:
         style: brands
   label: Square Hacker News
   search:
-    terms: []
+    terms: [ ]
   unicode: f3af
   voted: false
 square-instagram:
@@ -44746,7 +44746,7 @@ square-instagram:
         style: brands
   label: Square Instagram
   search:
-    terms: []
+    terms: [ ]
   unicode: e055
   voted: true
 square-js:
@@ -44767,7 +44767,7 @@ square-js:
         style: brands
   label: Square Js
   search:
-    terms: []
+    terms: [ ]
   unicode: f3b9
   voted: false
 square-lastfm:
@@ -44789,7 +44789,7 @@ square-lastfm:
         style: brands
   label: Square Lastfm
   search:
-    terms: []
+    terms: [ ]
   unicode: f203
   voted: false
 square-letterboxd:
@@ -44804,7 +44804,7 @@ square-letterboxd:
         style: brands
   label: Square Letterboxd
   search:
-    terms: []
+    terms: [ ]
   unicode: e62e
   voted: false
 square-minus:
@@ -44891,7 +44891,7 @@ square-odnoklassniki:
         style: brands
   label: Square Odnoklassniki
   search:
-    terms: []
+    terms: [ ]
   unicode: f264
   voted: false
 square-parking:
@@ -45072,7 +45072,7 @@ square-pied-piper:
         style: brands
   label: Pied Piper Square Logo (Old)
   search:
-    terms: []
+    terms: [ ]
   unicode: e01e
   voted: false
 square-pinterest:
@@ -45093,7 +45093,7 @@ square-pinterest:
         style: brands
   label: Square Pinterest
   search:
-    terms: []
+    terms: [ ]
   unicode: f0d3
   voted: false
 square-plus:
@@ -45231,7 +45231,7 @@ square-reddit:
         style: brands
   label: Square Reddit
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a2
   voted: false
 square-root-variable:
@@ -45349,7 +45349,7 @@ square-snapchat:
         style: brands
   label: Snapchat Square
   search:
-    terms: []
+    terms: [ ]
   unicode: f2ad
   voted: false
 square-steam:
@@ -45370,7 +45370,7 @@ square-steam:
         style: brands
   label: Square Steam
   search:
-    terms: []
+    terms: [ ]
   unicode: f1b7
   voted: false
 square-threads:
@@ -45408,7 +45408,7 @@ square-tumblr:
         style: brands
   label: Square Tumblr
   search:
-    terms: []
+    terms: [ ]
   unicode: f174
   voted: false
 square-twitter:
@@ -45485,7 +45485,7 @@ square-upwork:
         style: brands
   label: Square Upwork
   search:
-    terms: []
+    terms: [ ]
   unicode: e67c
   voted: false
 square-viadeo:
@@ -45507,7 +45507,7 @@ square-viadeo:
         style: brands
   label: Square Viadeo
   search:
-    terms: []
+    terms: [ ]
   unicode: f2aa
   voted: false
 square-vimeo:
@@ -45528,7 +45528,7 @@ square-vimeo:
         style: brands
   label: Square Vimeo
   search:
-    terms: []
+    terms: [ ]
   unicode: f194
   voted: false
 square-virus:
@@ -45614,7 +45614,7 @@ square-whatsapp:
         style: brands
   label: Square Whatsapp
   search:
-    terms: []
+    terms: [ ]
   unicode: f40c
   voted: false
 square-x-twitter:
@@ -45653,7 +45653,7 @@ square-xing:
         style: brands
   label: Square Xing
   search:
-    terms: []
+    terms: [ ]
   unicode: f169
   voted: false
 square-xmark:
@@ -45723,7 +45723,7 @@ square-youtube:
         style: brands
   label: Square Youtube
   search:
-    terms: []
+    terms: [ ]
   unicode: f431
   voted: false
 squarespace:
@@ -45738,7 +45738,7 @@ squarespace:
         style: brands
   label: Squarespace
   search:
-    terms: []
+    terms: [ ]
   unicode: f5be
   voted: true
 stack-exchange:
@@ -45755,7 +45755,7 @@ stack-exchange:
         style: brands
   label: Stack Exchange
   search:
-    terms: []
+    terms: [ ]
   unicode: f18d
   voted: false
 stack-overflow:
@@ -45771,7 +45771,7 @@ stack-overflow:
         style: brands
   label: Stack Overflow
   search:
-    terms: []
+    terms: [ ]
   unicode: f16c
   voted: false
 stackpath:
@@ -45786,7 +45786,7 @@ stackpath:
         style: brands
   label: Stackpath
   search:
-    terms: []
+    terms: [ ]
   unicode: f842
   voted: false
 staff-snake:
@@ -46152,7 +46152,7 @@ steam:
         style: brands
   label: Steam
   search:
-    terms: []
+    terms: [ ]
   unicode: f1b6
   voted: false
 steam-symbol:
@@ -46167,7 +46167,7 @@ steam-symbol:
         style: brands
   label: Steam Symbol
   search:
-    terms: []
+    terms: [ ]
   unicode: f3f6
   voted: false
 sterling-sign:
@@ -46257,7 +46257,7 @@ sticker-mule:
         style: brands
   label: Sticker Mule
   search:
-    terms: []
+    terms: [ ]
   unicode: f3f7
   voted: false
 stop:
@@ -46450,7 +46450,7 @@ strava:
         style: brands
   label: Strava
   search:
-    terms: []
+    terms: [ ]
   unicode: f428
   voted: false
 street-view:
@@ -46533,7 +46533,7 @@ stripe:
         style: brands
   label: Stripe
   search:
-    terms: []
+    terms: [ ]
   unicode: f429
   voted: false
 stripe-s:
@@ -46549,7 +46549,7 @@ stripe-s:
         style: brands
   label: Stripe S
   search:
-    terms: []
+    terms: [ ]
   unicode: f42a
   voted: false
 stroopwafel:
@@ -46595,7 +46595,7 @@ stubber:
         style: brands
   label: Stubber
   search:
-    terms: []
+    terms: [ ]
   unicode: e5c7
   voted: false
 studiovinari:
@@ -46610,7 +46610,7 @@ studiovinari:
         style: brands
   label: Studio Vinari
   search:
-    terms: []
+    terms: [ ]
   unicode: f3f8
   voted: false
 stumbleupon:
@@ -46626,7 +46626,7 @@ stumbleupon:
         style: brands
   label: StumbleUpon Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a4
   voted: false
 stumbleupon-circle:
@@ -46642,7 +46642,7 @@ stumbleupon-circle:
         style: brands
   label: StumbleUpon Circle
   search:
-    terms: []
+    terms: [ ]
   unicode: f1a3
   voted: false
 subscript:
@@ -46863,7 +46863,7 @@ superpowers:
         style: brands
   label: Superpowers
   search:
-    terms: []
+    terms: [ ]
   unicode: f2dd
   voted: false
 superscript:
@@ -46912,7 +46912,7 @@ supple:
         style: brands
   label: Supple
   search:
-    terms: []
+    terms: [ ]
   unicode: f3f9
   voted: false
 suse:
@@ -46980,7 +46980,7 @@ swift:
         style: brands
   label: Swift
   search:
-    terms: []
+    terms: [ ]
   unicode: f8e1
   voted: false
 symfony:
@@ -46995,7 +46995,7 @@ symfony:
         style: brands
   label: Symfony
   search:
-    terms: []
+    terms: [ ]
   unicode: f83d
   voted: false
 synagogue:
@@ -47753,7 +47753,7 @@ teamspeak:
         style: brands
   label: Teamspeak
   search:
-    terms: []
+    terms: [ ]
   unicode: f4f9
   voted: true
 teeth:
@@ -47841,7 +47841,7 @@ telegram:
         style: brands
   label: Telegram
   search:
-    terms: []
+    terms: [ ]
   unicode: f2c6
   voted: false
 temperature-arrow-down:
@@ -48161,7 +48161,7 @@ tencent-weibo:
         style: brands
   label: Tencent Weibo
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d5
   voted: false
 tenge-sign:
@@ -48520,7 +48520,7 @@ the-red-yeti:
         style: brands
   label: The Red Yeti
   search:
-    terms: []
+    terms: [ ]
   unicode: f69d
   voted: false
 themeco:
@@ -48536,7 +48536,7 @@ themeco:
         style: brands
   label: Themeco
   search:
-    terms: []
+    terms: [ ]
   unicode: f5c6
   voted: false
 themeisle:
@@ -48552,7 +48552,7 @@ themeisle:
         style: brands
   label: ThemeIsle
   search:
-    terms: []
+    terms: [ ]
   unicode: f2b2
   voted: false
 thermometer:
@@ -48597,7 +48597,7 @@ think-peaks:
         style: brands
   label: Think Peaks
   search:
-    terms: []
+    terms: [ ]
   unicode: f731
   voted: false
 threads:
@@ -48866,7 +48866,7 @@ tiktok:
         style: brands
   label: TikTok
   search:
-    terms: []
+    terms: [ ]
   unicode: e07b
   voted: true
 timeline:
@@ -49408,7 +49408,7 @@ trade-federation:
         style: brands
   label: Trade Federation
   search:
-    terms: []
+    terms: [ ]
   unicode: f513
   voted: false
 trademark:
@@ -50461,7 +50461,7 @@ tumblr:
         style: brands
   label: Tumblr
   search:
-    terms: []
+    terms: [ ]
   unicode: f173
   voted: false
 turkish-lira-sign:
@@ -50609,7 +50609,7 @@ twitch:
         style: brands
   label: Twitch
   search:
-    terms: []
+    terms: [ ]
   unicode: f1e8
   voted: false
 twitter:
@@ -50643,7 +50643,7 @@ typo3:
         style: brands
   label: Typo3
   search:
-    terms: []
+    terms: [ ]
   unicode: f42b
   voted: false
 u:
@@ -50685,7 +50685,7 @@ uber:
         style: brands
   label: Uber
   search:
-    terms: []
+    terms: [ ]
   unicode: f402
   voted: false
 ubuntu:
@@ -50719,7 +50719,7 @@ uikit:
         style: brands
   label: UIkit
   search:
-    terms: []
+    terms: [ ]
   unicode: f403
   voted: false
 umbraco:
@@ -50734,7 +50734,7 @@ umbraco:
         style: brands
   label: Umbraco
   search:
-    terms: []
+    terms: [ ]
   unicode: f8e8
   voted: false
 umbrella:
@@ -50815,7 +50815,7 @@ uncharted:
         style: brands
   label: Uncharted Software
   search:
-    terms: []
+    terms: [ ]
   unicode: e084
   voted: false
 underline:
@@ -50863,7 +50863,7 @@ uniregistry:
         style: brands
   label: Uniregistry
   search:
-    terms: []
+    terms: [ ]
   unicode: f404
   voted: false
 unity:
@@ -50880,7 +50880,7 @@ unity:
         style: brands
   label: Unity 3D
   search:
-    terms: []
+    terms: [ ]
   unicode: e049
   voted: true
 universal-access:
@@ -51000,7 +51000,7 @@ unsplash:
         style: brands
   label: Unsplash
   search:
-    terms: []
+    terms: [ ]
   unicode: e07c
   voted: false
 untappd:
@@ -51015,7 +51015,7 @@ untappd:
         style: brands
   label: Untappd
   search:
-    terms: []
+    terms: [ ]
   unicode: f405
   voted: false
 up-down:
@@ -51262,7 +51262,7 @@ upwork:
         style: brands
   label: Upwork
   search:
-    terms: []
+    terms: [ ]
   unicode: e641
   voted: false
 usb:
@@ -51278,7 +51278,7 @@ usb:
         style: brands
   label: USB
   search:
-    terms: []
+    terms: [ ]
   unicode: f287
   voted: false
 user:
@@ -52315,7 +52315,7 @@ ussunnah:
         style: brands
   label: us-Sunnah Foundation
   search:
-    terms: []
+    terms: [ ]
   unicode: f407
   voted: false
 utensils:
@@ -52398,7 +52398,7 @@ vaadin:
         style: brands
   label: Vaadin
   search:
-    terms: []
+    terms: [ ]
   unicode: f408
   voted: false
 van-shuttle:
@@ -52671,7 +52671,7 @@ viacoin:
         style: brands
   label: Viacoin
   search:
-    terms: []
+    terms: [ ]
   unicode: f237
   voted: false
 viadeo:
@@ -52687,7 +52687,7 @@ viadeo:
         style: brands
   label: Viadeo
   search:
-    terms: []
+    terms: [ ]
   unicode: f2a9
   voted: false
 vial:
@@ -52837,7 +52837,7 @@ viber:
         style: brands
   label: Viber
   search:
-    terms: []
+    terms: [ ]
   unicode: f409
   voted: false
 video:
@@ -52950,7 +52950,7 @@ vimeo:
         style: brands
   label: Vimeo
   search:
-    terms: []
+    terms: [ ]
   unicode: f40a
   voted: false
 vimeo-v:
@@ -52983,7 +52983,7 @@ vine:
         style: brands
   label: Vine
   search:
-    terms: []
+    terms: [ ]
   unicode: f1ca
   voted: false
 virus:
@@ -53176,7 +53176,7 @@ vk:
         style: brands
   label: VK
   search:
-    terms: []
+    terms: [ ]
   unicode: f189
   voted: false
 vnv:
@@ -53191,7 +53191,7 @@ vnv:
         style: brands
   label: VNV
   search:
-    terms: []
+    terms: [ ]
   unicode: f40b
   voted: false
 voicemail:
@@ -53483,7 +53483,7 @@ vuejs:
         style: brands
   label: Vue.js
   search:
-    terms: []
+    terms: [ ]
   unicode: f41f
   voted: false
 w:
@@ -53722,7 +53722,7 @@ watchman-monitoring:
         style: brands
   label: Watchman Monitoring
   search:
-    terms: []
+    terms: [ ]
   unicode: e087
   voted: false
 water:
@@ -53828,7 +53828,7 @@ waze:
         style: brands
   label: Waze
   search:
-    terms: []
+    terms: [ ]
   unicode: f83f
   voted: false
 web-awesome:
@@ -53869,7 +53869,7 @@ webflow:
         style: brands
   label: Webflow
   search:
-    terms: []
+    terms: [ ]
   unicode: e65c
   voted: false
 weebly:
@@ -53884,7 +53884,7 @@ weebly:
         style: brands
   label: Weebly
   search:
-    terms: []
+    terms: [ ]
   unicode: f5cc
   voted: true
 weibo:
@@ -53900,7 +53900,7 @@ weibo:
         style: brands
   label: Weibo
   search:
-    terms: []
+    terms: [ ]
   unicode: f18a
   voted: false
 weight-hanging:
@@ -53976,7 +53976,7 @@ weixin:
         style: brands
   label: Weixin (WeChat)
   search:
-    terms: []
+    terms: [ ]
   unicode: f1d7
   voted: false
 whatsapp:
@@ -53992,7 +53992,7 @@ whatsapp:
         style: brands
   label: What's App
   search:
-    terms: []
+    terms: [ ]
   unicode: f232
   voted: false
 wheat-awn:
@@ -54170,7 +54170,7 @@ whmcs:
         style: brands
   label: WHMCS
   search:
-    terms: []
+    terms: [ ]
   unicode: f40d
   voted: false
 wifi:
@@ -54225,7 +54225,7 @@ wikipedia-w:
         style: brands
   label: Wikipedia W
   search:
-    terms: []
+    terms: [ ]
   unicode: f266
   voted: false
 wind:
@@ -54518,7 +54518,7 @@ wirsindhandwerk:
         style: brands
   label: wirsindhandwerk
   search:
-    terms: []
+    terms: [ ]
   unicode: e2d0
   voted: false
 wix:
@@ -54533,7 +54533,7 @@ wix:
         style: brands
   label: Wix
   search:
-    terms: []
+    terms: [ ]
   unicode: f5cf
   voted: true
 wizards-of-the-coast:
@@ -54570,7 +54570,7 @@ wodu:
         style: brands
   label: Wodu
   search:
-    terms: []
+    terms: [ ]
   unicode: e088
   voted: false
 wolf-pack-battalion:
@@ -54586,7 +54586,7 @@ wolf-pack-battalion:
         style: brands
   label: Wolf Pack Battalion
   search:
-    terms: []
+    terms: [ ]
   unicode: f514
   voted: false
 won-sign:
@@ -54636,7 +54636,7 @@ wordpress:
         style: brands
   label: WordPress Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f19a
   voted: false
 wordpress-simple:
@@ -54651,7 +54651,7 @@ wordpress-simple:
         style: brands
   label: Wordpress Simple
   search:
-    terms: []
+    terms: [ ]
   unicode: f411
   voted: false
 worm:
@@ -54691,7 +54691,7 @@ wpbeginner:
         style: brands
   label: WPBeginner
   search:
-    terms: []
+    terms: [ ]
   unicode: f297
   voted: false
 wpexplorer:
@@ -54707,7 +54707,7 @@ wpexplorer:
         style: brands
   label: WPExplorer
   search:
-    terms: []
+    terms: [ ]
   unicode: f2de
   voted: false
 wpforms:
@@ -54723,7 +54723,7 @@ wpforms:
         style: brands
   label: WPForms
   search:
-    terms: []
+    terms: [ ]
   unicode: f298
   voted: false
 wpressr:
@@ -54875,7 +54875,7 @@ xbox:
         style: brands
   label: Xbox
   search:
-    terms: []
+    terms: [ ]
   unicode: f412
   voted: false
 xing:
@@ -54891,7 +54891,7 @@ xing:
         style: brands
   label: Xing
   search:
-    terms: []
+    terms: [ ]
   unicode: f168
   voted: false
 xmark:
@@ -55023,7 +55023,7 @@ y-combinator:
         style: brands
   label: Y Combinator
   search:
-    terms: []
+    terms: [ ]
   unicode: f23b
   voted: false
 yahoo:
@@ -55041,7 +55041,7 @@ yahoo:
         style: brands
   label: Yahoo Logo
   search:
-    terms: []
+    terms: [ ]
   unicode: f19e
   voted: false
 yammer:
@@ -55057,7 +55057,7 @@ yammer:
         style: brands
   label: Yammer
   search:
-    terms: []
+    terms: [ ]
   unicode: f840
   voted: false
 yandex:
@@ -55072,7 +55072,7 @@ yandex:
         style: brands
   label: Yandex
   search:
-    terms: []
+    terms: [ ]
   unicode: f413
   voted: false
 yandex-international:
@@ -55087,7 +55087,7 @@ yandex-international:
         style: brands
   label: Yandex International
   search:
-    terms: []
+    terms: [ ]
   unicode: f414
   voted: false
 yarn:
@@ -55102,7 +55102,7 @@ yarn:
         style: brands
   label: Yarn
   search:
-    terms: []
+    terms: [ ]
   unicode: f7e3
   voted: true
 yelp:
@@ -55120,7 +55120,7 @@ yelp:
         style: brands
   label: Yelp
   search:
-    terms: []
+    terms: [ ]
   unicode: f1e9
   voted: false
 yen-sign:
@@ -55212,7 +55212,7 @@ yoast:
         style: brands
   label: Yoast
   search:
-    terms: []
+    terms: [ ]
   unicode: f2b1
   voted: false
 youtube:
@@ -55278,6 +55278,6 @@ zhihu:
         style: brands
   label: Zhihu
   search:
-    terms: []
+    terms: [ ]
   unicode: f63f
   voted: true
