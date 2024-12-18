@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   http: ^1.2.2
   image_picker: ^0.8.5+3
+  http_parser: ^4.0.1
+  flutter_plugin_android_lifecycle: ^2.0.2
 
 dev_dependencies:
   flutter_test:

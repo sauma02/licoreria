@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mime/mime.dart';
+import 'package:path/path.dart';
+import 'package:flutter/foundation.dart';
+import 'dart:io';
 
 class crearProducto extends StatefulWidget{
   @override
@@ -34,18 +39,111 @@ Future<void> enviarForm()async {
   if(imagen == null){
     //Si no hay imagen seleccionada de le dice al programa que le indique
     //al usuario que seleccione una imagen antes de continuar;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Por favor, selecciona una imagen")));
+    ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Por favor, selecciona una imagen")));
     return;
   }
+    if (categoria == null) {
+  ScaffoldMessenger.of(this as BuildContext).showSnackBar( const SnackBar(content: Text("Por favor, selecciona una categoría")));
+  return;
+}
+  
+  
+
+  //Prepara los datos para el form
+  final uri = Uri.parse("http://172.20.10.3:1010/api/productos/registrar");
+  var request = http.MultipartRequest('POST', uri);
+
+  //
+  request.fields['nombre'] = nombreController.text;
+  request.fields['precio'] = precioController.text;
+  request.fields['cantidad'] = cantidadController.text;
+  request.fields['categoria'] = categoria!;
 
 
-  final uri = Uri.parse("http://localhost:1010/api/productos/registrar");
+  var file = await http.MultipartFile.fromPath('imagen', imagen!.path,
+        contentType: MediaType('image', lookupMimeType(imagen!.path)!));
+  request.files.add(file);
+
+
+  var response = await request.send();
+
+  if(response.statusCode == 200){
+    ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Producto registrado corretamente")));
+  }else{
+        ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Error al registrar")));
+
+  }
+  
+
+} 
+Widget imagenPreview(){
+  if(imagen == null) return SizedBox();
+  if(kIsWeb){
+    //Si se ejecuta en un navegador
+    return Image.network(imagen!.path, height: 100, fit: BoxFit.cover);
+  }else{
+
+    return Image.file(File(imagen!.path), height: 100, fit: BoxFit.cover);
+  }
 }
 
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Registrar Producto"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [ 
+            TextField(
+              controller: nombreController,
+              decoration: const InputDecoration(labelText: "Nombre del producto"),
+            ),
+            TextField(
+              controller: precioController,
+              decoration:const InputDecoration(labelText: "Precio"),
+              keyboardType: TextInputType.number,
+            ),
+            TextField(
+              controller: cantidadController,
+              decoration: const InputDecoration(labelText: "Cantidad"),
+              keyboardType: TextInputType.number,
+            ),
+            DropdownButton<String>(
+              hint: const Text("Seleccione una categoria"),
+              value: categoria,
+              onChanged: (newValue){
+                setState(() {
+                  categoria = newValue;
+                });
+              },
+              items: ['Categoria 1', 'Categoria 2', 'Categoria 3'].map((categoria){
+                return DropdownMenuItem(
+                  value: categoria,
+                  child: Text(categoria),
+                );
+              }).toList(),
+
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: seleccionarImagen,
+              child: const  Text("Seleccionar imagen"),
+            ),
+            imagenPreview(),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: enviarForm,
+              child: const  Text("Registrar Producto")
+              ),
+            
+          ],
+          )
+      
+      ),
+    );
   }
 }
