@@ -68,9 +68,9 @@ Future<void> enviarForm()async {
   var response = await request.send();
 
   if(response.statusCode == 200){
-    ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Producto registrado corretamente")));
+    ScaffoldMessenger.of(this.context).showSnackBar(const SnackBar(content: Text("Producto registrado corretamente")));
   }else{
-        ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Error al registrar")));
+        ScaffoldMessenger.of(this.context ).showSnackBar(const SnackBar(content: Text("Error al registrar")));
 
   }
   
