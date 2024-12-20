@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
@@ -39,11 +41,11 @@ Future<void> enviarForm()async {
   if(imagen == null){
     //Si no hay imagen seleccionada de le dice al programa que le indique
     //al usuario que seleccione una imagen antes de continuar;
-    ScaffoldMessenger.of(context as BuildContext).showSnackBar(const SnackBar(content: Text("Por favor, selecciona una imagen")));
+    ScaffoldMessenger.of(this.context).showSnackBar(const SnackBar(content: Text("Por favor, selecciona una imagen")));
     return;
   }
     if (categoria == null) {
-  ScaffoldMessenger.of(this as BuildContext).showSnackBar( const SnackBar(content: Text("Por favor, selecciona una categoría")));
+  ScaffoldMessenger.of(this.context ).showSnackBar( const SnackBar(content: Text("Por favor, selecciona una categoría")));
   return;
 }
   
@@ -64,13 +66,19 @@ Future<void> enviarForm()async {
         contentType: MediaType('image', lookupMimeType(imagen!.path)!));
   request.files.add(file);
 
-
+  
   var response = await request.send();
+  
+  
 
   if(response.statusCode == 200){
-    ScaffoldMessenger.of(this.context).showSnackBar(const SnackBar(content: Text("Producto registrado corretamente")));
+    ScaffoldMessenger.of(this.context).showSnackBar( SnackBar(content: Text("Producto registrado corretamente")));
   }else{
-        ScaffoldMessenger.of(this.context ).showSnackBar(const SnackBar(content: Text("Error al registrar")));
+    print(response.statusCode);
+   
+   
+    
+    ScaffoldMessenger.of(this.context ).showSnackBar( SnackBar(content: Text("Error al registrar:" + response.toString())));
 
   }
   
