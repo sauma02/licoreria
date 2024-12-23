@@ -48,6 +48,16 @@ public class HomeController {
         return "login";
     }
     
+    
+    @GetMapping("/listaProductos")
+    public String listaProductos(Model model){
+        List<Producto> listaProductos = productoServicio.listarProductos();
+        model.addAttribute("listaProductos", listaProductos);
+        return "listaAdmin";
+               
+    }
+    
+    
     @GetMapping("/categorias")
     public List<Categoria> obtenerCategorias(){
         return categoriaServicio.listaCategorias();

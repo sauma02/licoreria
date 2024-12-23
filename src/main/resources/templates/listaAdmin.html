@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="frontEnd/layout :: head(~{title}, ~{links})">
+
+    </head>
+    <body>
+        <header th:replace="frontEnd/layout :: header">
+
+        </header>
+
+        <table id="productos" class="table table-striped mt-3" >
+            <thead>
+                <div class="d-flex flex-column">
+                    <div class="d-flex mb-2">
+                        <a class="btn btn-outline-primary" th:href="@{/productos}">Descargar reporte</a>
+                    </div>
+                </div>
+
+                <tr>
+                    <th>Id: </th>
+                    <th>Nombre: </th>
+                    <th>Cantidad: </th>
+                    <th>Categoria: </th>
+                    <th>Precio: </th>
+                    <th>Imagen: </th>
+                    <th>Accion: </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${listaProductos == null}">
+                    <td colspan="8">No hay Productos</td>
+                </tr>
+                <tr th:each="lista : ${listaProductos}">
+                    <td th:text="${lista.id}"></td>
+                    <td th:text="${lista.nombre}"></td>
+                    <td th:text="${lista.cantidad}"></td>
+                    <td th:text="${lista.categoria == null ? 'No hay categoría seleccionada' : lista.categoria.nombre}">
+
+                    </td>
+                    <td th:text="${lista.precio}"></td>
+                    <td>
+
+                        <img th:src="@{$lista.imagen}">
+
+                    </td>
+
+                    <td>
+
+                        <div class="d-flex flex-column">
+                            <div class="d-flex mb-3"> <!-- Mayor margen inferior -->
+                                <a th:href="@{/api/productos/editarProducto/{id} (id = ${lista.id})}" class="btn btn-success flex-fill mx-2">Editar producto</a>
+                                <a href="#" class="btn btn-danger flex-fill mx-2" th:data-id="${lista.id}" onclick="eliminar(this)">Eliminar producto</a>
+                            </div>
+
+                        </div>
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+
+    <script th:replace="frontEnd/layout :: swalFire"></script>
+    <script th:inline="javascript">
+        function eliminar(element) {
+            var id = element.getAttribute("data-id");
+
+            fetch(`/api/productos/eliminarProducto/${id}`)
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        } else {
+                            throw new Error("Error al eliminar");
+                        }
+                    })
+                    .then(data => {
+                        var estado = data.clase;
+                        var mensaje = data.mensaje;
+
+                        if (estado === 'success') {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Éxito",
+                                text: mensaje
+                            }).then(() => {
+                                setTimeout(() => {
+                                    location.reload();
+                                }, 0); // Espera 1 segundo antes de recargar
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: mensaje
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    }
+                    );
+
+
+    </script>
+</html>

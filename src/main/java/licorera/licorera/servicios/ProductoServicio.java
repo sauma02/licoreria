@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
@@ -45,6 +46,34 @@ public class ProductoServicio {
             default:
                 throw new AssertionError();
         }
+    }
+    
+    public Producto listarPorId(String id){
+        Optional<Producto> res = productoRepositorio.findById(id);
+        if(res.isPresent()){
+            Producto pro = res.get();
+            return pro;
+        }else{
+            return null;
+        }
+    }
+    
+    public Producto editarProducto(Producto producto){
+       Optional<Producto> res = productoRepositorio.findById(producto.getId());
+       if(res.isPresent()){
+           Producto sol = res.get();
+           sol.setCantidad(producto.getCantidad());
+           sol.setCategoria(producto.getCategoria());
+           sol.setImagen(producto.getImagen());
+           sol.setNombre(producto.getNombre());
+           sol.setPrecio(producto.getPrecio());
+           return sol;
+       }else{
+           return null;
+       }
+    }
+    public void eliminarProducto(Producto producto){
+        productoRepositorio.delete(producto);
     }
 
 }

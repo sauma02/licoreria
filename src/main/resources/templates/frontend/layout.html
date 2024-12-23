@@ -9,6 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <title>Licoreria express</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap"
           rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
@@ -29,14 +31,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <img src="https://via.placeholder.com/40x40?text=Logo" alt="Logo de la tienda"/>
     </div>
     <h1 class="title">Mi Licorería</h1>
-    <div class="icons">
-        <button class="icon-btn">
-            <img src="https://via.placeholder.com/24x24?text=🔍" alt="Buscar"/>
-        </button>
-        <button class="icon-btn">
-            <img src="https://via.placeholder.com/24x24?text=🛒" alt="Carrito"/>
-        </button>
-    </div>
+    
 </header>
 <div></div>
 </body>
@@ -61,5 +56,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <p>&copy; 2024 Mi Licorería. Todos los derechos reservados.</p>
     </div>
 </footer>
+    <script th:inline="javascript" th:fragment="swalFire">
+        let status = /*[[${clase}]]*/;
+    let mensaje = /*[[${mensaje}]]*/;
+    
+    if (status && mensaje) {
+            if (status === 'success') {
+                Swal.fire({
+                    icon: "success",
+                    title: "Éxito",
+                    text: mensaje
+                }).then(() => {
+                    location.reload(); // Recargar página en caso de éxito
+                });
+            } else if (status === 'error') {
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: mensaje
+                });
+            }
+        }
+    
+        
+    </script>
 
 </html>

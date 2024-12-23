@@ -78,15 +78,15 @@ public class archivosUpload {
         String retorno = "";
         switch (mime) {
             case "image/jpg":
-                retorno = " .jpg";
+                retorno = ".jpg";
 
                 break;
             case "image/jpeg":
-                retorno = " .jpeg";
+                retorno = ".jpeg";
 
                 break;
             case "image/png":
-                retorno = " .png";
+                retorno = ".png";
 
                 break;
             default:
