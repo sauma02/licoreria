@@ -61,6 +61,7 @@ public class ProductoController {
         List<Categoria> categorias = categoriaServicio.listaCategorias();
         model.addAttribute("categorias", categorias);
         model.addAttribute("producto", producto);
+        System.out.println("Producto id: "+ producto.getId());
         return "formularios/editarProducto";
     }
     
@@ -81,33 +82,63 @@ public class ProductoController {
     }
     
     
-    @PostMapping("/editarProducto")
-    public String editar(@RequestBody @ModelAttribute @Valid Producto producto, @RequestParam("imagen") MultipartFile imagen, 
-            RedirectAttributes flash){
-        try {
-            
-            String rutaArchivo = this.ruta + "archivos/" + producto.getNombre() + "/";
+@PostMapping("/editarProducto")
+public String editar(
+        @RequestParam("id") String id,
+        @RequestParam("nombre") String nombre,
+        @RequestParam("cantidad") Integer cantidad,
+        @RequestParam("precio") double precio,
+        @RequestParam("categoria") String categoria,
+        @RequestParam("imagenes") MultipartFile imagen,
+        RedirectAttributes flash) {
+    try {
+        // Validar existencia del producto
+        Producto producto = productoServicio.listarPorId(id);
+        System.out.println("Producto" + producto.getId());
+        if (producto == null) {
+            flash.addFlashAttribute("class", "error");
+            flash.addFlashAttribute("mensaje", "Producto no encontrado.");
+            return "redirect:/home/listaProductos";
+        }
+        System.out.println("Categoria: "+categoria);
+        // Validar existencia de la categoría
+        Categoria cate = categoriaServicio.listarPorId(categoria);
+        if (cate == null) {
+            flash.addFlashAttribute("class", "error");
+            flash.addFlashAttribute("mensaje", "Categoría no válida.");
+            return "redirect:/api/productos/editarProducto/" + id;
+        }
+
+        // Guardar archivo de imagen (si se proporciona)
+        if (!imagen.isEmpty()) {
+            String rutaArchivo = this.ruta + "archivos/" + nombre + "/";
             String nombreArchivo = archivosUpload.guardarArchivo(imagen, rutaArchivo);
             producto.setImagen(nombreArchivo);
-            productoServicio.editarProducto(producto);
-            flash.addFlashAttribute("class", "success");
-            flash.addFlashAttribute("mensaje", "Exito al editar");
-            flash.addAttribute("producto", producto);
-            return "redirect:/api/producto/editarProducto";
-            
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
-            flash.addFlashAttribute("class", "error");
-            flash.addFlashAttribute("mensaje", "Error al editar" + e.getMessage());
-            flash.addAttribute("producto", producto);
-            return "redirect:/api/producto/editarProducto";
-            
-            
         }
-        
+
+        // Actualizar los datos del producto
+        producto.setCantidad(cantidad);
+        producto.setNombre(nombre);
+        producto.setPrecio(precio);
+        producto.setCategoria(cate);
+
+        // Guardar cambios
+        productoServicio.editarProducto(producto);
+
+        // Flash Attributes para feedback
+        flash.addFlashAttribute("class", "success");
+        flash.addFlashAttribute("mensaje", "Producto editado exitosamente.");
+        return "redirect:/api/productos/editarProducto/" + producto.getId();
+
+    } catch (Exception e) {
+        // Manejo de excepciones
+        e.printStackTrace(); // Opcional: usa un logger
+        flash.addFlashAttribute("class", "error");
+        flash.addFlashAttribute("mensaje", "Error al editar: " + e.getMessage());
+        return "redirect:/api/productos/editarProducto/" + id;
     }
+}
+
     
     
     

@@ -69,7 +69,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </body>
 
     <script th:replace="frontEnd/layout :: swalFire"></script>
-    <script th:inline="javascript">
+    <script>
         function eliminar(element) {
             var id = element.getAttribute("data-id");
 
@@ -107,6 +107,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         console.error('Error:', error);
                     }
                     );
+        }
 
 
     </script>

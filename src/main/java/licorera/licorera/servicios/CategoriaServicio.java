@@ -34,4 +34,13 @@ public class CategoriaServicio {
             return null;
         }
     }
+    public Categoria listarPorId(String id){
+        Optional<Categoria> res = categoriaRepositorio.findById(id);
+        if(res.isPresent()){
+            Categoria cate = res.get();
+            return cate;
+        }else{
+            return null;
+        }
+    }
 }

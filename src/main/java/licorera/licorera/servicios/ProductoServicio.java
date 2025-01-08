@@ -67,6 +67,7 @@ public class ProductoServicio {
            sol.setImagen(producto.getImagen());
            sol.setNombre(producto.getNombre());
            sol.setPrecio(producto.getPrecio());
+           productoRepositorio.save(sol);
            return sol;
        }else{
            return null;

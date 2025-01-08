@@ -23,6 +23,7 @@ import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
 import licorera.licorera.servicios.CategoriaServicio;
 import licorera.licorera.servicios.ProductoServicio;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
  * @author Admin
@@ -67,41 +68,21 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model) {
         List<Categoria> categorias = categoriaServicio.listaCategorias();
-        Map<String, List<Producto>> productosCategorizados = new HashMap<>();
-        for (Categoria categoria : categorias) {
-
-            switch (categoria.getNombre()) {
-                case "Alcoholicas":
-                    List<Producto> alcoholicas = productoServicio.listarPorCategoria(categoria);
-                    productosCategorizados.put("alcoholicas", alcoholicas);
-                    model.addAttribute("alcoholicas", alcoholicas);
-                    break;
-                case "NoAlcoholicas":
-                    List<Producto> noAlcoholicas = productoServicio.listarPorCategoria(categoria);
-                    productosCategorizados.put("noAlcoholicas", noAlcoholicas);
-                    model.addAttribute("noAlcoholicas", noAlcoholicas);
-                    break;
-                case "Otros":
-                    List<Producto> otros = productoServicio.listarPorCategoria(categoria);
-                    productosCategorizados.put("otros", otros);
-                    model.addAttribute("otros", otros);
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-        }
-        model.addAttribute("productosCategorizados", productosCategorizados);
+        
+        model.addAttribute("productosCategorizados", categorias);
         List<Producto> listaProductos = productoServicio.listarProductos();
         model.addAttribute("carrito", carrito);
         model.addAttribute("total", calcularTotal());
-        return "home";
+        return "index";
     }
 
     @PostMapping("/carrito/agregar")
-    public String agregarAlCarrito(@ModelAttribute Producto producto, @RequestParam Integer cantidad) {
+    public String agregarAlCarrito(@ModelAttribute Producto producto,RedirectAttributes flash, @RequestParam Integer cantidad, Model model) {
         for (Carrito item : carrito) {
             if (item.getProductoId().equals(producto.getId())) {
                 item.setCantidad(item.getCantidad() + cantidad);
+                flash.addFlashAttribute("status", "danger");
+                flash.addFlashAttribute("mensaje", "Este producto ya esta en el carrito");
                 return "redirect:/home";
             }
         }
@@ -111,6 +92,7 @@ public class HomeController {
         carro.setPrecio(producto.getPrecio());
         carro.setCantidad(cantidad);
         carrito.add(carro);
+        model.addAttribute("carrito", carrito);
         return "redirect:/home";
 
     }

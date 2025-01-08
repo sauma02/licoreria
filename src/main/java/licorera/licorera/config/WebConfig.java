@@ -61,7 +61,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 
                 .authorizeHttpRequests(res -> res
-                        .requestMatchers("/listaProductos","/api/productos/**").permitAll()
+                        .requestMatchers("/home", "/listaProductos","/api/productos/**").permitAll()
 
                 )
                 .build();
