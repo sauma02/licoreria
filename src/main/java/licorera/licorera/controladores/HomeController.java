@@ -76,6 +76,10 @@ public class HomeController {
         return "index";
     }
 
+   @GetMapping("/about")
+   public String about(){
+       return "about";
+   }
     @PostMapping("/carrito/agregar")
     public String agregarAlCarrito(@ModelAttribute Producto producto,RedirectAttributes flash, @RequestParam Integer cantidad, Model model) {
         for (Carrito item : carrito) {
