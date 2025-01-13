@@ -71,6 +71,7 @@ public class HomeController {
         
         model.addAttribute("productosCategorizados", categorias);
         List<Producto> listaProductos = productoServicio.listarProductos();
+        model.addAttribute("productos", listaProductos);
         model.addAttribute("carrito", carrito);
         model.addAttribute("total", calcularTotal());
         return "index";

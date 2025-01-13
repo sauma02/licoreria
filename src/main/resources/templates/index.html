@@ -19,8 +19,7 @@
                 <div>
                     <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                    
                 </div>
             </div>
         </div>
@@ -33,7 +32,7 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                Zay
+                <img th:src="@{/archivos/logos/licoya_logo.png}" style="width: 100px;" alt="alt"/>
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,29 +43,14 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a id="home" class="nav-link" href="/home">Inicio</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="shop.html">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                      
+                   
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
-                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                            <div class="input-group-text">
-                                <i class="fa fa-fw fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                   
+                    
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
@@ -81,82 +65,132 @@
 
    
     <!-- Start Banner Hero -->
-    <div>
+    
+        <section class="bg-success py-5">
+        <div class="container">
+            <div class="row align-items-center py-5">
+                <div class="col-md-8 text-dark">
+                    <h1>Nosotros</h1>
+                    <p>
+                        En Licoya, somos una tienda 100% online, ubicada en el sur de Medellín, comprometida con ofrecerte la mejor experiencia en la compra de licores. 
+                        Nuestra misión es brindar comodidad, rapidez y calidad, llevándote tus bebidas favoritas directamente a tu puerta, sin importar la hora.
+Con un enfoque en la excelencia y el servicio al cliente, estamos aquí para asegurarnos de que cada celebración, reunión o momento especial esté acompañado del licor perfecto. 🍾🎉
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Close Banner -->
+
+    <!-- Start Section -->
+    <section class="container py-5">
+        <div class="row text-center pt-5 pb-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">Nuestros servicios</h1>
+                <p>
+                     En Licoya ofrecemos un servicio completo de entrega de licores a domicilio, disponible las 24 horas del día, los 7 días de la semana, en toda la zona sur de Medellín. Con una amplia variedad de bebidas, desde cervezas hasta licores premium,
+                     nos aseguramos de que siempre tengas lo que necesitas para cualquier ocasión, sin importar la hora. 🚚🍹
+                </p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow">
+                    <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
+                    <h2 class="h5 mt-4 text-center">Servicio a domicilio</h2>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow">
+                    <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
+                    <h2 class="h5 mt-4 text-center">Pago contraentrega</h2>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow">
+                    <div class="h1 text-success text-center"><i class="fa-solid fa-money-bill"></i></div>
+                    <h2 class="h5 mt-4 text-center">Sin costo de entrega</h2>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3 pb-5">
+                <div class="h-100 py-5 services-icon-wap shadow">
+                    <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
+                    <h2 class="h5 mt-4 text-center">Servicio 24/7</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+   
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_01.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>Zay</b> eCommerce</h1>
-                                <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
-                                <p>
-                                    Zay Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap 5 (beta 1). 
-                                    This template is 100% free provided by <a rel="sponsored" class="text-success" href="https://templatemo.com" target="_blank">TemplateMo</a> website. 
-                                    Image credits go to <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
-                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_02.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
-                                <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
-                                <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
-                                </p>
-                            </div>
+    <ol class="carousel-indicators">
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+                    
+                    <div class="col-lg-6 mb-0">
+                        <div>
+                            <h1 class="h1 text-success"><b>¡Tu licor favorito, 24 horas al día! 🍹</b></h1>
+                            <p class="mt-5">
+                                Disfruta de un servicio rápido y confiable de domicilios de licor en la zona sur de Medellín. 
+                                Desde cervezas hasta licores premium, estamos aquí para ti cuando más lo necesitas.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+                    
+                    <div class="col-lg-6 mb-0">
+                        <div>
+                            <h1 class="h1">Variedad que sorprende 🍷</h1>
+                            <p class="mt-5">
+                                Explora nuestra amplia selección de licores nacionales e importados. 
+                                Encuentra la bebida perfecta para cualquier ocasión, entregada directamente a tu puerta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="container">
+                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+                    
+                    <div class="col-lg-6 mb-0">
+                        <div>
+                            <h1 class="h1">Rápido, fácil y seguro 🛵</h1>
+                            <p class="mt-5">
+                                Pide en pocos pasos y recibe tu licor en minutos. 
+                                Con Licoya, la fiesta nunca se detiene. ¡Servicio 24/7 en toda la zona sur de Medellín!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+       <i class="fa-solid fa-chevron-right"></i>
+    </a>
+</div>
+
     <!-- End Banner Hero -->
 
 
@@ -166,23 +200,23 @@
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Categorias</h1>
                 <p>
-                    Aqui podras encontrar nuestros productos mas facil
+                    Aqui podras encontrar nuestros productos 
                 </p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a  href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
+                <a  href="#"><img th:src="@{/archivos/logos/LICORES.jpeg}" width="400px"  class="rounded-circle img-fluid border"></a>
                 <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
                 <p class="text-center"><a id="alcohol" class="btn btn-success">Echa un vistazo!</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a  href="#"><img src="./assets/img/category_img_02.jpg" class="rounded-circle img-fluid border"></a>
+                <a  href="#"><img th:src="@{/archivos/logos/gator_as.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">No Alcoholicas</h2>
                 <p class="text-center"><a id="noAlcohol" class="btn btn-success">Echa un vistazo!</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-               <a  href="#"><img src="./assets/img/category_img_03.jpg" class="rounded-circle img-fluid border"></a>
+               <a  href="#"><img th:src="@{/archivos/logos/cigarros.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
                 <h2 class="h5 text-center mt-3 mb-3">Otros</h2>
                 <p class="text-center"> <a id="otros" class="btn btn-success">Echa un vistazo!</a></p>
             </div>
@@ -193,7 +227,7 @@
     <section id="alcoholicas" class="container py-5" style="display: none;">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Otros</h1>
+                <h1 class="h1">Alcoholicas</h1>
                
             </div>
         </div>
@@ -214,18 +248,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
+            <div th:if="${!listaProductos.isEmpty() || $listaProductos != null}">
+            <div th:each="producto : ${listaProductos}" th:if="${producto.categoria.id == '3'}" class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
-                <p class="text-center"><a class="btn btn-success">Echa un vistazo!</a></p>
+                <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                <h4 class="text-center mt-3 mb-3" th:text="'$' + ${producto.precio}"></h4>
+                <p class="text-center"><a class="btn btn-success">Añadir al carrito</a></p>
+            </div>
+            </div>
+            <div th:if="${listaProductos.isEmpty() || $listaProductos == null}">
+                <h1 class="h1">No hay productos registrados</h1>
             </div>
             
         </div>
     </section>
-     <section id="otros" class="container py-5" style="display: none;">
+     <section id="otros1" class="container py-5" style="display: none;">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Bebida alcholicas</h1>
+                <h1 class="h1">Otros</h1>
                 
             </div>
         </div>
@@ -237,7 +277,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- final tienda -->
 
 
@@ -276,21 +316,10 @@
                         <li class="list-inline-item border border-light rounded-circle text-center">
                             <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
                         </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
+                        
                     </ul>
                 </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div>
+              
             </div>
         </div>
 
@@ -299,8 +328,8 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                            Copyright &copy; 2025 Licoya 
+                            
                         </p>
                     </div>
                 </div>
@@ -319,8 +348,19 @@
             $('#alcohol').on('click', function(){
                 $('#alcoholicas').show();
                 $('#noAlcoholicas').hide();
-                $('#otros').show();
+                $('#otros1').hide();
             });
+            $('#noAlcohol').on('click', function () {
+                $('#alcoholicas').hide();
+                $('#noAlcoholicas').show();
+                $('#otros1').hide();
+            });
+            $('#otros').on('click', function () {
+                $('#alcoholicas').hide();
+                $('#noAlcoholicas').hide();
+                $('#otros1').show();
+            });
+           
         
         
         
