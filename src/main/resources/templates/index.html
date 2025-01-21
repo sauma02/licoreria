@@ -31,8 +31,8 @@
         <nav class="navbar navbar-expand-lg navbar-light shadow">
             <div class="container d-flex justify-content-between align-items-center">
 
-                <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                    <img th:src="@{/archivos/logos/licoya_logo.png}" style="width: 100px;" alt="alt"/>
+                <a class="navbar-brand text-success logo h1 align-self-center" href="/home">
+                    <img th:src="@{/archivos/logos/licoya1.png}" style="width: 100px;" alt="alt"/>
                 </a>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -287,12 +287,12 @@
             <div class="row">
                 <div class="col-12 col-md-4 p-5 mt-3">
                     <a  href="#"><img th:src="@{/archivos/logos/LICORES.jpeg}" width="400px"  class="rounded-circle img-fluid border"></a>
-                    <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
+                    <h5 class="text-center mt-3 mb-3">Licores</h5>
                     <p class="text-center"><a id="alcohol" class="btn btn-success">Echa un vistazo!</a></p>
                 </div>
                 <div class="col-12 col-md-4 p-5 mt-3">
                     <a  href="#"><img th:src="@{/archivos/logos/gator_as.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
-                    <h2 class="h5 text-center mt-3 mb-3">No Alcoholicas</h2>
+                    <h2 class="h5 text-center mt-3 mb-3">Refrescos</h2>
                     <p class="text-center"><a id="noAlcohol" class="btn btn-success">Echa un vistazo!</a></p>
                 </div>
                 <div class="col-12 col-md-4 p-5 mt-3">
@@ -307,35 +307,78 @@
         <section id="alcoholicas" class="container py-5" style="display: none;">
             <div class="row text-center pt-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Alcoholicas</h1>
+                    <h1 class="h1">Licores</h1>
 
                 </div>
             </div>
             <div class="row">
                 <div th:each="producto : ${alcohol}" class="col-12 col-md-4 p-5 mt-3">
-                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                   <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
+                       
                     <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
-                    <p class="text-center"><a th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+
+                    <!-- Campo para ingresar la cantidad -->
+                    <p class="text-center">
+                        <input 
+                            class="text-center mt-3 mb-3" 
+                            placeholder="Ingrese la cantidad que desea" 
+                            type="number" 
+                            data-cantidad-input>
+                            <!-- Botón para añadir al carrito -->
+                            <a 
+                                th:data-id="${producto.id}" 
+                                th:data-stock="${producto.cantidad}" 
+                                onclick="añadirProducto(this)" 
+                                class="btn btn-success">
+                                Añadir al carrito
+                            </a>
+                    </p>
+
+                    <!-- Mensaje de error dinámico -->
+                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
+            </div>
 
             </div>
         </section>
         <section id="noAlcoholicas" class="container py-5" style="display: none;">
             <div class="row text-center pt-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">No alcoholicas</h1>
+                    <h1 class="h1">Refrescos</h1>
 
                 </div>
             </div>
             <div class="row">
 
                 <div th:each="producto : ${noAlcohol}" class="col-12 col-md-4 p-5 mt-3">
-                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                    <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
                     <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
-                    <p class="text-center"><a th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+
+                    <!-- Campo para ingresar la cantidad -->
+                    <p class="text-center">
+                        <input 
+                            class="text-center mt-3 mb-3" 
+                            placeholder="Ingrese la cantidad que desea" 
+                            type="number" 
+                            data-cantidad-input>
+                            <!-- Botón para añadir al carrito -->
+                            <a 
+                                th:data-id="${producto.id}" 
+                                th:data-stock="${producto.cantidad}" 
+                                onclick="añadirProducto(this)" 
+                                class="btn btn-success">
+                                Añadir al carrito
+                            </a>
+                    </p>
+
+                    <!-- Mensaje de error dinámico -->
+                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
+            </div>
 
 
 
@@ -350,17 +393,34 @@
             </div>
             <div class="row">
                 <div th:each="producto : ${otros}" class="col-12 col-md-4 p-5 mt-3">
-                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                    <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
                     <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
-                    <h3 class="text-center mt-3 mb-3" th:text="${producto.cantidad}"></h3>
-                    <input class="text-center mt-3 mb-3" th:data-cantidad="${cantidad}" placeholder="Ingrese la cantidad que desea">
-                        <span th:if="${producto.cantidad < cantidad}" th:text="Error, no puede pedir mas de lo que hay en stock">
-                            
-                        </span>    
-                    <p class="text-center"><a  th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+
+                    <!-- Campo para ingresar la cantidad -->
+                    <p class="text-center">
+                        <input 
+                            class="text-center mt-3 mb-3" 
+                            placeholder="Ingrese la cantidad que desea" 
+                            type="number" 
+                            data-cantidad-input>
+                            <!-- Botón para añadir al carrito -->
+                            <a 
+                                th:data-id="${producto.id}" 
+                                th:data-stock="${producto.cantidad}" 
+                                onclick="añadirProducto(this)" 
+                                class="btn btn-success">
+                                Añadir al carrito
+                            </a>
+                    </p>
+
+                    <!-- Mensaje de error dinámico -->
+                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
             </div>
+
+
         </section>
 
         <!-- final tienda -->
@@ -446,20 +506,43 @@
                     $('#otros1').show();
                 });
 
-                function añadirProducto(element) {
-                    var id = element.getAttribute("data-id");
-                    var cantidad = element.getAttribute("data-cantidad");
-
-
-
-                }
-                ;
-
-
-
-
 
             });
+            function añadirProducto(element) {
+                // Obtener el ID del producto desde el atributo data-id
+                var id = element.getAttribute("data-id");
+
+                var stockDisponible = Number(element.getAttribute("data-stock"));
+
+                // Encontrar el input relacionado dentro del mismo contenedor del producto
+                var cantidadInput = element.closest(".col-md-4").querySelector("[data-cantidad-input]");
+                var cantidadIngresada = Number(cantidadInput.value);
+
+                // Mensaje de error
+                var mensajeError = element.closest(".col-md-4").querySelector(".error-message");
+
+                if (cantidadIngresada > stockDisponible) {
+                    // Mostrar mensaje de error
+                    mensajeError.style.display = "block";
+                    console.log("Cantidad ingresada excede el stock disponible.");
+                    return;
+                } else {
+                    // Ocultar mensaje de error si la validación es correcta
+                    mensajeError.style.display = "none";
+                }
+
+                // Imprimir valores para verificación
+                console.log("ID del producto:", id);
+                console.log("Cantidad ingresada:", cantidadIngresada);
+                console.log("Stock disponible:", stockDisponible);
+                
+                
+
+                // Aquí puedes añadir la lógica para enviar los datos al backend
+            };
+
+            
+            
 
         </script>
         <!-- End Script -->

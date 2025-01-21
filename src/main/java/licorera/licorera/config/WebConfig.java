@@ -59,9 +59,15 @@ public class WebConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
 
-
+                
                 .authorizeHttpRequests(res -> res
-                        .requestMatchers("/home","/archivos/**","/js/**","/css/**","/about", "/listaProductos","/api/productos/**").permitAll()
+                        .requestMatchers("/home","/static/**",
+                                "/archivos/**",
+                                "/js/**",
+                                "/css/**",
+                                "/about", 
+                                "/listaProductos",
+                                "/api/productos/**").permitAll().anyRequest().authenticated()
 
                 )
                 .build();

@@ -27,7 +27,7 @@ public class archivosUpload {
         nombreOriginal = nombreOriginal.replaceAll("[^a-zA-Z0-9\\.\\-]", "_"); // Reemplazar caracteres especiales por guiones bajos
 
         // Crear el nombre final del archivo
-        String nombre = nombreOriginal + extension.trim();
+        String nombre = nombreOriginal.trim();
 
         ruta = ruta.trim();
 
