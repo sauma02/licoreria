@@ -23,6 +23,12 @@ import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
 import licorera.licorera.servicios.CategoriaServicio;
 import licorera.licorera.servicios.ProductoServicio;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -37,7 +43,11 @@ public class HomeController {
     private CategoriaServicio categoriaServicio;
 
     private List<Carrito> carrito = new ArrayList<>();
-
+    
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+        
+    
+    
     private Double calcularTotal() {
 
         //los :: acceden directamente a la calse para poder buscar el metodo
@@ -68,9 +78,45 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model) {
         List<Categoria> categorias = categoriaServicio.listaCategorias();
-        
-        model.addAttribute("productosCategorizados", categorias);
         List<Producto> listaProductos = productoServicio.listarProductos();
+        
+        
+        List<Producto> noAlcohol = new ArrayList<>();
+        List<Producto> alcohol = new ArrayList<>();
+        List<Producto> otros = new ArrayList<>();
+        
+        
+        for (Producto producto : listaProductos) {
+            for (Categoria cat : categorias) {
+                switch (cat.getId()) {
+                    case "2":
+                        if(producto.getCategoria().getId().equals(cat.getId())){
+                            alcohol.add(producto);
+                        }
+                            
+                        break;
+                    case "3":
+                        if(producto.getCategoria().getId().equals(cat.getId())){
+                            noAlcohol.add(producto);
+                        }
+                        break;
+                    case "4":
+                        if(producto.getCategoria().getId().equals(cat.getId())){
+                            otros.add(producto);
+                        }
+                        break;    
+                    default:
+                          System.out.println("no hay productos registrados");
+                       
+                }
+               
+                
+            }
+        }
+        model.addAttribute("alcohol", alcohol);
+        model.addAttribute("noAlcohol", noAlcohol);
+        model.addAttribute("otros", otros);
+        model.addAttribute("productosCategorizados", categorias);
         model.addAttribute("productos", listaProductos);
         model.addAttribute("carrito", carrito);
         model.addAttribute("total", calcularTotal());
@@ -81,26 +127,38 @@ public class HomeController {
    public String about(){
        return "about";
    }
-    @PostMapping("/carrito/agregar")
-    public String agregarAlCarrito(@ModelAttribute Producto producto,RedirectAttributes flash, @RequestParam Integer cantidad, Model model) {
-        for (Carrito item : carrito) {
-            if (item.getProductoId().equals(producto.getId())) {
-                item.setCantidad(item.getCantidad() + cantidad);
-                flash.addFlashAttribute("status", "danger");
-                flash.addFlashAttribute("mensaje", "Este producto ya esta en el carrito");
-                return "redirect:/home";
-            }
-        }
+   
+   @GetMapping("/añadirProducto/{id}{cantidad}")
+   @ResponseBody
+   public ResponseEntity<Map<String, Object>> añadirProducto(@PathVariable("id") String id, @PathVariable("cantidad") Integer cantidad){
+      Map<String, Object> response = new HashMap<>();
+       try {
+        Producto pro = productoServicio.listarPorId(id);
         Carrito carro = new Carrito();
-        carro.setProductoId(producto.getId());
-        carro.setNombre(producto.getNombre());
-        carro.setPrecio(producto.getPrecio());
+        carro.setProductoId(pro.getId());
+        carro.setNombre(pro.getNombre());
         carro.setCantidad(cantidad);
+        carro.setPrecio(pro.getPrecio() * cantidad);
         carrito.add(carro);
-        model.addAttribute("carrito", carrito);
-        return "redirect:/home";
-
-    }
+        response.put("carrito", carrito);
+        response.put("clase", "success");
+        response.put("mensaje", "Producto añadido al carrito");
+        return ResponseEntity.ok(response);
+        
+        
+       
+       } catch (Exception e) {
+           logger.error("error al añadir producto", e);
+           response.put("clase", "error");
+           response.put("mensaje", "Ocurrio un error");
+           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+       
+       
+       }
+       
+       
+       
+   }
     
    
 

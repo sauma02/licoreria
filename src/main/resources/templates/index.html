@@ -2,373 +2,467 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
     <head th:replace="frontEnd/layout :: head(~{title}, ~{links})">
-        
+
     </head>
 
-<body>
-    <!-- Start Top Nav -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
-        <div class="container text-light">
-            <div class="w-100 d-flex justify-content-between">
-                <div>
-                    <i class="fa fa-envelope mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                    <i class="fa fa-phone mx-2"></i>
-                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                </div>
-                <div>
-                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
-                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
-                    
-                </div>
-            </div>
-        </div>
-    </nav>
-    <!-- Close Top Nav -->
+    <body>
+        <!-- Start Top Nav -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+            <div class="container text-light">
+                <div class="w-100 d-flex justify-content-between">
+                    <div>
+                        <i class="fa fa-envelope mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        <i class="fa fa-phone mx-2"></i>
+                        <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                    </div>
+                    <div>
+                        <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                        <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
 
-
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                <img th:src="@{/archivos/logos/licoya_logo.png}" style="width: 100px;" alt="alt"/>
-            </a>
-
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
-                <div class="flex-fill">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
-                        <li class="nav-item">
-                            <a id="home" class="nav-link" href="/home">Inicio</a>
-                        </li>
-                      
-                   
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
-                    </a>
-                    
+                    </div>
                 </div>
             </div>
+        </nav>
+        <!-- Close Top Nav -->
 
-        </div>
-    </nav>
-    <!-- Close Header -->
 
-   
-    <!-- Start Banner Hero -->
-    
+        <!-- Header -->
+        <nav class="navbar navbar-expand-lg navbar-light shadow">
+            <div class="container d-flex justify-content-between align-items-center">
+
+                <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                    <img th:src="@{/archivos/logos/licoya_logo.png}" style="width: 100px;" alt="alt"/>
+                </a>
+
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                    <div class="flex-fill">
+                        <ul class="nav navbar-nav d-flex justify-content-center mx-lg-auto">
+                            <li class="nav-item">
+                                <a id="home" class="nav-link" href="/home">Inicio</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <div class="navbar align-self-center d-flex">
+                        <!-- Ícono del Carrito -->
+                        <a 
+                            class="nav-icon position-relative text-decoration-none" 
+                            href="#" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#cartModal"
+                            >
+                            <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                            <!-- Contador de Productos -->
+                            <span 
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark" 
+                                th:text="${carrito.size()}">
+                                0
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+                <!-- Modal -->
+                <!-- Modal del Carrito -->
+                <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <!-- Encabezado del Modal -->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <!-- Cuerpo del Modal -->
+                            <div class="modal-body">
+                                <!-- Verificar si el carrito está vacío -->
+                                <div th:if="${carrito.isEmpty()}">
+                                    <p class="text-center fs-4">No hay productos seleccionados aún</p>
+                                </div>
+                                <!-- Tabla con productos (solo se muestra si hay productos) -->
+                                <div th:if="${!carrito.isEmpty()}">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Producto</th>
+                                                    <th>Precio</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Subtotal</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="producto : ${carrito}">
+                                                    <td th:text="${producto.nombre}">Nombre Producto</td>
+                                                    <td th:text="'$' + ${producto.precio}">$10.00</td>
+                                                    <td>
+                                                        <input 
+                                                            type="number" 
+                                                            class="form-control" 
+                                                            th:value="${producto.cantidad}" 
+                                                            min="1" 
+                                                            style="width: 70px;" 
+                                                            th:onchange="actualizarCarrito(${producto.id}, this.value)">
+                                                    </td>
+                                                    <td th:text="'$' + (${producto.precio} * ${producto.cantidad})">$20.00</td>
+                                                    <td>
+                                                        <button 
+                                                            class="btn btn-danger btn-sm" 
+                                                            th:onclick="eliminarProducto(${producto.id})">
+                                                            Eliminar
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Total -->
+                                    <div class="text-end">
+                                        <h5>Total: <span th:text="'$' + ${carritoTotal}">$100.00</span></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Footer del Modal -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <a href="/checkout" class="btn btn-success" th:if="${!carrito.isEmpty()}">Finalizar Compra</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end modal -->
+
+            </div>
+        </nav>
+        <!-- Close Header -->
+
+
+        <!-- Start Banner Hero -->
+
         <section class="bg-success py-5">
-        <div class="container">
-            <div class="row align-items-center py-5">
-                <div class="col-md-8 text-dark">
-                    <h1>Nosotros</h1>
-                    <p>
-                        En Licoya, somos una tienda 100% online, ubicada en el sur de Medellín, comprometida con ofrecerte la mejor experiencia en la compra de licores. 
-                        Nuestra misión es brindar comodidad, rapidez y calidad, llevándote tus bebidas favoritas directamente a tu puerta, sin importar la hora.
-Con un enfoque en la excelencia y el servicio al cliente, estamos aquí para asegurarnos de que cada celebración, reunión o momento especial esté acompañado del licor perfecto. 🍾🎉
-                    </p>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <!-- Close Banner -->
-
-    <!-- Start Section -->
-    <section class="container py-5">
-        <div class="row text-center pt-5 pb-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Nuestros servicios</h1>
-                <p>
-                     En Licoya ofrecemos un servicio completo de entrega de licores a domicilio, disponible las 24 horas del día, los 7 días de la semana, en toda la zona sur de Medellín. Con una amplia variedad de bebidas, desde cervezas hasta licores premium,
-                     nos aseguramos de que siempre tengas lo que necesitas para cualquier ocasión, sin importar la hora. 🚚🍹
-                </p>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
-                    <h2 class="h5 mt-4 text-center">Servicio a domicilio</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
-                    <h2 class="h5 mt-4 text-center">Pago contraentrega</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa-solid fa-money-bill"></i></div>
-                    <h2 class="h5 mt-4 text-center">Sin costo de entrega</h2>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-3 pb-5">
-                <div class="h-100 py-5 services-icon-wap shadow">
-                    <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
-                    <h2 class="h5 mt-4 text-center">Servicio 24/7</h2>
-                </div>
-            </div>
-        </div>
-    </section>
-   
-   
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
             <div class="container">
-                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
-                    
-                    <div class="col-lg-6 mb-0">
-                        <div>
-                            <h1 class="h1 text-success"><b>¡Tu licor favorito, 24 horas al día! 🍹</b></h1>
-                            <p class="mt-5">
-                                Disfruta de un servicio rápido y confiable de domicilios de licor en la zona sur de Medellín. 
-                                Desde cervezas hasta licores premium, estamos aquí para ti cuando más lo necesitas.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
-                    
-                    <div class="col-lg-6 mb-0">
-                        <div>
-                            <h1 class="h1">Variedad que sorprende 🍷</h1>
-                            <p class="mt-5">
-                                Explora nuestra amplia selección de licores nacionales e importados. 
-                                Encuentra la bebida perfecta para cualquier ocasión, entregada directamente a tu puerta.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row p-5 d-flex justify-content-center align-items-center text-center">
-                    
-                    <div class="col-lg-6 mb-0">
-                        <div>
-                            <h1 class="h1">Rápido, fácil y seguro 🛵</h1>
-                            <p class="mt-5">
-                                Pide en pocos pasos y recibe tu licor en minutos. 
-                                Con Licoya, la fiesta nunca se detiene. ¡Servicio 24/7 en toda la zona sur de Medellín!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-        <i class="fa-solid fa-chevron-left"></i>
-    </a>
-    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-       <i class="fa-solid fa-chevron-right"></i>
-    </a>
-</div>
-
-    <!-- End Banner Hero -->
-
-
-    <!-- Start Categories of The Month -->
-    <section class="container py-5">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Categorias</h1>
-                <p>
-                    Aqui podras encontrar nuestros productos 
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a  href="#"><img th:src="@{/archivos/logos/LICORES.jpeg}" width="400px"  class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
-                <p class="text-center"><a id="alcohol" class="btn btn-success">Echa un vistazo!</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a  href="#"><img th:src="@{/archivos/logos/gator_as.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">No Alcoholicas</h2>
-                <p class="text-center"><a id="noAlcohol" class="btn btn-success">Echa un vistazo!</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-               <a  href="#"><img th:src="@{/archivos/logos/cigarros.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Otros</h2>
-                <p class="text-center"> <a id="otros" class="btn btn-success">Echa un vistazo!</a></p>
-            </div>
-        </div>
-    </section>
-  
-    <!-- tienda por seccion -->
-    <section id="alcoholicas" class="container py-5" style="display: none;">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Alcoholicas</h1>
-               
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
-                <p class="text-center"><a class="btn btn-success">Echa un vistazo!</a></p>
-            </div>
-            
-        </div>
-    </section>
-     <section id="noAlcoholicas" class="container py-5" style="display: none;">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">No alcoholicas</h1>
-             
-            </div>
-        </div>
-        <div class="row">
-            <div th:if="${!listaProductos.isEmpty() || $listaProductos != null}">
-            <div th:each="producto : ${listaProductos}" th:if="${producto.categoria.id == '3'}" class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                <h4 class="text-center mt-3 mb-3" th:text="'$' + ${producto.precio}"></h4>
-                <p class="text-center"><a class="btn btn-success">Añadir al carrito</a></p>
-            </div>
-            </div>
-            <div th:if="${listaProductos.isEmpty() || $listaProductos == null}">
-                <h1 class="h1">No hay productos registrados</h1>
-            </div>
-            
-        </div>
-    </section>
-     <section id="otros1" class="container py-5" style="display: none;">
-        <div class="row text-center pt-3">
-            <div class="col-lg-6 m-auto">
-                <h1 class="h1">Otros</h1>
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
-                <p class="text-center"><a class="btn btn-success">Echa un vistazo!</a></p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- final tienda -->
-
-
-    <!-- Start Footer -->
-    <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Licoya</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-             
-
-            </div>
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        
-                    </ul>
-                </div>
-              
-            </div>
-        </div>
-
-        <div class="w-100 bg-black py-3">
-            <div class="container">
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <p class="text-left text-light">
-                            Copyright &copy; 2025 Licoya 
-                            
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8 text-dark">
+                        <h1>Nosotros</h1>
+                        <p>
+                            En Licoya, somos una tienda 100% online, ubicada en el sur de Medellín, comprometida con ofrecerte la mejor experiencia en la compra de licores. 
+                            Nuestra misión es brindar comodidad, rapidez y calidad, llevándote tus bebidas favoritas directamente a tu puerta, sin importar la hora.
+                            Con un enfoque en la excelencia y el servicio al cliente, estamos aquí para asegurarnos de que cada celebración, reunión o momento especial esté acompañado del licor perfecto. 🍾🎉
                         </p>
                     </div>
+
                 </div>
             </div>
+        </section>
+        <!-- Close Banner -->
+
+        <!-- Start Section -->
+        <section class="container py-5">
+            <div class="row text-center pt-5 pb-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Nuestros servicios</h1>
+                    <p>
+                        En Licoya ofrecemos un servicio completo de entrega de licores a domicilio, disponible las 24 horas del día, los 7 días de la semana, en toda la zona sur de Medellín. Con una amplia variedad de bebidas, desde cervezas hasta licores premium,
+                        nos aseguramos de que siempre tengas lo que necesitas para cualquier ocasión, sin importar la hora. 🚚🍹
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-lg-3 pb-5">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fa fa-truck fa-lg"></i></div>
+                        <h2 class="h5 mt-4 text-center">Servicio a domicilio</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 pb-5">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fas fa-exchange-alt"></i></div>
+                        <h2 class="h5 mt-4 text-center">Pago contraentrega</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 pb-5">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fa-solid fa-money-bill"></i></div>
+                        <h2 class="h5 mt-4 text-center">Sin costo de entrega</h2>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3 pb-5">
+                    <div class="h-100 py-5 services-icon-wap shadow">
+                        <div class="h1 text-success text-center"><i class="fa fa-user"></i></div>
+                        <h2 class="h5 mt-4 text-center">Servicio 24/7</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+                <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+
+                            <div class="col-lg-6 mb-0">
+                                <div>
+                                    <h1 class="h1 text-success"><b>¡Tu licor favorito, 24 horas al día! 🍹</b></h1>
+                                    <p class="mt-5">
+                                        Disfruta de un servicio rápido y confiable de domicilios de licor en la zona sur de Medellín. 
+                                        Desde cervezas hasta licores premium, estamos aquí para ti cuando más lo necesitas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+
+                            <div class="col-lg-6 mb-0">
+                                <div>
+                                    <h1 class="h1">Variedad que sorprende 🍷</h1>
+                                    <p class="mt-5">
+                                        Explora nuestra amplia selección de licores nacionales e importados. 
+                                        Encuentra la bebida perfecta para cualquier ocasión, entregada directamente a tu puerta.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="row p-5 d-flex justify-content-center align-items-center text-center">
+
+                            <div class="col-lg-6 mb-0">
+                                <div>
+                                    <h1 class="h1">Rápido, fácil y seguro 🛵</h1>
+                                    <p class="mt-5">
+                                        Pide en pocos pasos y recibe tu licor en minutos. 
+                                        Con Licoya, la fiesta nunca se detiene. ¡Servicio 24/7 en toda la zona sur de Medellín!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </a>
+            <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
         </div>
 
-    </footer>
-    <!-- End Footer -->
+        <!-- End Banner Hero -->
 
-    <!-- Start Script -->
-    <div th:replace="frontEnd/layout :: scripts"></div>
-    <script th:replace="frontEnd/layout :: swalFire"></script>
- 
-    <script th:inline="javascript">
-        $(document).ready(function (){
-            $('#alcohol').on('click', function(){
-                $('#alcoholicas').show();
-                $('#noAlcoholicas').hide();
-                $('#otros1').hide();
+
+        <!-- Start Categories of The Month -->
+        <section class="container py-5">
+            <div class="row text-center pt-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Categorias</h1>
+                    <p>
+                        Aqui podras encontrar nuestros productos 
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a  href="#"><img th:src="@{/archivos/logos/LICORES.jpeg}" width="400px"  class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3">Bebidas Alcoholicas</h5>
+                    <p class="text-center"><a id="alcohol" class="btn btn-success">Echa un vistazo!</a></p>
+                </div>
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a  href="#"><img th:src="@{/archivos/logos/gator_as.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
+                    <h2 class="h5 text-center mt-3 mb-3">No Alcoholicas</h2>
+                    <p class="text-center"><a id="noAlcohol" class="btn btn-success">Echa un vistazo!</a></p>
+                </div>
+                <div class="col-12 col-md-4 p-5 mt-3">
+                    <a  href="#"><img th:src="@{/archivos/logos/cigarros.jpg}" width="400px" class="rounded-circle img-fluid border"></a>
+                    <h2 class="h5 text-center mt-3 mb-3">Otros</h2>
+                    <p class="text-center"> <a id="otros" class="btn btn-success">Echa un vistazo!</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- tienda por seccion -->
+        <section id="alcoholicas" class="container py-5" style="display: none;">
+            <div class="row text-center pt-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Alcoholicas</h1>
+
+                </div>
+            </div>
+            <div class="row">
+                <div th:each="producto : ${alcohol}" class="col-12 col-md-4 p-5 mt-3">
+                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
+                    <p class="text-center"><a th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                </div>
+
+            </div>
+        </section>
+        <section id="noAlcoholicas" class="container py-5" style="display: none;">
+            <div class="row text-center pt-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">No alcoholicas</h1>
+
+                </div>
+            </div>
+            <div class="row">
+
+                <div th:each="producto : ${noAlcohol}" class="col-12 col-md-4 p-5 mt-3">
+                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
+                    <p class="text-center"><a th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                </div>
+
+
+
+            </div>
+        </section>
+        <section id="otros1" class="container py-5" style="display: none;">
+            <div class="row text-center pt-3">
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1">Otros</h1>
+
+                </div>
+            </div>
+            <div class="row">
+                <div th:each="producto : ${otros}" class="col-12 col-md-4 p-5 mt-3">
+                    <a href="#"><img th:src="@{/archivos/ + ${producto.imagen}}" class="rounded-circle img-fluid border"></a>
+                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}"></h4>
+                    <h3 class="text-center mt-3 mb-3" th:text="${producto.cantidad}"></h3>
+                    <input class="text-center mt-3 mb-3" th:data-cantidad="${cantidad}" placeholder="Ingrese la cantidad que desea">
+                        <span th:if="${producto.cantidad < cantidad}" th:text="Error, no puede pedir mas de lo que hay en stock">
+                            
+                        </span>    
+                    <p class="text-center"><a  th:data-id="${produco.id}" onclick="añadirProducto(this)" class="btn btn-success">Añadir al carrito</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- final tienda -->
+
+
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">Licoya</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i class="fa fa-phone fa-fw"></i>
+                                <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                            </li>
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2025 Licoya 
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
+        <!-- Start Script -->
+        <div th:replace="frontEnd/layout :: scripts"></div>
+        <script th:replace="frontEnd/layout :: swalFire"></script>
+
+        <script th:inline="javascript">
+            $(document).ready(function () {
+                $('#alcohol').on('click', function () {
+                    $('#alcoholicas').show();
+                    $('#noAlcoholicas').hide();
+                    $('#otros1').hide();
+                });
+                $('#noAlcohol').on('click', function () {
+                    $('#alcoholicas').hide();
+                    $('#noAlcoholicas').show();
+                    $('#otros1').hide();
+                });
+                $('#otros').on('click', function () {
+                    $('#alcoholicas').hide();
+                    $('#noAlcoholicas').hide();
+                    $('#otros1').show();
+                });
+
+                function añadirProducto(element) {
+                    var id = element.getAttribute("data-id");
+                    var cantidad = element.getAttribute("data-cantidad");
+
+
+
+                }
+                ;
+
+
+
+
+
             });
-            $('#noAlcohol').on('click', function () {
-                $('#alcoholicas').hide();
-                $('#noAlcoholicas').show();
-                $('#otros1').hide();
-            });
-            $('#otros').on('click', function () {
-                $('#alcoholicas').hide();
-                $('#noAlcoholicas').hide();
-                $('#otros1').show();
-            });
-           
-        
-        
-        
-        
-        });
-        
-    </script>
-    <!-- End Script -->
-</body>
+
+        </script>
+        <!-- End Script -->
+    </body>
 
 </html>
