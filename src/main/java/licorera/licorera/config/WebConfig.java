@@ -59,13 +59,13 @@ public class WebConfig implements WebMvcConfigurer {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
 
-                
+                .csrf().disable()
                 .authorizeHttpRequests(res -> res
                         .requestMatchers("/home","/static/**",
                                 "/archivos/**",
                                 "/js/**",
                                 "/css/**",
-                                "/about", 
+                                "/about","/añadirProducto/**",
                                 "/listaProductos",
                                 "/api/productos/**").permitAll().anyRequest().authenticated()
 

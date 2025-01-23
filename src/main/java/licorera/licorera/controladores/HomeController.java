@@ -128,7 +128,7 @@ public class HomeController {
        return "about";
    }
    
-   @GetMapping("/añadirProducto/{id}{cantidad}")
+   @GetMapping("/añadirProducto/{id}/{cantidad}")
    @ResponseBody
    public ResponseEntity<Map<String, Object>> añadirProducto(@PathVariable("id") String id, @PathVariable("cantidad") Integer cantidad){
       Map<String, Object> response = new HashMap<>();
@@ -140,7 +140,14 @@ public class HomeController {
         carro.setCantidad(cantidad);
         carro.setPrecio(pro.getPrecio() * cantidad);
         carrito.add(carro);
+        
+        double total = carrito.stream()
+                .mapToDouble(carrito -> carrito.getPrecio() * carrito.getCantidad())
+                .sum();
+        Integer totalProductos = carrito.size();
         response.put("carrito", carrito);
+        response.put("totalProductos", totalProductos);
+        response.put("total", total);
         response.put("clase", "success");
         response.put("mensaje", "Producto añadido al carrito");
         return ResponseEntity.ok(response);

@@ -32,7 +32,7 @@
             <div class="container d-flex justify-content-between align-items-center">
 
                 <a class="navbar-brand text-success logo h1 align-self-center" href="/home">
-                    <img th:src="@{/archivos/logos/licoya1.png}" style="width: 100px;" alt="alt"/>
+                    <img th:src="@{/archivos/logos/licoya1.png}" style="width: 200px;" alt="alt"/>
                 </a>
 
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,9 +60,10 @@
                             <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                             <!-- Contador de Productos -->
                             <span 
+                                id="cart-count"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark" 
-                                th:text="${carrito.size()}">
-                                0
+                                >
+                                
                             </span>
                         </a>
                     </div>
@@ -110,7 +111,7 @@
                                                             style="width: 70px;" 
                                                             th:onchange="actualizarCarrito(${producto.id}, this.value)">
                                                     </td>
-                                                    <td th:text="'$' + (${producto.precio} * ${producto.cantidad})">$20.00</td>
+                                                    <td th:text="'$' + (${producto.precio} + ${producto.cantidad})">$20.00</td>
                                                     <td>
                                                         <button 
                                                             class="btn btn-danger btn-sm" 
@@ -124,7 +125,7 @@
                                     </div>
                                     <!-- Total -->
                                     <div class="text-end">
-                                        <h5>Total: <span th:text="'$' + ${carritoTotal}">$100.00</span></h5>
+                                        <h5>Total: <span th:text="'$' + ${total}">$100.00</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -313,31 +314,31 @@
             </div>
             <div class="row">
                 <div th:each="producto : ${alcohol}" class="col-12 col-md-4 p-5 mt-3">
-                   <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
-                       
-                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                    <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
 
-                    <!-- Campo para ingresar la cantidad -->
-                    <p class="text-center">
-                        <input 
-                            class="text-center mt-3 mb-3" 
-                            placeholder="Ingrese la cantidad que desea" 
-                            type="number" 
-                            data-cantidad-input>
-                            <!-- Botón para añadir al carrito -->
-                            <a 
-                                th:data-id="${producto.id}" 
-                                th:data-stock="${producto.cantidad}" 
-                                onclick="añadirProducto(this)" 
-                                class="btn btn-success">
-                                Añadir al carrito
-                            </a>
-                    </p>
+                        <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                        <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
-                    <!-- Mensaje de error dinámico -->
-                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
+                        <!-- Campo para ingresar la cantidad -->
+                        <p class="text-center">
+                            <input 
+                                class="text-center mt-3 mb-3" 
+                                placeholder="Ingrese la cantidad que desea" 
+                                type="number" 
+                                data-cantidad-input>
+                                <!-- Botón para añadir al carrito -->
+                                <a 
+                                    th:data-id="${producto.id}" 
+                                    th:data-stock="${producto.cantidad}" 
+                                    onclick="añadirProducto(this)" 
+                                    class="btn btn-success">
+                                    Añadir al carrito
+                                </a>
+                        </p>
+
+                        <!-- Mensaje de error dinámico -->
+                        <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
             </div>
 
@@ -354,29 +355,29 @@
 
                 <div th:each="producto : ${noAlcohol}" class="col-12 col-md-4 p-5 mt-3">
                     <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
-                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                        <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                        <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
-                    <!-- Campo para ingresar la cantidad -->
-                    <p class="text-center">
-                        <input 
-                            class="text-center mt-3 mb-3" 
-                            placeholder="Ingrese la cantidad que desea" 
-                            type="number" 
-                            data-cantidad-input>
-                            <!-- Botón para añadir al carrito -->
-                            <a 
-                                th:data-id="${producto.id}" 
-                                th:data-stock="${producto.cantidad}" 
-                                onclick="añadirProducto(this)" 
-                                class="btn btn-success">
-                                Añadir al carrito
-                            </a>
-                    </p>
+                        <!-- Campo para ingresar la cantidad -->
+                        <p class="text-center">
+                            <input 
+                                class="text-center mt-3 mb-3" 
+                                placeholder="Ingrese la cantidad que desea" 
+                                type="number" 
+                                data-cantidad-input>
+                                <!-- Botón para añadir al carrito -->
+                                <a 
+                                    th:data-id="${producto.id}" 
+                                    th:data-stock="${producto.cantidad}" 
+                                    onclick="añadirProducto(this)" 
+                                    class="btn btn-success">
+                                    Añadir al carrito
+                                </a>
+                        </p>
 
-                    <!-- Mensaje de error dinámico -->
-                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
+                        <!-- Mensaje de error dinámico -->
+                        <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
             </div>
 
@@ -394,29 +395,29 @@
             <div class="row">
                 <div th:each="producto : ${otros}" class="col-12 col-md-4 p-5 mt-3">
                     <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
-                    <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
-                    <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                    <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                        <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
+                        <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
+                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
-                    <!-- Campo para ingresar la cantidad -->
-                    <p class="text-center">
-                        <input 
-                            class="text-center mt-3 mb-3" 
-                            placeholder="Ingrese la cantidad que desea" 
-                            type="number" 
-                            data-cantidad-input>
-                            <!-- Botón para añadir al carrito -->
-                            <a 
-                                th:data-id="${producto.id}" 
-                                th:data-stock="${producto.cantidad}" 
-                                onclick="añadirProducto(this)" 
-                                class="btn btn-success">
-                                Añadir al carrito
-                            </a>
-                    </p>
+                        <!-- Campo para ingresar la cantidad -->
+                        <p class="text-center">
+                            <input 
+                                class="text-center mt-3 mb-3" 
+                                placeholder="Ingrese la cantidad que desea" 
+                                type="number" 
+                                data-cantidad-input>
+                                <!-- Botón para añadir al carrito -->
+                                <a 
+                                    th:data-id="${producto.id}" 
+                                    th:data-stock="${producto.cantidad}" 
+                                    onclick="añadirProducto(this)" 
+                                    class="btn btn-success">
+                                    Añadir al carrito
+                                </a>
+                        </p>
 
-                    <!-- Mensaje de error dinámico -->
-                    <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
+                        <!-- Mensaje de error dinámico -->
+                        <span class="error-message text-danger" style="display: none;">Error: No puede pedir más de lo que hay en stock.</span>
                 </div>
             </div>
 
@@ -535,14 +536,130 @@
                 console.log("ID del producto:", id);
                 console.log("Cantidad ingresada:", cantidadIngresada);
                 console.log("Stock disponible:", stockDisponible);
-                
-                
+                console.log(`/añadirProducto/${id}/${cantidadIngresada}`);
+
+                fetch(`/añadirProducto/${id}/${cantidadIngresada}`, {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'
+                    }
+                })
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json();
+                            } else {
+                                throw new Error("Error al añadir producto");
+                            }
+                        })
+                        .then(data => {
+                            var estado = data.clase;
+                            var mensaje = data.mensaje;
+                            var carrito = data.carrito;
+                            if (estado === 'success') {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Exito",
+                                    text: mensaje
+                                }).then(() => {
+                                    const cartCountElement = document.getElementById("cart-count");
+                                    if (cartCountElement) {
+                                        if(data.totalProductos == 0){
+                                            cartCourtElement.textContext = 0;
+                                        }else{
+                                            cartCourtElement.textContext = data.totalProductos;
+                                        }
+                                    }
+                                    actualizarCarritoPagina(carrito);
+                                    const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+                                    modal.show();
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Error",
+                                    text: mensaje
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error", error);
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: "Ocurrio un error al añadir el producto"
+                            });
+                        });
+
 
                 // Aquí puedes añadir la lógica para enviar los datos al backend
-            };
+            }
+            ;
 
-            
-            
+            function actualizarCarritoPagina(carrito) {
+                const modalBody = document.querySelector("#cartModal .modal-body");
+                const carritoTotal = carrito.reduce((total, item) => total + item.precio, 0);
+
+                if (carrito.length === 0) {
+                    // Mostrar mensaje de carrito vacío
+                    modalBody.innerHTML = `<p class="text-center fs-4">No hay productos seleccionados aún</p>`;
+                } else {
+                    // Crear tabla dinámica con productos
+                    let tablaHTML = `
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+
+                    carrito.forEach(producto => {
+                        tablaHTML += `
+                <tr>
+                    <td>${producto.nombre}</td>
+                    <td>$${(producto.precio / producto.cantidad).toFixed(2)}</td>
+                    <td>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            value="${producto.cantidad}" 
+                            min="1" 
+                            style="width: 70px;" 
+                            onchange="actualizarCarrito(${producto.productoId}, this.value)">
+                    </td>
+                    <td>$${producto.precio.toFixed(2)}</td>
+                    <td>
+                        <button 
+                            class="btn btn-danger btn-sm" 
+                            onclick="eliminarProducto(${producto.productoId})">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            `;
+                    });
+
+                    tablaHTML += `
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-end">
+                <h5>Total: $${carritoTotal.toFixed(2)}</h5>
+            </div>
+        `;
+
+                    modalBody.innerHTML = tablaHTML;
+                }
+            }
+            ;
+
+
+
 
         </script>
         <!-- End Script -->
