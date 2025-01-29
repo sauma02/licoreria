@@ -4,6 +4,7 @@
  */
 package licorera.licorera.controladores;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,80 +38,68 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
     @Autowired
     private ProductoServicio productoServicio;
     @Autowired
     private CategoriaServicio categoriaServicio;
 
-    private List<Carrito> carrito = new ArrayList<>();
-    
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-        
-    
-    
-    private Double calcularTotal() {
-
-        //los :: acceden directamente a la calse para poder buscar el metodo
-        return carrito.stream().mapToDouble(Carrito::getTotal).sum();
-    }
 
     @GetMapping("/login")
     public String login() {
         return "login";
     }
-    
-    
+
     @GetMapping("/listaProductos")
-    public String listaProductos(Model model){
+    public String listaProductos(Model model) {
         List<Producto> listaProductos = productoServicio.listarProductos();
         model.addAttribute("listaProductos", listaProductos);
         return "listaAdmin";
-               
     }
-    
-    
+
     @GetMapping("/categorias")
-    public List<Categoria> obtenerCategorias(){
+    public List<Categoria> obtenerCategorias() {
         return categoriaServicio.listaCategorias();
     }
 
-
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(HttpSession session, Model model) {
         List<Categoria> categorias = categoriaServicio.listaCategorias();
         List<Producto> listaProductos = productoServicio.listarProductos();
-        
-        
+
+        // Obtener el carrito de la sesión o inicializarlo si no existe
+        List<Carrito> carrito = (List<Carrito>) session.getAttribute("carrito");
+        if (carrito == null) {
+            carrito = new ArrayList<>();
+            session.setAttribute("carrito", carrito);
+        }
+
         List<Producto> noAlcohol = new ArrayList<>();
         List<Producto> alcohol = new ArrayList<>();
         List<Producto> otros = new ArrayList<>();
-        
-        
+
         for (Producto producto : listaProductos) {
             for (Categoria cat : categorias) {
                 switch (cat.getId()) {
                     case "2":
-                        if(producto.getCategoria().getId().equals(cat.getId())){
+                        if (producto.getCategoria().getId().equals(cat.getId())) {
                             alcohol.add(producto);
                         }
-                            
                         break;
                     case "3":
-                        if(producto.getCategoria().getId().equals(cat.getId())){
+                        if (producto.getCategoria().getId().equals(cat.getId())) {
                             noAlcohol.add(producto);
                         }
                         break;
                     case "4":
-                        if(producto.getCategoria().getId().equals(cat.getId())){
+                        if (producto.getCategoria().getId().equals(cat.getId())) {
                             otros.add(producto);
                         }
-                        break;    
+                        break;
                     default:
-                          System.out.println("no hay productos registrados");
-                       
+                        System.out.println("No hay productos registrados");
                 }
-               
-                
             }
         }
         model.addAttribute("alcohol", alcohol);
@@ -119,54 +108,92 @@ public class HomeController {
         model.addAttribute("productosCategorizados", categorias);
         model.addAttribute("productos", listaProductos);
         model.addAttribute("carrito", carrito);
-        model.addAttribute("total", calcularTotal());
+        model.addAttribute("total", calcularTotal(carrito));
         return "index";
     }
 
-   @GetMapping("/about")
-   public String about(){
-       return "about";
-   }
-   
-   @GetMapping("/añadirProducto/{id}/{cantidad}")
-   @ResponseBody
-   public ResponseEntity<Map<String, Object>> añadirProducto(@PathVariable("id") String id, @PathVariable("cantidad") Integer cantidad){
-      Map<String, Object> response = new HashMap<>();
-       try {
-        Producto pro = productoServicio.listarPorId(id);
-        Carrito carro = new Carrito();
-        carro.setProductoId(pro.getId());
-        carro.setNombre(pro.getNombre());
-        carro.setCantidad(cantidad);
-        carro.setPrecio(pro.getPrecio() * cantidad);
-        carrito.add(carro);
-        
-        double total = carrito.stream()
-                .mapToDouble(carrito -> carrito.getPrecio() * carrito.getCantidad())
-                .sum();
-        Integer totalProductos = carrito.size();
-        response.put("carrito", carrito);
-        response.put("totalProductos", totalProductos);
-        response.put("total", total);
-        response.put("clase", "success");
-        response.put("mensaje", "Producto añadido al carrito");
-        return ResponseEntity.ok(response);
-        
-        
-       
-       } catch (Exception e) {
-           logger.error("error al añadir producto", e);
-           response.put("clase", "error");
-           response.put("mensaje", "Ocurrio un error");
-           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-       
-       
-       }
-       
-       
-       
-   }
-    
-   
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 
+    @GetMapping("/añadirProducto/{id}/{cantidad}")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> añadirProducto(@PathVariable("id") String id, @PathVariable("cantidad") Integer cantidad, HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            // Obtener carrito de la sesión
+            List<Carrito> carrito = (List<Carrito>) session.getAttribute("carrito");
+            if (carrito == null) {
+                carrito = new ArrayList<>();
+                session.setAttribute("carrito", carrito);
+            }
+
+            // Buscar producto y añadirlo al carrito
+            Producto pro = productoServicio.listarPorId(id);
+            Carrito carro = new Carrito();
+            carro.setProductoId(pro.getId());
+            carro.setNombre(pro.getNombre());
+            carro.setCantidad(cantidad);
+            carro.setPrecio(pro.getPrecio() * cantidad);
+            carrito.add(carro);
+
+            session.setAttribute("carrito", carrito); // Actualizar el carrito en la sesión
+
+            double total = carrito.stream()
+                    .mapToDouble(item -> item.getPrecio() * item.getCantidad())
+                    .sum();
+
+            response.put("carrito", carrito);
+            response.put("totalProductos", carrito.size());
+            response.put("total", total);
+            response.put("clase", "success");
+            response.put("mensaje", "Producto añadido al carrito");
+            return ResponseEntity.ok(response);
+        } catch (Exception e) {
+            logger.error("Error al añadir producto", e);
+            response.put("clase", "error");
+            response.put("mensaje", "Ocurrió un error");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @GetMapping("/eliminarProducto/{id}")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> eliminarProducto(@PathVariable("id") String id, HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            // Obtener carrito de la sesión
+            List<Carrito> carrito = (List<Carrito>) session.getAttribute("carrito");
+            if (carrito != null) {
+                // Eliminar producto del carrito
+                boolean eliminado = carrito.removeIf(carro -> carro.getProductoId().equals(id));
+                if (eliminado) {
+                    session.setAttribute("carrito", carrito); // Actualizar el carrito en la sesión
+                    double total = carrito.stream()
+                            .mapToDouble(item -> item.getPrecio() * item.getCantidad())
+                            .sum();
+
+                    response.put("carrito", carrito);
+                    response.put("totalProductos", carrito.size());
+                    response.put("total", total);
+                    response.put("clase", "success");
+                    response.put("mensaje", "Producto eliminado del carrito");
+                    return ResponseEntity.ok(response);
+                }
+            }
+            response.put("clase", "error");
+            response.put("mensaje", "Producto no encontrado en el carrito");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+        } catch (Exception e) {
+            logger.error("Error al eliminar producto", e);
+            response.put("clase", "error");
+            response.put("mensaje", "Ocurrió un error");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    private double calcularTotal(List<Carrito> carrito) {
+        return carrito.stream().mapToDouble(item -> item.getPrecio() * item.getCantidad()).sum();
+    }
 }

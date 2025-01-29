@@ -63,7 +63,7 @@
                                 id="cart-count"
                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-dark" 
                                 >
-                                
+
                             </span>
                         </a>
                     </div>
@@ -109,15 +109,16 @@
                                                             th:value="${producto.cantidad}" 
                                                             min="1" 
                                                             style="width: 70px;" 
-                                                            th:onchange="actualizarCarrito(${producto.id}, this.value)">
+                                                            th:onchange="actualizarCarrito(${producto.productoId}, this.value)">
                                                     </td>
-                                                    <td th:text="'$' + (${producto.precio} + ${producto.cantidad})">$20.00</td>
+                                                    <td th:text="'$' + (${producto.precio} * ${producto.cantidad})">$20.00</td>
                                                     <td>
-                                                        <button 
+                                                        <a
+                                                            th:data-id="${producto.productoId}"
                                                             class="btn btn-danger btn-sm" 
-                                                            th:onclick="eliminarProducto(${producto.id})">
+                                                            onclick="eliminarProducto(this)">
                                                             Eliminar
-                                                        </button>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -129,6 +130,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <!-- Footer del Modal -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -510,153 +512,140 @@
 
             });
             function añadirProducto(element) {
-                // Obtener el ID del producto desde el atributo data-id
-                var id = element.getAttribute("data-id");
+    var id = element.getAttribute("data-id");
+    var stockDisponible = Number(element.getAttribute("data-stock"));
+    var cantidadInput = element.closest(".col-md-4").querySelector("[data-cantidad-input]");
+    var cantidadIngresada = Number(cantidadInput.value);
+    var mensajeError = element.closest(".col-md-4").querySelector(".error-message");
 
-                var stockDisponible = Number(element.getAttribute("data-stock"));
+    if (cantidadIngresada > stockDisponible || cantidadIngresada <= 0) {
+        mensajeError.style.display = "block";
+        return;
+    } else {
+        mensajeError.style.display = "none";
+    }
 
-                // Encontrar el input relacionado dentro del mismo contenedor del producto
-                var cantidadInput = element.closest(".col-md-4").querySelector("[data-cantidad-input]");
-                var cantidadIngresada = Number(cantidadInput.value);
-
-                // Mensaje de error
-                var mensajeError = element.closest(".col-md-4").querySelector(".error-message");
-
-                if (cantidadIngresada > stockDisponible) {
-                    // Mostrar mensaje de error
-                    mensajeError.style.display = "block";
-                    console.log("Cantidad ingresada excede el stock disponible.");
-                    return;
-                } else {
-                    // Ocultar mensaje de error si la validación es correcta
-                    mensajeError.style.display = "none";
-                }
-
-                // Imprimir valores para verificación
-                console.log("ID del producto:", id);
-                console.log("Cantidad ingresada:", cantidadIngresada);
-                console.log("Stock disponible:", stockDisponible);
-                console.log(`/añadirProducto/${id}/${cantidadIngresada}`);
-
-                fetch(`/añadirProducto/${id}/${cantidadIngresada}`, {
-                    method: 'GET',
-                    headers: {'Content-Type': 'application/json'
-                    }
-                })
-                        .then(response => {
-                            if (response.ok) {
-                                return response.json();
-                            } else {
-                                throw new Error("Error al añadir producto");
-                            }
-                        })
-                        .then(data => {
-                            var estado = data.clase;
-                            var mensaje = data.mensaje;
-                            var carrito = data.carrito;
-                            if (estado === 'success') {
-                                Swal.fire({
-                                    icon: "success",
-                                    title: "Exito",
-                                    text: mensaje
-                                }).then(() => {
-                                    const cartCountElement = document.getElementById("cart-count");
-                                    if (cartCountElement) {
-                                        if(data.totalProductos == 0){
-                                            cartCourtElement.textContext = 0;
-                                        }else{
-                                            cartCourtElement.textContext = data.totalProductos;
-                                        }
-                                    }
-                                    actualizarCarritoPagina(carrito);
-                                    const modal = new bootstrap.Modal(document.getElementById('cartModal'));
-                                    modal.show();
-                                });
-                            } else {
-                                Swal.fire({
-                                    icon: "error",
-                                    title: "Error",
-                                    text: mensaje
-                                });
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Error", error);
-                            Swal.fire({
-                                icon: "error",
-                                title: "Error",
-                                text: "Ocurrio un error al añadir el producto"
-                            });
-                        });
-
-
-                // Aquí puedes añadir la lógica para enviar los datos al backend
+    fetch(`/añadirProducto/${id}/${cantidadIngresada}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.ok ? response.json() : Promise.reject("Error al añadir producto"))
+    .then(data => {
+        Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: data.mensaje
+        }).then(() => {
+            const cartCountElement = document.getElementById("cart-count");
+            if (cartCountElement) {
+                cartCountElement.textContent = data.totalProductos || "0";
             }
-            ;
+            actualizarCarritoPagina(data.carrito);
+            const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+            modal.show();
+        });
+    })
+    .catch(error => {
+        console.error("Error", error);
+        Swal.fire({ icon: "error", title: "Error", text: "Ocurrió un error al añadir el producto" });
+    });
+}
 
-            function actualizarCarritoPagina(carrito) {
-                const modalBody = document.querySelector("#cartModal .modal-body");
-                const carritoTotal = carrito.reduce((total, item) => total + item.precio, 0);
+function eliminarProducto(element) {
+    var id = element.getAttribute("data-id");
 
-                if (carrito.length === 0) {
-                    // Mostrar mensaje de carrito vacío
-                    modalBody.innerHTML = `<p class="text-center fs-4">No hay productos seleccionados aún</p>`;
-                } else {
-                    // Crear tabla dinámica con productos
-                    let tablaHTML = `
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        `;
-
-                    carrito.forEach(producto => {
-                        tablaHTML += `
-                <tr>
-                    <td>${producto.nombre}</td>
-                    <td>$${(producto.precio / producto.cantidad).toFixed(2)}</td>
-                    <td>
-                        <input 
-                            type="number" 
-                            class="form-control" 
-                            value="${producto.cantidad}" 
-                            min="1" 
-                            style="width: 70px;" 
-                            onchange="actualizarCarrito(${producto.productoId}, this.value)">
-                    </td>
-                    <td>$${producto.precio.toFixed(2)}</td>
-                    <td>
-                        <button 
-                            class="btn btn-danger btn-sm" 
-                            onclick="eliminarProducto(${producto.productoId})">
-                            Eliminar
-                        </button>
-                    </td>
-                </tr>
-            `;
-                    });
-
-                    tablaHTML += `
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-end">
-                <h5>Total: $${carritoTotal.toFixed(2)}</h5>
-            </div>
-        `;
-
-                    modalBody.innerHTML = tablaHTML;
-                }
+    fetch(`/eliminarProducto/${id}`, {
+        method: "GET",
+        headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.ok ? response.json() : Promise.reject("Error al eliminar producto"))
+    .then(data => {
+        Swal.fire({
+            icon: "success",
+            title: "Éxito",
+            text: data.mensaje
+        }).then(() => {
+            const cartCountElement = document.getElementById("cart-count");
+            if (cartCountElement) {
+                cartCountElement.textContent = data.totalProductos || "0";
             }
-            ;
+            actualizarCarritoPagina(data.carrito);
+        });
+    })
+    .catch(error => {
+        console.error("Error", error);
+        Swal.fire({ icon: "error", title: "Error", text: "Ocurrió un error al eliminar el producto" });
+    });
+}
+
+function actualizarCarritoPagina(carrito) {
+    const modalBody = document.querySelector("#cartModal .modal-body");
+    const carritoTotal = carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
+
+    if (carrito.length === 0) {
+        modalBody.innerHTML = `<p class="text-center fs-4">No hay productos seleccionados aún</p>`;
+    } else {
+        let tablaHTML = `
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+        carrito.forEach(producto => {
+            tablaHTML += `
+            <tr>
+                <td>${producto.nombre}</td>
+                <td>$${producto.precio.toFixed(2)}</td>
+                <td>
+                    <input 
+                        type="number" 
+                        class="form-control" 
+                        value="${producto.cantidad}" 
+                        min="1" 
+                        style="width: 70px;" 
+                        onchange="actualizarCarrito(${producto.productoId}, this.value)">
+                </td>
+                <td>$${(producto.precio * producto.cantidad).toFixed(2)}</td>
+                <td>
+                    <a 
+                        data-id="${producto.productoId}"
+                        class="btn btn-danger btn-sm" 
+                        onclick="eliminarProducto(this)">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        `;
+        });
+
+        tablaHTML += `
+            </tbody>
+        </table>
+    </div>
+    <div class="text-end">
+        <h5>Total: $${carritoTotal.toFixed(2)}</h5>
+    </div>
+    <div class="text-end mt-3">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button class="btn btn-primary" onclick="hacerPedido()">Hacer Pedido</button>
+    </div>
+    `;
+
+        modalBody.innerHTML = tablaHTML;
+    }
+};
+
+
+
 
 
 
