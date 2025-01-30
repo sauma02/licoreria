@@ -134,7 +134,7 @@
                             <!-- Footer del Modal -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <a href="/checkout" class="btn btn-success" th:if="${!carrito.isEmpty()}">Finalizar Compra</a>
+                                <a href="#" onclick="realizarCompra()" class="btn btn-success" th:if="${!carrito.isEmpty()}">Finalizar Compra</a>
                             </div>
                         </div>
                     </div>
@@ -512,80 +512,80 @@
 
             });
             function añadirProducto(element) {
-    var id = element.getAttribute("data-id");
-    var stockDisponible = Number(element.getAttribute("data-stock"));
-    var cantidadInput = element.closest(".col-md-4").querySelector("[data-cantidad-input]");
-    var cantidadIngresada = Number(cantidadInput.value);
-    var mensajeError = element.closest(".col-md-4").querySelector(".error-message");
+                var id = element.getAttribute("data-id");
+                var stockDisponible = Number(element.getAttribute("data-stock"));
+                var cantidadInput = element.closest(".col-md-4").querySelector("[data-cantidad-input]");
+                var cantidadIngresada = Number(cantidadInput.value);
+                var mensajeError = element.closest(".col-md-4").querySelector(".error-message");
 
-    if (cantidadIngresada > stockDisponible || cantidadIngresada <= 0) {
-        mensajeError.style.display = "block";
-        return;
-    } else {
-        mensajeError.style.display = "none";
-    }
+                if (cantidadIngresada > stockDisponible || cantidadIngresada <= 0) {
+                    mensajeError.style.display = "block";
+                    return;
+                } else {
+                    mensajeError.style.display = "none";
+                }
 
-    fetch(`/añadirProducto/${id}/${cantidadIngresada}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.ok ? response.json() : Promise.reject("Error al añadir producto"))
-    .then(data => {
-        Swal.fire({
-            icon: "success",
-            title: "Éxito",
-            text: data.mensaje
-        }).then(() => {
-            const cartCountElement = document.getElementById("cart-count");
-            if (cartCountElement) {
-                cartCountElement.textContent = data.totalProductos || "0";
+                fetch(`/añadirProducto/${id}/${cantidadIngresada}`, {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'}
+                })
+                        .then(response => response.ok ? response.json() : Promise.reject("Error al añadir producto"))
+                        .then(data => {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Éxito",
+                                text: data.mensaje
+                            }).then(() => {
+                                const cartCountElement = document.getElementById("cart-count");
+                                if (cartCountElement) {
+                                    cartCountElement.textContent = data.totalProductos || "0";
+                                }
+                                actualizarCarritoPagina(data.carrito);
+                                const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+                                modal.show();
+                            });
+                        })
+                        .catch(error => {
+                            console.error("Error", error);
+                            Swal.fire({icon: "error", title: "Error", text: "Ocurrió un error al añadir el producto"});
+                        });
             }
-            actualizarCarritoPagina(data.carrito);
-            const modal = new bootstrap.Modal(document.getElementById('cartModal'));
-            modal.show();
-        });
-    })
-    .catch(error => {
-        console.error("Error", error);
-        Swal.fire({ icon: "error", title: "Error", text: "Ocurrió un error al añadir el producto" });
-    });
-}
 
-function eliminarProducto(element) {
-    var id = element.getAttribute("data-id");
+            function eliminarProducto(element) {
+                var id = element.getAttribute("data-id");
 
-    fetch(`/eliminarProducto/${id}`, {
-        method: "GET",
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(response => response.ok ? response.json() : Promise.reject("Error al eliminar producto"))
-    .then(data => {
-        Swal.fire({
-            icon: "success",
-            title: "Éxito",
-            text: data.mensaje
-        }).then(() => {
-            const cartCountElement = document.getElementById("cart-count");
-            if (cartCountElement) {
-                cartCountElement.textContent = data.totalProductos || "0";
+                fetch(`/eliminarProducto/${id}`, {
+                    method: "GET",
+                    headers: {'Content-Type': 'application/json'}
+                })
+                        .then(response => response.ok ? response.json() : Promise.reject("Error al eliminar producto"))
+                        .then(data => {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Éxito",
+                                text: data.mensaje
+                            }).then(() => {
+                                const cartCountElement = document.getElementById("cart-count");
+                                if (cartCountElement) {
+                                    cartCountElement.textContent = data.totalProductos || "0";
+                                }
+                                actualizarCarritoPagina(data.carrito);
+                            });
+                        })
+                        .catch(error => {
+                            console.error("Error", error);
+                            Swal.fire({icon: "error", title: "Error", text: "Ocurrió un error al eliminar el producto"});
+                        });
             }
-            actualizarCarritoPagina(data.carrito);
-        });
-    })
-    .catch(error => {
-        console.error("Error", error);
-        Swal.fire({ icon: "error", title: "Error", text: "Ocurrió un error al eliminar el producto" });
-    });
-}
 
-function actualizarCarritoPagina(carrito) {
-    const modalBody = document.querySelector("#cartModal .modal-body");
-    const carritoTotal = carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
+            function actualizarCarritoPagina(carrito) {
+                const modalBody = document.querySelector("#cartModal .modal-body");
+                const carritoTotal = carrito.reduce((total, item) => total + item.precio * item.cantidad, 0);
 
-    if (carrito.length === 0) {
-        modalBody.innerHTML = `<p class="text-center fs-4">No hay productos seleccionados aún</p>`;
-    } else {
-        let tablaHTML = `
+                if (carrito.length === 0) {
+                    modalBody.innerHTML = `<p class="text-center fs-4">No hay productos seleccionados aún</p>`;
+                } else {
+                    let tablaHTML = `
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -600,8 +600,8 @@ function actualizarCarritoPagina(carrito) {
                 <tbody>
     `;
 
-        carrito.forEach(producto => {
-            tablaHTML += `
+                    carrito.forEach(producto => {
+                        tablaHTML += `
             <tr>
                 <td>${producto.nombre}</td>
                 <td>$${producto.precio.toFixed(2)}</td>
@@ -625,9 +625,9 @@ function actualizarCarritoPagina(carrito) {
                 </td>
             </tr>
         `;
-        });
+                    });
 
-        tablaHTML += `
+                    tablaHTML += `
             </tbody>
         </table>
     </div>
@@ -636,13 +636,36 @@ function actualizarCarritoPagina(carrito) {
     </div>
     <div class="text-end mt-3">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button class="btn btn-primary" onclick="hacerPedido()">Hacer Pedido</button>
+        <button class="btn btn-primary" onclick="realizarCompra()">Hacer Pedido</button>
     </div>
     `;
 
-        modalBody.innerHTML = tablaHTML;
-    }
-};
+                    modalBody.innerHTML = tablaHTML;
+                }
+            }
+            ;
+
+            function realizarCompra() {
+
+                fetch(`/realizarCompra`, {
+                    method: "GET",
+                    headers: {'Content-Type' : 'application/json'} 
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                window.location.href = data.url;
+                            } else {
+                                Swal.fire("Error", data.mensaje, "error");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            Swal.fire("Error", "No se pudo procesar la compra", "error");
+                        });
+
+
+            };
 
 
 

@@ -5,6 +5,8 @@
 package licorera.licorera.controladores;
 
 import jakarta.servlet.http.HttpSession;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -195,5 +197,55 @@ public class HomeController {
 
     private double calcularTotal(List<Carrito> carrito) {
         return carrito.stream().mapToDouble(item -> item.getPrecio() * item.getCantidad()).sum();
+    }
+
+    @GetMapping("/realizarCompra")
+    @ResponseBody
+    public ResponseEntity<Map<String, Object>> realizarCompra(HttpSession session) {
+        Map<String, Object> response = new HashMap<>();
+        try {
+            List<Carrito> carrito = (List<Carrito>) session.getAttribute("carrito");
+            if (carrito == null || carrito.isEmpty()) {
+                response.put("success", false);
+                response.put("mensaje", "El carrito esta vacio");
+                return ResponseEntity.badRequest().body(response);
+            }
+
+            StringBuilder mensaje = new StringBuilder();
+            mensaje.append("[*] PEDIDO EN LICOYA [*]").append("\n\n");
+
+            double total = 0;
+
+            for (Carrito item : carrito) {
+                mensaje.append("> Producto: ").append(item.getNombre()).append("\n")
+                        .append("> Cantidad: ").append(item.getCantidad()).append("\n")
+                        .append("> Precio unitario: $").append(String.format("%.2f", item.getPrecio())).append("\n")
+                        .append("> Subtotal: $").append(String.format("%.2f", item.getPrecio() * item.getCantidad())).append("\n\n");
+                total += item.getPrecio() * item.getCantidad();
+            }
+
+            mensaje.append("==== TOTAL: $").append(String.format("%.2f", total)).append(" ====").append("\n\n");
+            mensaje.append("[>] Método de pago: Transferencia contraentrega / Efectivo contraentrega.");
+
+            String numeroWp = "573242780208";
+            String mensajeCodificado = URLEncoder.encode(mensaje.toString(), StandardCharsets.UTF_8);
+
+            String url = "https://wa.me/+" + numeroWp + "?text=" + mensajeCodificado;
+            System.out.println(url);
+
+            response.put("success", true);
+            response.put("mensaje", "Redirigiendo a WhatsApp...");
+            response.put("url", url);
+
+            return ResponseEntity.ok(response);
+
+        } catch (Exception e) {
+            response.put("success", e.getCause());
+            response.put("mensaje", "Error al procesar la compra.");
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+
+        }
+
     }
 }

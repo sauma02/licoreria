@@ -65,7 +65,7 @@ public class WebConfig implements WebMvcConfigurer {
                                 "/archivos/**",
                                 "/js/**",
                                 "/css/**",
-                                "/about","/añadirProducto/**",
+                                "/about","/añadirProducto/**","/realizarCompra",
                                 "/eliminarProducto/**",
                                 "/listaProductos",
                                 "/api/productos/**").permitAll().anyRequest().authenticated()
