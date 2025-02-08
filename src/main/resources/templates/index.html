@@ -320,7 +320,7 @@
 
                         <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
                         <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                        <h3 hidden="true" class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
                         <!-- Campo para ingresar la cantidad -->
                         <p class="text-center">
@@ -359,7 +359,7 @@
                     <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
                         <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
                         <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                        <h3 hidden="true" class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
                         <!-- Campo para ingresar la cantidad -->
                         <p class="text-center">
@@ -399,7 +399,7 @@
                     <img style="height: 300px; width: 400px;" th:src="@{'/archivos/' + ${producto.nombre} + '/' + ${producto.imagen}}" class="rounded-circle img-fluid border">
                         <h5 class="text-center mt-3 mb-3" th:text="${producto.nombre}"></h5>
                         <h4 class="text-center mt-3 mb-3" th:text="${'$' + producto.precio}">Precio: </h4>
-                        <h3 class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
+                        <h3 hidden="true" class="text-center mt-3 mb-3" th:text="${'Stock: '+ producto.cantidad}">Cantidad en stock: </h3>
 
                         <!-- Campo para ingresar la cantidad -->
                         <p class="text-center">

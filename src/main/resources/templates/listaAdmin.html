@@ -18,9 +18,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="d-flex flex-column">
                     <div class="d-flex mb-2">
                         <a class="btn btn-outline-primary" th:href="@{/productos}">Descargar reporte</a>
-                         <a class="btn btn-outline-primary" th:href="@{/api/productos/registrar}">Agregar producto</a>
+                        <a class="btn btn-outline-primary" th:href="@{/api/productos/registrar}">Agregar producto</a>
                     </div>
-                    
+
                 </div>
 
                 <tr>
@@ -71,7 +71,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </body>
 
     <script th:replace="frontEnd/layout :: swalFire"></script>
+    
     <script>
+        
         function eliminar(element) {
             var id = element.getAttribute("data-id");
 
@@ -109,7 +111,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         console.error('Error:', error);
                     }
                     );
+
         }
+         $(document).ready(function () {
+            $('#productos').DataTable();
+        }
+        );
+        
+       
 
 
     </script>
