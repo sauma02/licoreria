@@ -5,6 +5,7 @@
 package licorera.licorera.controladores;
 
 import jakarta.servlet.http.HttpSession;
+import java.io.ByteArrayInputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,14 @@ import licorera.licorera.entidades.Carrito;
 import licorera.licorera.entidades.Categoria;
 import licorera.licorera.entidades.Producto;
 import licorera.licorera.servicios.CategoriaServicio;
+import licorera.licorera.servicios.ExcelServicio;
 import licorera.licorera.servicios.ProductoServicio;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -45,6 +50,8 @@ public class HomeController {
     private ProductoServicio productoServicio;
     @Autowired
     private CategoriaServicio categoriaServicio;
+    @Autowired
+    private ExcelServicio excelServicio;
 
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -247,5 +254,21 @@ public class HomeController {
 
         }
 
+    }
+    @GetMapping("/productos")
+    public ResponseEntity<InputStreamResource> descargarExcel() {
+        List<Producto> listaProductos = productoServicio.listarProductos();
+        for (Producto producto : listaProductos) {
+            System.out.println(producto.getNombre());
+        }
+
+        ByteArrayInputStream bis = excelServicio.exportarDatosExcel(listaProductos);
+
+        HttpHeaders header = new HttpHeaders();
+        header.add("Content-Disposition", "attachment; filename=productos.xlsx");
+        return ResponseEntity.ok()
+                .headers(header)
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(new InputStreamResource(bis));
     }
 }
