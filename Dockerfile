@@ -1,5 +1,5 @@
 FROM openjdk:17-jdk-slim
-ARG JAR_FILE=target/aurora-0.0.1-SNAPSHOT.jar
-COPY ${JAR_FILE} app_aurora.jar
+ARG JAR_FILE=target/licorera-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app_licorera.jar
 EXPOSE 1012
-ENTRYPOINT ["java", "-jar", "app_aurora.jar"]
+ENTRYPOINT ["java", "-jar", "app_licorera.jar"]
