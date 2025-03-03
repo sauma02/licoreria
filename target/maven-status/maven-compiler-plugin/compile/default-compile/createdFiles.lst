@@ -1,0 +1,16 @@
+licorera\licorera\LicoreraApplication.class
+licorera\licorera\entidades\Ordenes.class
+licorera\licorera\entidades\Carrito.class
+licorera\licorera\entidades\Usuario.class
+licorera\licorera\entidades\Categoria.class
+licorera\licorera\servicios\CategoriaServicio.class
+licorera\licorera\entidades\Producto.class
+licorera\licorera\repositorios\ProductoRepositorio.class
+licorera\licorera\controladores\ProductoController.class
+licorera\licorera\servicios\ExcelServicio.class
+licorera\licorera\config\CustomSuccessHandler.class
+licorera\licorera\utilidades\archivosUpload.class
+licorera\licorera\servicios\ProductoServicio.class
+licorera\licorera\config\WebConfig.class
+licorera\licorera\repositorios\CategoriaRepositorio.class
+licorera\licorera\controladores\HomeController.class

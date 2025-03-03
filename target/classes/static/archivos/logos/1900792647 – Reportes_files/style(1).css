@@ -1,0 +1,214 @@
+/*
+Theme Name:     reportes
+Author:         Developer
+Author URI:     https://developer.com/
+Template:       dt-the7
+Version: 		1.0.0
+*/
+:root{
+	--blue: #001427;
+	--light-blue: #0069CC;
+	--red: #981f32;
+}
+html{
+	font-size: 62.5%;
+}
+.logo-top-bar{
+	max-width: 170px;
+}
+.header-bar,.mobile-header-bar{
+	display: none !important;
+}
+.single-cliente #main{
+	padding:20px 0 20px 0;	
+}
+.single-cliente .head .date-info{
+	display: flex;
+	gap: 10px;
+}
+.single-cliente .page-title{
+	display: none;
+}
+.single-cliente .logo{
+	max-width: 350px;
+}
+.single-cliente  .head{	
+	color: #333;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;	
+	align-items: center;
+}
+.single-cliente .head .date-tag, .single-cliente .head .hour-tag {
+	font-weight: 700;
+}
+.single-cliente  .head h2{
+	color: #333;
+}
+.single-cliente .data{
+	background-color: #333;
+	color: #fff;
+	padding: 3rem 2rem;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 28px;
+	margin: 40px 0;
+} 
+.single-cliente .data .name-information{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.single-cliente .data .name-tag,.single-cliente .data .document-tag{
+	font-weight: 700;
+	
+}
+.single-cliente .score-title{
+	color: #333;
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin: 30px 0;
+	border-bottom: 3px solid #333;
+}
+
+.single-cliente .score-data{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+.single-cliente .score-data .score{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+}
+.single-cliente .score-data .score .score-subtitle{
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+}
+.single-cliente .score-data .score .score-points{
+	font-size: 80px;
+	font-weight: 700;
+	text-align: center;
+	color: #333;
+}
+.single-cliente .score-data .info-score{
+	background: #F5F5F5;
+	padding: 20px 10px;
+}
+.single-cliente .score-data .score .score-caption, 
+.single-cliente .score-data .graphic-score .graphic-caption,
+.single-cliente .score-data .info-score{
+	font-size: 13px;
+	text-align: center;
+}	
+.single-cliente .extra-info{
+	display: flex;
+	justify-content: space-evenly;
+	gap: 20px;
+	margin-top: 30px;
+
+}
+.single-cliente .extra-info .metric-item{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	max-width: 300px;
+	border: 2px solid #d3d3d3;
+	background: #f1f1f1;
+	padding: 20px;
+
+}
+.single-cliente .extra-info .metrics{
+	font-size: 60px;
+	color: green;
+
+}
+.single-cliente .extra-info .metric-text{
+	font-size: 13px;
+	text-align: center;
+}
+.single-cliente .title-two{
+	color:#333;
+	font-weight: 700;
+	margin: 30px 0;
+}
+.single-cliente table{
+	margin: auto;
+	border-collapse: collapse;
+	width: 90%;
+	border: 1px solid #333;	
+}
+.single-cliente table th{
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+}
+.single-cliente table td{
+	padding: 10px;
+	border: 1px solid #333;
+	
+}
+
+.single-cliente table td:nth-child(1){
+	text-align: center;
+}
+
+/***************Home********************/
+.search-form-home{
+	margin: auto 0;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+	justify-content: center;
+	align-items: center;
+}
+.button-search{
+	background-color: var(--red) ;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+
+}
+
+.error{
+	color: red;	
+	font-size: 23px;
+	text-align: center;
+}
+@media only screen and (max-width: 600px){
+	.logo-home{
+		width: 100%;
+	}
+	.single-cliente .logo{
+		width: 100%;
+	}
+	.single-cliente h2{
+		text-align: center;
+	}
+ .single-cliente .head{
+	flex-direction: column;
+ }
+ .single-cliente .data{
+	flex-direction: column;
+	gap: 30px;
+	text-align: center;
+ }
+ .single-cliente .score-data{
+	flex-direction: column;
+	gap: 20px;
+ }
+ .single-cliente .extra-info{	
+	flex-direction: column;
+ }
+}
