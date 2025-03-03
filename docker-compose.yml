@@ -1,0 +1,15 @@
+version: '3'
+services:
+  aurora:
+    build: licorera
+    mem_limit: 512m
+    ports:
+      - '3020:3020'
+    environment:
+      DB_USERNAME: u949606062_licor
+      DB_PASSWORD: Supergamo123.
+      SV_PORT: 3020
+      SV_IP: 213.210.13.192
+      DB_NAME: jdbc:mysql://srv1069.hstgr.io:3306/u949606062_licor?zeroDateTimeBehavior=CONVERT_TO_NULL
+      
+    restart: always
