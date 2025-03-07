@@ -19,4 +19,48 @@
                 <DB_PASSWORD>Supergamo123.</DB_PASSWORD>
             </properties>
         </action>
+        <action>
+            <actionName>run.single.main</actionName>
+            <packagings>
+                <packaging>*</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.classpathScope>${classPathScope}</exec.classpathScope>
+                <SV_IP>213.210.13.192</SV_IP>
+                <SV_PORT>3020</SV_PORT>
+                <DB_NAME>jdbc:mysql://srv1069.hstgr.io:3306/u949606062_licor?zeroDateTimeBehavior=CONVERT_TO_NULL</DB_NAME>
+                <DB_USERNAME>u949606062_licor</DB_USERNAME>
+                <DB_PASSWORD>Supergamo123.</DB_PASSWORD>
+            </properties>
+        </action>
+        <action>
+            <actionName>run</actionName>
+            <packagings>
+                <packaging>jar</packaging>
+            </packagings>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:3.1.0:exec</goal>
+            </goals>
+            <properties>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
+                <exec.appArgs></exec.appArgs>
+                <exec.mainClass>${packageClassName}</exec.mainClass>
+                <exec.executable>java</exec.executable>
+                <SV_IP>213.210.13.192</SV_IP>
+                <SV_PORT>3020</SV_PORT>
+                <DB_NAME>jdbc:mysql://srv1069.hstgr.io:3306/u949606062_licor?zeroDateTimeBehavior=CONVERT_TO_NULL</DB_NAME>
+                <DB_USERNAME>u949606062_licor</DB_USERNAME>
+                <DB_PASSWORD>Supergamo123.</DB_PASSWORD>
+            </properties>
+        </action>
     </actions>
