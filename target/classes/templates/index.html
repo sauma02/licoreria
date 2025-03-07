@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="frontEnd/layout :: head(~{title}, ~{links})">
+    <head th:replace="frontend/layout :: head(~{title}, ~{links})">
 
     </head>
 
@@ -484,8 +484,8 @@
         <!-- End Footer -->
 
         <!-- Start Script -->
-        <div th:replace="frontEnd/layout :: scripts"></div>
-        <script th:replace="frontEnd/layout :: swalFire"></script>
+        <div th:replace="frontend/layout :: scripts"></div>
+        <script th:replace="frontend/layout :: swalFire"></script>
 
         <script th:inline="javascript">
             $(document).ready(function () {
